@@ -1,0 +1,17 @@
+{
+  "name": "brewviews-code",
+  "version": "1.0.0",
+  "description": "brew views origins",
+  "main": "server/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/app.js"
+  },
+  "author": "catherine jarocki",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "bootstrap": "^3.3.7",
+    "express": "^4.14.1"
+  }
+}
