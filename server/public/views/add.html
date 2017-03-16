@@ -1,0 +1,18 @@
+<h4>
+<label>brew name:</label>
+<!-- this should be the beer name, not the brewery name -->
+<input ng-model="ac.newBeer.name" placeholder="brew name">
+<label>date enjoyed:</label>
+<input ng-model="ac.newBeer.date_had" placeholder="YYYYMMDD">
+<!-- TODO make ratings a select dropdown menu -->
+<label>notes:</label>
+<input ng-model="ac.newBeer.notes" placeholder="notes">
+<label>rating:</label>
+<select ng-model="hc.newBeer.rating" ng-options="item.id as item.rating for item in hc.brews_test.list"></select>
+<label>brewery:</label>
+<select ng-model="ac.newBeer.brewery" placeholder="Brewery ID"  ng-options="item.id as item.name for item in ac.breweries.list"></select>
+<button ng-click="ac.addNewBrew(ac.newBeer)">Add New</button>
+
+{{ac.newBeer}}
+
+</h4>

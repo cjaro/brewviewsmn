@@ -1,0 +1,65 @@
+body {
+  background-color: dodgerblue;
+  background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');
+  background-size: 50px 50px;
+  background-repeat: repeat;
+}
+
+h1 {
+  font-size: 40px;
+  /*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
+  text-align: center;
+}
+
+button {
+  background-color: yellow;
+  color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+select {
+  border: 1px solid black;
+}
+
+header {
+  margin-top: 5px;
+  padding-top: 5px;
+}
+
+nav {
+  text-align: center;
+}
+
+.list {
+  background: aliceblue;
+}
+
+.selling {
+  background: azure;
+  padding: 5px;
+  margin: 5px;
+}
+
+p .home {
+  padding: 10px;
+  margin: 10px;
+}
+
+p .add {
+  padding: 10px;
+  margin: 10px;
+}
+
+div {
+  padding: 10px;
+  margin: 10px;
+}
+
+h4 {
+  color: black;
+  background-color: aliceblue;
+  padding: 25px;
+  margin: 10px;
+  border-radius: 25px;
+}
