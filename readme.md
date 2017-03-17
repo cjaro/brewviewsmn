@@ -7,5 +7,6 @@ You get back home and think nothing more about breweries and their products (onc
 Unable to remember, you grab a 6-pack at random from a brewery you think might be one of the ones you liked. Upon returning home, you crack the top, take a sip, and are filled with the immediate regret and frustration that accompanies your wrong choice. The worst part is, you know you’ll forget this beer too. You’re doomed to make the same mistake again.
 
 
-##Additionally, this is an incredibly important resource:
+## Additionally, this is an incredibly important resource:
+
 https://www.youtube.com/watch?v=4ovUzVFAqd4
