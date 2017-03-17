@@ -3,10 +3,11 @@ var pool = require('../config/database-pool.js');
 var router = require('express').Router();
 
 // return all brews_test
+//This is working!!!
 router.get('/', function (req, res) {
   pool.connect()
     .then(function (client) {
-      client.query('SELECT brews_test.*, breweries.name FROM brews_test JOIN breweries ON brews_test.brewery_id = breweries.id ORDER BY date_had DESC')
+      client.query('SELECT brews_test.*, my_brewery_db.name FROM brews_test JOIN my_brewery_db ON brews_test.brewery_id = my_brewery_db.id ORDER BY date_had DESC')
         .then(function (result) {
           client.release();
           res.send(result.rows);
@@ -17,6 +18,9 @@ router.get('/', function (req, res) {
         });
     });
 });
+
+//having trouble ehre with my post - getting an error on attempt to save because dropdown isn't working
+//get dropdown for rating working!!!
 
 router.post('/', function (req, res) {
   var newBeer = req.body;
@@ -35,6 +39,7 @@ router.post('/', function (req, res) {
         });
     });
 });
+
 
 router.delete('/:id', function(req, res) {
   var beerID = req.params.id;

@@ -3,7 +3,7 @@ app.controller('HomeController', ['$http', 'DataFactory', function($http, DataFa
   var self = this;
   self.testVariable = 'am test';
   self.brewList = [];
-  self.breweries = DataFactory.breweries;
+  self.my_brewery_db = DataFactory.my_brewery_db;
 
   getBrews();
 

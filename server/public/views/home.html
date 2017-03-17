@@ -11,7 +11,7 @@
     <!-- <selectng-model="hc.brewList.rating" ng-options="item.id as item.rating for item in hc.brews_test.list"></select> -->
     <input type="text" ng-model="brew.rating">
     <textarea class="form-control" rows="3" id="comment" type="text" ng-model="brew.notes"></textarea>
-    <!-- <select ng-model="brew.brewery_id" ng-options="breweries.id as breweries.name for brewery in hc.breweries.list"></select> -->
+    <!-- <select ng-model="brew.brewery_id" ng-options="my_brewery_db.id as my_brewery_db.name for brewery in hc.my_brewery_db.list"></select> -->
     <button ng-click="hc.updateBrew(brew)">Update</button>
     <button ng-click="hc.deleteBrew(brew.id)">Delete</button>
 

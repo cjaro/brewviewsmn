@@ -9,7 +9,7 @@ app.controller('AddController', ['$http', 'DataFactory', function($http, DataFac
       });
     }
 
-    self.breweries = DataFactory.breweries;
+    self.my_brewery_db = DataFactory.my_brewery_db;
 }]);
 
 

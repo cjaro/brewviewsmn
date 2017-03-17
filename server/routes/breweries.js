@@ -7,7 +7,7 @@ router.get('/', function (req, res) {
   console.log('getting beers');
   pool.connect()
     .then(function (client) {
-      client.query('SELECT * FROM breweries ORDER BY id ASC')
+      client.query('SELECT * FROM my_brewery_db ORDER BY id ASC')
         .then(function (result) {
           client.release();
           res.send(result.rows);

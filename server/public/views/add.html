@@ -10,7 +10,7 @@
 <label>rating:</label>
 <select ng-model="hc.newBeer.rating" ng-options="item.id as item.rating for item in hc.brews_test.list"></select>
 <label>brewery:</label>
-<select ng-model="ac.newBeer.brewery" placeholder="Brewery ID"  ng-options="item.id as item.name for item in ac.breweries.list"></select>
+<select ng-model="ac.newBeer.brewery" placeholder="Brewery ID"  ng-options="item.id as item.name for item in ac.my_brewery_db.list"></select>
 <button ng-click="ac.addNewBrew(ac.newBeer)">Add New</button>
 
 {{ac.newBeer}}
