@@ -1,20 +1,19 @@
 <p class="home">my brews</p>
 
-<h4>
-<form class="" action="index.html" method="post">
   <div class="list" ng-repeat="brew in hc.brewList">
 
-    <input type="text" ng-model="brew.name">
     <input type="text" ng-model="brew.beer_name">
-    <input type="text" ng-model="brew.date_had">
-    <!-- TODO make ratings a select dropdown menu -->
+    <input type="date" ng-model="brew.date_had">
+    <!-- display brewery with option to edit -->
+    <!-- <select ng-model="hc.newBeer.id" ng-options="brew.id as brew.name for brew in hc.breweries.list">breweries</select> -->
+
+
+    <!-- DONE todo - make ratings a select dropdown menu -->
     <!-- <selectng-model="hc.brewList.rating" ng-options="item.id as item.rating for item in hc.brews_test.list"></select> -->
-    <input type="text" ng-model="brew.rating">
-    <textarea class="form-control" rows="3" id="comment" type="text" ng-model="brew.notes"></textarea>
-    <!-- <select ng-model="brew.brewery_id" ng-options="my_brewery_db.id as my_brewery_db.name for brewery in hc.my_brewery_db.list"></select> -->
+    <input type="number" ng-model="brew.rating">
+    <!-- BLAH goddamiit how to make dropdown??? Brewery list worked?!?!?! WTF??? -->
     <button ng-click="hc.updateBrew(brew)">Update</button>
-    <button ng-click="hc.deleteBrew(brew.id)">Delete</button>
+    <button ng-click="hc.deleteBrew(brew.brew_id)">Delete</button>
+    <textarea class="form-control" rows="2" id="notes" type="text" ng-model="brew.notes"></textarea>
 
   </div>
-</form>
-</h4>

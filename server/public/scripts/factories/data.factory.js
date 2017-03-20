@@ -1,20 +1,19 @@
 app.factory('DataFactory', ['$http', function($http){
   console.log('Data Factory loaded');
 
-  var my_brewery_db = { list: [] };
+  var brewery = { list: [] };
 
+  getBreweries();
 
-  getmy_brewery_db();
-
-  function getmy_brewery_db() {
+  function getBreweries() {
     $http.get('/breweries').then(function(response){
       console.log(response.data);
-      my_brewery_db.list = response.data;
+      brewery.list = response.data;
     });
   }
 
   return {
-    my_brewery_db: my_brewery_db
+    breweries: brewery
   }
 
 }]);

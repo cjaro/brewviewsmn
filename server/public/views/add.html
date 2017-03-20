@@ -1,18 +1,64 @@
-<h4>
-<label>brew name:</label>
-<!-- this should be the beer name, not the brewery name -->
-<input ng-model="ac.newBeer.name" placeholder="brew name">
-<label>date enjoyed:</label>
-<input ng-model="ac.newBeer.date_had" placeholder="YYYYMMDD">
-<!-- TODO make ratings a select dropdown menu -->
-<label>notes:</label>
-<input ng-model="ac.newBeer.notes" placeholder="notes">
-<label>rating:</label>
-<select ng-model="ac.newBeer.rating" ng-options="item.id as item.rating for item in hc.brews_test.list"></select>
-<label>brewery:</label>
-<select ng-model="ac.newBeer.brewery" placeholder="Brewery ID"  ng-options="item.id as item.name for item in ac.my_brewery_db.list"></select>
-<button ng-click="ac.addNewBrew(ac.newBeer)">Add New</button>
+<div class="addingNewBeer">
+
+<!-- {{newBeer.id, newBeer.name}} -->
+
+  <div class="form-group" id="inputName">
+    <label>brew name:</label>
+    <input class="form-control" ng-model="ac.newBeer.beer_name" placeholder="brew name">
+  </div>
+
+  <div class="form-group" id="inputDate">
+    <!-- TODO get date to display as editable Month, Day, & Year, not 2017-03-11T06:00:00.000Z -->
+    <label>date enjoyed:</label>
+    <input type="date" class="form-control" ng-model="ac.newBeer.date_had">
+  </div>
+
+  <div class="form-group" id="inputBrewery">
+    <label>brewery:</label>
+    <select class="form-control" ng-model="ac.newBeer.id" ng-options="item.id as item.name for item in ac.breweries.list">breweries</select>
+    <!-- okay, but if I want this to be more than just a select, how can I make it an autofill/auto-populate field???? -->
+  </div>
+<!--
+  <div class="form-group">
+    <select name="breweries" ng-model="ac.newBrewObject.brewery_id" class="form-control">
+     <option ng-repeat="brews in ac.breweries.list" value={{brews.id}} class="form-control">{{brews.name}}</option>
+   </select>
+  </div> -->
+
+  <!-- TODO make ratings a select dropdown menu -->
+  <div class="form-group" id="inputNotes">
+    <label>notes:</label>
+    <textarea class="form-control" rows="4" cols="50" ng-model="ac.newBeer.notes" placeholder="notes"></textarea>
+  </div>
+
+  <!-- TODO get rating dropdown to work with just numbers 1-10. As it was, it wasn't calling anything -->
+  <!-- <select ng-model="ac.newBeer.rating" ng-options="item.id as item.rating for item in hc.brews_test.list"></select> -->
+
+  <div class="form-group">
+    <label for="rating">rating:</label>
+    <select ng-model="ac.newBeer.rating" class="form-control">
+      <option>rating (1-10)</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+      <option value="9">9</option>
+      <option value="10">10</option>
+    </select>
+  </div>
+
+  <button ng-click="ac.addNewBrew(ac.newBeer)">Add New</button>
 
 {{ac.newBeer}}
 
-</h4>
+<div id="reference">
+  <p>Breweries ID Quick Reference:</p>
+  <!-- {{my_brewery_db.id, my_brewery_db.name}} -->
+</div>
+
+
+</div>

@@ -3,7 +3,7 @@ app.controller('HomeController', ['$http', 'DataFactory', function($http, DataFa
   var self = this;
   self.testVariable = 'am test';
   self.brewList = [];
-  self.my_brewery_db = DataFactory.my_brewery_db;
+  self.breweries = DataFactory.breweries;
 
   getBrews();
 
@@ -14,14 +14,17 @@ app.controller('HomeController', ['$http', 'DataFactory', function($http, DataFa
     });
   }
 
+  console.log(getBrews);
+
   self.deleteBrew = function(brewID) {
     $http.delete('/brews/' + brewID).then(function(response){
       getBrews();
     });
   }
 
+// seomthing straight up not working here
   self.updateBrew = function(brew) {
-    $http.put('/brews/' + brew.id, brew).then(function(response){
+    $http.put('/brews/' + brew.brew_id, brew).then(function(response){
       getBrews();
     });
   }

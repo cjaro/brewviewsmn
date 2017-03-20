@@ -114,7 +114,6 @@ CREATE TABLE brews_test (
 	brewery_id INT REFERENCES my_brewery_db NOT NULL
 );
 
-
 --brews GET
 SELECT brews_test.*, my_brewery_db.name FROM brews_test JOIN my_brewery_db ON brews_test.brewery_id = my_brewery_db.id ORDER BY date_had DESC;
 
@@ -135,7 +134,7 @@ SELECT * FROM my_brewery_db ORDER BY id ASC;
 SELECT EXTRACT(YEAR FROM date_had) AS VisitYear,
 EXTRACT(MONTH FROM date_had) AS VisitMonth,
 EXTRACT(DAY FROM date_had) AS VisitDay
-FROM brews_test ORDER BY VisitYEar DESC
+FROM brews_test ORDER BY VisitYear DESC
 ;
 --but this shows year, month, day in separate columns
 
@@ -156,17 +155,16 @@ ORDER BY date_had DESC;
 
 
 
---test values
-INSERT INTO brews_test (beer_name, date_had, notes, brewery_id)
+--test values - ids are wrong now
+INSERT INTO brews_test (beer_name, date_had, rating, notes, brewery_id)
 VALUES
-	('Roof rack', '2015-07-10', 'I like this beer. Another!', 1)
-	('Castle Cream Ale', '2016-08-02', 'Smooth and easy drinking!', 2),
-	('Extra Pale Ale', '2016-10-04', 'Had this after the TC Marathon!', 3),
-	('Furious', '2015-07-27', 'First brewery date!', 4),
-	('Tallander', '2017-03-11', 'Glitchcon event with Paige & friends! This beer was pretty good - I have had it twice!', 5),
-	('Dark Addiction', '2016-03-17', 'Irish music event - rich and dark beer-y.', 6),
-	('Dead Poet', '2016-08-16', 'Irish fair with Irish fam - met the brewers!', 7),
-	('Canoe Country', '2016-11-11', 'Save the BWCA event - this was really good!', 8),
-	('Sweet Child of Vine', '2016-09-01', 'Not the best, not the worst', 9),
-	('Lager', '2015-05-21', 'Had with Landon & Paul, not too bad', 10)
+	('Castle Cream Ale', '2016-08-02', 7, 'Smooth and easy drinking!', 2),
+	('Extra Pale Ale', '2016-10-04', 5, 'Had this after the TC Marathon!', 3),
+	('Furious', '2015-07-27', 7,  'First brewery date!', 4),
+	('Tallander', '2017-03-11', 6, 'Glitchcon event with Paige & friends! This beer was pretty good - I have had it twice!', 5),
+	('Dark Addiction', '2016-03-17', 6, 'Irish music event - rich and dark beer-y.', 6),
+	('Dead Poet', '2016-08-16', 6, 'Irish fair with Irish fam - met the brewers!', 7),
+	('Canoe Country', '2016-11-11', 8, 'Save the BWCA event - this was really good!', 8),
+	('Sweet Child of Vine', '2016-09-01', 5, 'Not the best, not the worst', 9),
+	('Lager', '2015-05-21', 5, 'Had with Landon & Paul, not too bad', 10)
 ;

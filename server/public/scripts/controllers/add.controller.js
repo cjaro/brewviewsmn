@@ -8,8 +8,13 @@ app.controller('AddController', ['$http', 'DataFactory', function($http, DataFac
         console.log(response);
       });
     }
+    // self.addRating(function($scope) {
+    // $scope.rating = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// });
 
-    self.my_brewery_db = DataFactory.my_brewery_db;
+    self.breweries = DataFactory.breweries;
+
+
 }]);
 
 
