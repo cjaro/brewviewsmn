@@ -14,11 +14,10 @@ app.use(express.static('./server/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
-// Handle index file separately
+// serve index.html
 app.get('/', function(req, res) {
-  res.sendFile(path.resolve('./server/public/index.html'));
+  res.sendFile(path.join(__dirname, './public/index.html'));
 });
-
 
 console.log('listening on port',port);
 app.listen(port);
