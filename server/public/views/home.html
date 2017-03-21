@@ -1,19 +1,48 @@
 <p class="home">my brews</p>
 
-  <div class="list" ng-repeat="brew in hc.brewList">
+<!-- {{hc.testVariable}} -->
 
-    <input type="text" ng-model="brew.beer_name">
-    <input type="text" ng-model="brew.date_had">
-    <!-- display brewery with option to edit -->
-    <!-- <select ng-model="hc.newBeer.id" ng-options="brew.id as brew.name for brew in hc.breweries.list">breweries</select> -->
+<div class="list" ng-repeat="brew in hc.brewList">
 
-
-    <!-- DONE todo - make ratings a select dropdown menu -->
-    <!-- <selectng-model="hc.brewList.rating" ng-options="item.id as item.rating for item in hc.brews_test.list"></select> -->
-    <input type="number" ng-model="brew.rating">
-    <!-- BLAH goddamiit how to make dropdown??? Brewery list worked?!?!?! WTF??? -->
-    <button ng-click="hc.updateBrew(brew)">Update</button>
-    <button ng-click="hc.deleteBrew(brew.brew_id)">Delete</button>
-    <textarea class="form-control" rows="2" id="notes" type="text" ng-model="brew.notes"></textarea>
-
+  <div class="brewName">
+    <label for="brewName">brew name:</label>
+    <input type="text" id="beer_name" ng-model="brew.beer_name" class="form-control" >
   </div>
+
+  <div class="brewBrewery">
+    <label for="brewery">brewery:</label>
+    <input ng-model="brew.name" class="form-control" >
+  </div>
+
+  <div class="brewDate">
+    <label for="brewDate">date enjoyed:</label>
+    <input type="text" ng-model="brew.date_had" class="form-control" >
+  </div>
+
+  <div class="ratingButtons">
+   <label>rating:</label>
+   <input type="number" ng-model="brew.rating" class="form-control" >
+  </div>
+
+  <div class="notes">
+    <label>notes:</label>
+    <textarea class="form-control" rows="2" id="notes" type="text" ng-model="brew.notes"></textarea>
+  </div>
+
+  <div class="buttons">
+    <button ng-click="hc.updateBrew(brew)" type="button" class="btn btn-info">Edit</button>
+    <button ng-click="hc.deleteBrew(brew.id)" type="button" class="btn btn-danger">Delete</button>
+  </div>
+
+</div>
+
+
+
+
+
+  <!-- display brewery name -->
+  <!-- <input type="text" ng.model="brew.name as brew.brewery_id for brew in hc.breweries.list"> -->
+
+  <!-- ng-options="item.id as item.name for item in hc.breweries.list" -->
+  <!-- DONE todo - make ratings a select dropdown menu -->
+  <!-- <select ng-model="hc.brewList.rating" ng-options="item.id as item.rating for item in hc.brews_test.list"></select> -->

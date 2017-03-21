@@ -2,10 +2,28 @@ var express = require('express');
 var pool = require('../config/database-pool.js');
 var router = require('express').Router();
 
+// var admin = require('firebase-admin');
+// var serviceAccount = require('../firebase-service-account.json');
+
+
+//DOM - home view
+
 // return all brews_test
 //This is working!!!
 //or not - keep at it
 // 3/20 4:45pm - it's working
+
+
+// March 21, 2017 11:00am
+//initialize routes
+//fxnlity requires ability to act with firebase tokens
+
+//TODO auth stuff here
+// admin.initializeApp({
+//   credential: admin.credential.cert("./server/firebase-service-account.json"),
+//   databaseURL: "https://brewviewsmn.firebaseio.com" // replace this line with your URL
+// });
+
 
 
 router.get('/', function (req, res) {
@@ -49,13 +67,13 @@ router.post('/', function (req, res) {
 });
 
 
-router.delete('/:brew_id', function(req, res) {
-  var beerID = req.params.brew_id;
-  console.log('Deleting beer ID: ', beerID);
+router.delete('/:id', function(req, res) {
+  var brewID = req.params.id;
+  console.log('Deleting brewID: ', brewID);
   pool.connect()
     .then(function (client) {
-      client.query('DELETE FROM brews_test WHERE brew_id = $1;',
-        [beerID])
+      client.query('DELETE FROM brews_test WHERE id=$1;',
+        [brewID])
         .then(function (result) {
           client.release();
           res.sendStatus(200);
@@ -67,14 +85,14 @@ router.delete('/:brew_id', function(req, res) {
     });
 });
 
-router.put('/:brew_id', function(req, res) {
-  var beerID = req.params.brew_id;
+router.put('/:id', function(req, res) {
+  var brewID = req.params.id;
   var brew = req.body;
   console.log('Updating brew: ', brew);
   pool.connect()
     .then(function (client) {
-      client.query('UPDATE brews_test SET beer_name=$1, date_had=$2, notes=$3, rating=$4, brewery_id=$5 WHERE brew_id=$6;',
-        [brew.beer_name, brew.date_had, brew.notes, brew.rating, brew.brewery_id, beerID])
+      client.query('UPDATE brews_test SET beer_name=$1, date_had=$2, notes=$3, rating=$4, brewery_id=$5 WHERE id=$6;',
+        [brew.beer_name, brew.date_had, brew.notes, brew.rating, brew.brewery_id, brewID])
         .then(function (result) {
           client.release();
           res.sendStatus(200);

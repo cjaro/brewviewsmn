@@ -5,6 +5,15 @@ body {
   background-repeat: repeat;
 }
 
+img {
+  height: 125px;
+  width: 125px;
+}
+
+.logo, .title {
+  display: inline-block;
+}
+
 h1 {
   font-size: 40px;
   color: white;
@@ -22,27 +31,17 @@ h4 {
   margin: 5px;
 }
 
-button {
-  background-color: yellow;
-  color: black;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
-select {
-  border: 1px solid black;
-}
 
 header {
   background: green;
   text-align: center;
-  padding: 5px;
-  margin: 5px;
+  padding: 2px;
+  margin: 2px;
 }
 
 .navbar {
   background: white;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 .list {
@@ -51,22 +50,9 @@ header {
 }
 
 input {
-  padding: 5px;
-  border-radius: 10px;
-
+  padding: 1px;
 }
 
-.selling {
-  background: white;
-  padding: 5px;
-  margin: 5px;
-}
-
-p .home, .add {
-  padding: 5px;
-  margin: 5px;
-  background: antiquewhite;
-}
 
 .addingNewBeer {
     background: white;
@@ -81,16 +67,41 @@ div {
   margin: 5px;
 }
 
-#reference {
-  background: aliceblue;
-  font-size: 16px;
-}
 
-img {
-  height: 125px;
-  width: 125px;
-}
-
-.logo, .title {
+#inputName, #inputDate, #inputBrewery, #inputRating {
   display: inline-block;
 }
+
+.brewName, .brewDate, .brewBrewery, .ratingButtons {
+  display: inline-block;
+}
+
+/*#reference {
+  background: aliceblue;
+  font-size: 16px;
+}*/
+
+
+/*.selling {
+  background: white;
+  padding: 5px;
+  margin: 5px;
+}*/
+
+/*p .home, .add {
+  padding: 5px;
+  margin: 5px;
+  background: antiquewhite;
+}*/
+
+
+/*button {
+  background-color: yellow;
+  color: black;
+  border: 1px solid black;
+  border-radius: 10px;
+}*/
+
+/*select {
+  border: 1px solid black;
+}*/

@@ -1,19 +1,21 @@
 app.controller('AddController', ['$http', 'DataFactory', function($http, DataFactory){
     console.log('Add Controller loaded');
     var self = this;
-    self.testMessage = 'Can you hear me?';
+    // self.testMessage = 'Can you hear me?';
 
     self.addNewBrew = function(newBrewObject) {
+      console.log('newBrewObject: ', newBrewObject);
       $http.post('/brews', newBrewObject).then(function(response){
-        console.log(response);
+        console.log('response: ', response);
       });
     }
+
+    
     // self.addRating(function($scope) {
     // $scope.rating = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 // });
 
     self.breweries = DataFactory.breweries;
-
 
 }]);
 

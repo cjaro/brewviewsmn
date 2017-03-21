@@ -1,5 +1,5 @@
 var app = angular.module('BrewApp', ['ngRoute']);
-
+// 'firebase',
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
   .when('/home', {

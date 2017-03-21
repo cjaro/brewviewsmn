@@ -1,15 +1,26 @@
 --Create tables
 
---brewery table
-
-CREATE TABLE my_brewery_db (
-    name VARCHAR(100),
-    address VARCHAR(255),
-    website VARCHAR(255)
+--brews
+CREATE TABLE brews_test (
+	id SERIAL PRIMARY KEY,
+	beer_name VARCHAR(100) NOT NULL,
+	date_had DATE,
+	rating INT,
+	notes VARCHAR(500),
+	brewery_id INT REFERENCES my_brewery_db NOT NULL
 );
---ALERT must add id column separate - don't know why but it freaks out
+
+--breweries db
+CREATE TABLE my_brewery_db (
+	id SERIAL PRIMARY KEY,
+  name VARCHAR(100),
+  address VARCHAR(255),
+  website VARCHAR(255)
+);
+
+--ALERT may need add id column separate - don't know why but it freaks out
 --when you try to add it to the initial CREATE TABLE and then try to add values
-ALTER TABLE my_brewery_db ADD id SERIAL PRIMARY KEY;
+-- ALTER TABLE my_brewery_db ADD id SERIAL PRIMARY KEY;
 
 INSERT INTO my_brewery_db VALUES ('10K Brewing','2005 2nd Av, Anoka, MN 55303','10kbrew.com');
 INSERT INTO my_brewery_db VALUES ('56 Brewing','134 California Street NE #122, Minneapolis, MN 55418','56brewing.com');
@@ -104,16 +115,6 @@ INSERT INTO my_brewery_db VALUES ('Wabasha Brewing Co.','429 Wabasha St. S, St. 
 INSERT INTO my_brewery_db VALUES ('Waconia Brewing Company','255 Main Street West, Waconia, MN 55387','waconiabrewing.com');
 INSERT INTO my_brewery_db VALUES ('Wayzata Brew Works','æ294 Grove Ln E, Wayzata, MN 55391','wayzatabrewworks.com');
 
---visits/beers table
-CREATE TABLE brews_test (
-	id SERIAL PRIMARY KEY,
-	beer_name VARCHAR(100) NOT NULL,
-	date_had DATE,
-	rating INT,
-	notes VARCHAR(500),
-	brewery_id INT REFERENCES my_brewery_db NOT NULL
-);
-
 --brews GET
 SELECT brews_test.*, my_brewery_db.name FROM brews_test JOIN my_brewery_db ON brews_test.brewery_id = my_brewery_db.id ORDER BY date_had DESC;
 
@@ -129,16 +130,6 @@ UPDATE brews_test SET name=$1, date_had=$2, notes=$3, rating=$4, brewery_id=$5 W
 --breweries GET
 SELECT * FROM my_brewery_db ORDER BY id ASC;
 
-
---on display, I want just the day, month, and year to display
-SELECT EXTRACT(YEAR FROM date_had) AS VisitYear,
-EXTRACT(MONTH FROM date_had) AS VisitMonth,
-EXTRACT(DAY FROM date_had) AS VisitDay
-FROM brews_test ORDER BY VisitYear DESC
-;
---but this shows year, month, day in separate columns
-
-
 --here, want to get beer name, rating, and brewery name
 SELECT brews_test.beer_name, brews_test.rating, my_brewery_db.name
 FROM brews_test
@@ -146,25 +137,16 @@ JOIN my_brewery_db
 ON brews_test.brewery_id = my_brewery_db.id
 ORDER BY date_had DESC;
 
-
-
-
-
-
-
-
-
-
---test values - ids are wrong now
+--test values
 INSERT INTO brews_test (beer_name, date_had, rating, notes, brewery_id)
 VALUES
-	('Castle Cream Ale', '2016-08-02', 7, 'Smooth and easy drinking!', 2),
-	('Extra Pale Ale', '2016-10-04', 5, 'Had this after the TC Marathon!', 3),
-	('Furious', '2015-07-27', 7,  'First brewery date!', 4),
-	('Tallander', '2017-03-11', 6, 'Glitchcon event with Paige & friends! This beer was pretty good - I have had it twice!', 5),
-	('Dark Addiction', '2016-03-17', 6, 'Irish music event - rich and dark beer-y.', 6),
-	('Dead Poet', '2016-08-16', 6, 'Irish fair with Irish fam - met the brewers!', 7),
-	('Canoe Country', '2016-11-11', 8, 'Save the BWCA event - this was really good!', 8),
-	('Sweet Child of Vine', '2016-09-01', 5, 'Not the best, not the worst', 9),
-	('Lager', '2015-05-21', 5, 'Had with Landon & Paul, not too bad', 10)
+	('Castle Cream Ale', '2016-08-02', 7, 'Smooth and easy drinking!', 27),
+	('Extra Pale Ale', '2016-10-04', 5, 'Had this after the TC Marathon!', 79),
+	('Furious', '2015-07-27', 7,  'First brewery date!', 80),
+	('Tallander', '2017-03-11', 6, 'Glitchcon event with Paige & friends! This beer was pretty good - I have had it twice!', 12),
+	('Dark Addiction', '2016-03-17', 6, 'Irish music event - rich and dark beer-y.', 7),
+	('Dead Poet', '2016-08-16', 6, 'Irish fair with Irish fam - met the brewers!', 34),
+	('Canoe Country', '2016-11-11', 8, 'Save the BWCA event - this was really good!', 67),
+	('Sweet Child of Vine', '2016-09-01', 5, 'Not the best, not the worst', 38),
+	('Lager', '2015-05-21', 5, 'Had with Landon & Paul, not too bad', 35)
 ;
