@@ -1,3 +1,5 @@
+<h3 class="main">add a brew/record a visit</h3>
+
 <div class="addingNewBeer">
 
 {{ac.testMessage}}
@@ -7,7 +9,7 @@
     <input class="form-control" ng-model="ac.newBeer.beer_name" placeholder="brew name">
   </div>
 
-  <div class="form-group" id="inputDate">
+  <div class="form-group dropdown" id="inputDate">
     <!-- TODO get date to display as editable Month, Day, & Year, not 2017-03-11T06:00:00.000Z -->
     <label>date enjoyed:</label>
     <input type="date" class="form-control" ng-model="ac.newBeer.date_had">
@@ -40,7 +42,7 @@
     <textarea class="form-control" rows="4" cols="50" ng-model="ac.newBeer.notes" placeholder="notes"></textarea>
   </div>
 
-  <button ng-click="ac.addNewBrew(ac.newBeer)" type="button" class="btn btn-success">Add New</button>
+  <button id="addNewButton" ng-click="ac.addNewBrew(ac.newBeer)" type="button" class="btn btn-success"><span class="glyphicon glyphicon-plus-sign"></span> Add New</button>
 
 {{ac.newBeer}}
 

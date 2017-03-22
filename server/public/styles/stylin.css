@@ -5,9 +5,23 @@ body {
   background-repeat: repeat;
 }
 
-img {
-  height: 125px;
-  width: 125px;
+#loginPic {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.logButtons {
+  text-align: center;
+}
+
+.navbar-brand {
+  padding: 0px;
+}
+.navbar-brand>img {
+  height: 110%;
+  padding: 0px;
+  width: auto;
 }
 
 .logo, .title {
@@ -22,31 +36,40 @@ h1 {
 }
 
 h2 {
-  font-size: 25px;
+  font-size: 30px;
   text-align: center;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+h3 {
+  background: green;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  border: 1px solid black;
 }
 
 h4 {
-  padding: 5px;
-  margin: 5px;
-}
-
-
-header {
-  background: green;
+  font-size: 20px;
   text-align: center;
-  padding: 2px;
-  margin: 2px;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  border: 1px solid black;
+  /*padding: 5px;
+  margin: 5px;*/
 }
 
-.navbar {
-  background: white;
-  font-size: 14px;
+.loginDiv {
+  background-color: white;
 }
 
 .list {
   background: white;
-  padding: 5px;
+  padding: 2px;
+  border-radius: 8px;
+  border: 1px solid black;
 }
 
 input {
@@ -55,7 +78,9 @@ input {
 
 
 .addingNewBeer {
-    background: white;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid black;
 }
 
 label {
@@ -63,10 +88,9 @@ label {
 }
 
 div {
-  padding: 5px;
-  margin: 5px;
+  padding: 2px;
+  margin: 2px;
 }
-
 
 #inputName, #inputDate, #inputBrewery, #inputRating {
   display: inline-block;
@@ -76,17 +100,16 @@ div {
   display: inline-block;
 }
 
-/*#reference {
-  background: aliceblue;
-  font-size: 16px;
-}*/
-
-
-/*.selling {
+.selling {
   background: white;
   padding: 5px;
   margin: 5px;
-}*/
+}
+
+#addNewButton {
+
+  margin: 2px;
+}
 
 /*p .home, .add {
   padding: 5px;
@@ -104,4 +127,17 @@ div {
 
 /*select {
   border: 1px solid black;
+}*/
+
+
+/*header {
+  background: green;
+  text-align: center;
+  padding: 2px;
+  border: 1px solid black;
+}*/
+
+/*.navbar {
+  background: white;
+  font-size: 14px;
 }*/

@@ -1,5 +1,5 @@
-app.controller('HomeController', ['$http', 'DataFactory', function($http, DataFactory){
-  console.log('Home Controller loaded');
+app.controller('MainController', ['$http', 'DataFactory', function($http, DataFactory){
+  console.log('Main Controller loaded');
   var self = this;
   // self.testVariable = 'am test';
   self.brewList = [];
@@ -7,20 +7,20 @@ app.controller('HomeController', ['$http', 'DataFactory', function($http, DataFa
 
 
   // self.logIn = function(){
-  //   console.log('log in button');
+  //   console.log('log in button clicked');
   //   DataFactory.logIn();
   // }
-  //
-  // self.logOut = function(){
-  //   console.log('log out button');
-  //   DataFactory.logOut();
-  // }
+
+  self.logOut = function(){
+    console.log('log out button fxn');
+    DataFactory.logOut();
+  }
 
   getBrews();
 
   function getBrews() {
     $http.get('/brews').then(function(response){
-      console.log('response/data: ', response.data);
+      console.log('response data: ', response.data);
       self.brewList = response.data;
     });
   }

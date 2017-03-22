@@ -1,29 +1,26 @@
+//DOM - home view
+
 var express = require('express');
 var pool = require('../config/database-pool.js');
 var router = require('express').Router();
 
-// var admin = require('firebase-admin');
-// var serviceAccount = require('../firebase-service-account.json');
-
-
-//DOM - home view
+var admin = require('firebase-admin');
+var serviceAccount = require('../firebase-service-account.json');
 
 // return all brews_test
 //This is working!!!
 //or not - keep at it
-// 3/20 4:45pm - it's working
+// MArch 20 4:45pm - it's working
 
 
-// March 21, 2017 11:00am
+// March 21 11:00am
 //initialize routes
 //fxnlity requires ability to act with firebase tokens
-
 //TODO auth stuff here
-// admin.initializeApp({
-//   credential: admin.credential.cert("./server/firebase-service-account.json"),
-//   databaseURL: "https://brewviewsmn.firebaseio.com" // replace this line with your URL
-// });
-
+admin.initializeApp({
+  credential: admin.credential.cert("./server/firebase-service-account.json"),
+  databaseURL: "https://brewviewsmn.firebaseio.com" // replace this line with your URL
+});
 
 
 router.get('/', function (req, res) {
@@ -47,6 +44,7 @@ router.get('/', function (req, res) {
 // 3/20 4:22pm UPDATE: dropdown rating is working and corresponding to SQL db
 // updating still isn't working, though
 // error: possibly unhandled rejection
+// resolved
 
 router.post('/', function (req, res) {
   var newBeer = req.body;

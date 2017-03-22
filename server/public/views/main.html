@@ -1,0 +1,74 @@
+<h3 class="main">my brews</h3>
+
+
+<div class="list" ng-repeat="brew in hc.brewList">
+
+  <div class="brewName">
+    <label for="brewName">brew name:</label>
+    <input type="text" id="beer_name" ng-model="brew.beer_name" class="form-control" >
+  </div>
+
+  <div class="brewBrewery">
+    <label for="brewery">brewery:</label>
+    <input ng-model="brew.name" class="form-control" >
+  </div>
+
+  <div class="brewDate">
+    <label for="brewDate">date enjoyed:</label>
+    <input type="text" ng-model="brew.date_had" class="form-control" >
+  </div>
+
+  <div class="ratingButtons">
+   <label>rating:</label>
+   <input type="number" ng-model="brew.rating" class="form-control" >
+  </div>
+
+  <div class="notes">
+    <label>notes:</label>
+    <textarea class="form-control" rows="3" id="notes" type="text" ng-model="brew.notes"></textarea>
+  </div>
+
+  <div class="buttons">
+    <button ng-click="hc.updateBrew(brew)" type="button" class="btn btn-info"><span class="glyphicon glyphicon-ok-sign"></span> Update</button>
+    <button ng-click="hc.deleteBrew(brew.id)" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove-sign"></span> Delete</button>
+  </div>
+
+</div>
+
+<!-- {{hc.testVariable}} -->
+
+
+
+  <!-- display brewery name -->
+  <!-- <input type="text" ng.model="brew.name as brew.brewery_id for brew in hc.breweries.list"> -->
+
+  <!-- ng-options="item.id as item.name for item in hc.breweries.list" -->
+  <!-- DONE todo - make ratings a select dropdown menu -->
+  <!-- <select ng-model="hc.brewList.rating" ng-options="item.id as item.rating for item in hc.brews_test.list"></select> -->
+
+
+
+  <!-- x-editable table????? -->
+  <!-- neater way to display -->
+  <!-- notes could be a popup -->
+  <!-- onaftersave="saveTable()" oncancel="cancel()" -->
+   <!-- <form editable-form name="tableform" >
+     <table class="table table-bordered table-hover table-condensed">
+       <tr>
+         <td>brew name</td>
+         <td>brewery</td>
+         <td>date enjoyed</td>
+         <td>rating</td>
+         <td>notes</td>
+         <td"><span ng-show="tableform.$visible">Action</span></td>
+       </tr>
+         <tr ng-repeat="brew in hc.brewList">
+           <td><span editable-text="brew.beer_name"></span></td>
+           <td><span editable-text="brew.name"></span></td>
+           <td><span editable-text="brew.date_had"></span></td>
+           <td><span editable-text="brew.rating"></span></td>
+           <td><span editable-text="brew.notes"></span></td>
+         </tr>
+     </table>
+
+   </form> -->

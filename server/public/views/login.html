@@ -1,12 +1,21 @@
+<h3 id="loginHead">please log in!</h3>
 
-<img src="brewviewslogo2.png" alt="brew views logo">
+<div class="loginDiv">
 
 
-<h1>welcome to ABV</h1>
-<h2>(awesome brew views mn)</h2>
+  <div class="picture">
+    <img class="img-responsive" id="loginPic" src="/assets/brewviewslogo2.png" alt="awesome brew views logo">
+  </div>
 
-<h2>please log in!</h2>
+  <div class="logButtons">
 
-<button type="button" ng-click="hc.logIn()">log in</button>
+    <button class="btn-success" ng-click="hc.logIn()">log in</button>
+    <button class="btn-danger" ng-click="hc.logOut()">log out</button>
+  </div>
+</div>
 
-<button type="button" ng-click="hc.logOut()">log out</button>
+
+
+<!-- only show header on login - better optimize for mobile
+
+-->

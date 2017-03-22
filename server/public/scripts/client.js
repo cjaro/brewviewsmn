@@ -1,10 +1,10 @@
-var app = angular.module('BrewApp', ['ngRoute']);
-// 'firebase',
+var app = angular.module('BrewApp', ['ngRoute','firebase']);
+// '
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
-  .when('/home', {
-    templateUrl: '/views/home.html',
-    controller: 'HomeController',
+  .when('/main', {
+    templateUrl: '/views/main.html',
+    controller: 'MainController',
     controllerAs: 'hc'
   })
   .when('/add', {
@@ -17,7 +17,12 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'ExploreController',
     controllerAs: 'ec'
   })
+  .when('/login', {
+    templateUrl: '/views/login.html',
+    controller: 'LoginController',
+    controllerAs: 'lc'
+  })
   .otherwise({
-    redirectTo: 'home'
+    redirectTo: 'main'
   })
 }]);
