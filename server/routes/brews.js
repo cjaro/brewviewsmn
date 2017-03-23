@@ -12,11 +12,10 @@ var serviceAccount = require('../firebase-service-account.json');
 //or not - keep at it
 // MArch 20 4:45pm - it's working
 
-
 // March 21 11:00am
 //initialize routes
 //fxnlity requires ability to act with firebase tokens
-//TODO auth stuff here
+
 admin.initializeApp({
   credential: admin.credential.cert("./server/firebase-service-account.json"),
   databaseURL: "https://brewviewsmn.firebaseio.com" // replace this line with your URL

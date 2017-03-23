@@ -1,94 +1,33 @@
 <span ng-controller="NavController as nc">
-  {{nc}}
-  <nav class="navbar navbar-default" ng-if="nc.userIsLoggedIn">
+  <!-- {{nc}} -->
+  <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
         <a class="navbar-brand" href="#!main"><img src="/assets/brewviewslogotype.png" alt="awesome brew views logo"></a>
       </div>
-      <div id="navbar1" class="navbar-collapse collapse">
-
+      <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-          <li><a href="#!main"><span class="glyphicon glyphicon-eye-open"></span> my brews</a></li>
-          <li><a href="#!add"><span class="glyphicon glyphicon-plus"></span> add brew</a></li>
-          <li><a href="#!explore"><span class="glyphicon glyphicon-globe"></span> explore</a></li>
-          <!-- <li class="dropdown">
-
-            <a href="#brewsources" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">brewsources
-              <span class="caret"></span>
-            </a>
-
-            <ul id="brewsources" class="dropdown-menu" role="menu">
-              <li><a href="http://growlermag.com/">Growler Magazine</a></li>
-              <li><a href="http://www.mncraftbrew.org/">MN Craft Brewer's Guild</a></li>
-              <li><a href="http://www.brewerydb.com/">brewerydb</a></li>
+            <li><a href="#!main"><span class="glyphicon glyphicon-eye-open"></span> my brews</a></li>
+            <li><a href="#!add"><span class="glyphicon glyphicon-plus"></span> add brew</a></li>
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" ><span class="glyphicon glyphicon-globe"></span> explore <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="http://growlermag.com/" target="_blank">Growler Magazine</a></li>
+                <li><a href="http://www.mncraftbrew.org/" target="_blank">MN Craft Brewer's Guild</a></li>
+                <li><a href="http://www.brewerydb.com/" target="_blank">brewerydb</a></li>
             </ul>
-          </li> -->
-
+          </li>
         </ul>
-
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#!login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
-          <li><a href="#" ng-click="lc.logOut()"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
-          <!-- <li><a  ng-click="hc.logIn()"><span class="glyphicon glyphicon-log-in"> log in</a></li>
-          <li><a  ng-click="hc.logOut()"><span class="glyphicon glyphicon-log-out"> log out</a></li> -->
+          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> log out</a></li>
         </ul>
-
       </div>
-      <!--/.nav-collapse -->
     </div>
-    <!--/.container-fluid -->
   </nav>
 
 </span>
-
-
-  <!-- Single button -->
-  <!-- <div class="btn-group">
-    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Action <span class="caret"></span>
-    </button>
-    <ul class="dropdown-menu">
-      <li><a href="#">Action</a></li>
-      <li><a href="#">Another action</a></li>
-      <li><a href="#">Something else here</a></li>
-      <li role="separator" class="divider"></li>
-      <li><a href="#">Separated link</a></li>
-    </ul>
-  </div> -->
-
-
-
-<!-- <div class="container">
-  <div class="col-sm-3 logo">
-    <a href="#!main">  <img src="/assets/brewviewslogo2.png" alt="brew views logo" href="#!main"></a>
-  </div>
-  <div class="col-sm-8 title">
-    <h1 id="ABVhead">abv</h1>
-  </div>
-  <img class="img-responsive" src="/assets/brewviewslogo2.png" alt="brewviewslogo" href="#!main">
-</div> -->
-
-<!-- <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-    <a class="navbar-brand"><img class="img-responsive" src="/assets/brewviewslogo2.png" alt="brewviewslogo" href="#!main"></a>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li><a href="#!main"><span class="glyphicon glyphicon-eye-open"></span> my brews</a></li>
-        <li><a href="#!add"><span class="glyphicon glyphicon-plus"></span> add brew</a></li>
-        <li><a href="#!explore"><span class="glyphicon glyphicon-globe"></span> explore</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#!login"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#!login"><span class="glyphicon glyphicon-log-in"></span> Log In</a></li>
-      </ul>
-    </div>
-  </div>
-  <img src="/assets/brewviewslogo2.png" alt="awesome brew views logo">
-</nav> -->
