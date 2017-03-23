@@ -1,6 +1,7 @@
-app.controller('MainController', ['$http', 'DataFactory', function($http, DataFactory){
+app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebaseAuth',  function($http, DataFactory, $location, $firebaseAuth){
   console.log('Main Controller loaded');
   var self = this;
+  var auth = $firebaseAuth();
   // self.testVariable = 'am test';
   self.brewList = [];
   self.breweries = DataFactory.breweries;
@@ -41,4 +42,13 @@ app.controller('MainController', ['$http', 'DataFactory', function($http, DataFa
       getBrews();
     });
   }
+
+  // logout function
+  self.logOut = function(){
+    auth.$signOut().then(function(){
+    console.log('Logging out!');
+    $location.path('/login')
+     });
+  };
+
 }]);

@@ -1,5 +1,9 @@
 <h3 class="main">my brews</h3>
-
+<div class="logOutButton">
+  <button id="logoutbutton" type="button" class="btn btn-danger btn-lg" ng-click="hc.logOut()">
+    <span class="glyphicon glyphicon-log-out"></span> log out
+  </button>
+</div>
 
 <div class="list" ng-repeat="brew in hc.brewList">
 
@@ -15,7 +19,7 @@
 
   <div class="brewDate">
     <label for="brewDate">date enjoyed:</label>
-    <input type="text" ng-model="brew.date_had" class="form-control" >
+    <input type="text" ng-model="brew.date_had | date: 'MMMM dd, yyyy'" class="form-control" >
   </div>
 
   <div class="ratingButtons">

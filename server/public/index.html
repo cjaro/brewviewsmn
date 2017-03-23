@@ -5,23 +5,20 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
+  <!-- Bootstrap -->
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <!-- AngularJS -->
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+  <!-- <script src="/vendors/ui.bootstrap.js" charset="utf-8"></script> -->
 
   <!-- Firebase -->
   <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
-
   <!-- AngularFire -->
   <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
-
   <!-- Angular Routes -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js" charset="utf-8"></script>
-
-  <!-- Bootstrap -->
-  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- x editable -->
-  <link href="/vendors/bootstrap-editable.css" rel="stylesheet">
+  <!-- <link href="/vendors/bootstrap-editable.css" rel="stylesheet"> -->
 
   <script src="scripts/config.js" charset="utf-8"></script>
   <script src="scripts/client.js" charset="utf-8"></script>
@@ -30,6 +27,8 @@
   <script src="scripts/controllers/add.controller.js" charset="utf-8"></script>
   <script src="scripts/controllers/explore.controller.js" charset="utf-8"></script>
   <script src="scripts/controllers/login.controller.js" charset="utf-8"></script>
+  <script src="scripts/controllers/nav.controller.js" charset="utf-8"></script>
+
 
   <link rel="stylesheet" href="styles/stylin.css">
 
@@ -40,7 +39,7 @@
 </head>
 
 <body class="container" ng-app="BrewApp">
-  <header ng-include="'/views/templates/header.html'"></header>
+  <header ng-include="'/views/templates/nav-header.html'"></header>
   <!-- <nav class="navbar navbar-default" ng-include="'/views/templates/nav.html'"></nav> -->
   <main ng-view></main>
 </body>

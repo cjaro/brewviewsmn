@@ -6,7 +6,7 @@ var pool = require('../config/database-pool.js'); // Creates database pool, if y
 
 // return all breweries
 router.get('/', function (req, res) {
-  console.log('getting beers from controller');
+  console.log('getting breweries from controller');
   pool.connect()
     .then(function (client) {
       client.query('SELECT * FROM my_brewery_db ORDER BY name ASC;')

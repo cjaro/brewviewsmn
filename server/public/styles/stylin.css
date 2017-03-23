@@ -15,6 +15,10 @@ body {
   text-align: center;
 }
 
+.logOutButton {
+  text-align: right;
+}
+
 .navbar-brand {
   padding: 0px;
 }
