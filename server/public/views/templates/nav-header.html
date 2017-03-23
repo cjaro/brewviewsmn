@@ -1,5 +1,5 @@
-<span ng-controller="NavController as nc">
-  <!-- {{nc}} -->
+<span ng-controller="NavController as nc" ng-show="nc.userIsLoggedIn">
+  {{nc}}
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -24,7 +24,11 @@
           </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> log out</a></li>
+          <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> log out</a></li> -->
+
+          <button id="logoutbutton" type="button" class="btn btn-danger" ng-click="nc.logOut()">
+            <span class="glyphicon glyphicon-log-out"></span> log out</button>
+
         </ul>
       </div>
     </div>

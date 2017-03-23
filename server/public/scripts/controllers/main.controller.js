@@ -6,16 +6,10 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
   self.brewList = [];
   self.breweries = DataFactory.breweries;
 
-
   // self.logIn = function(){
   //   console.log('log in button clicked');
   //   DataFactory.logIn();
   // }
-
-  self.logOut = function(){
-    console.log('log out button fxn');
-    DataFactory.logOut();
-  }
 
   getBrews();
 
@@ -44,11 +38,11 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
   }
 
   // logout function
-  self.logOut = function(){
-    auth.$signOut().then(function(){
-    console.log('Logging out!');
-    $location.path('/login')
-     });
-  };
+  // self.logOut = function(){
+  //   auth.$signOut().then(function(){
+  //   console.log('Logging out!');
+  //   $location.path('/login')
+  //    });
+  // };
 
 }]);
