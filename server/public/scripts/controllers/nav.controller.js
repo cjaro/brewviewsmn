@@ -5,14 +5,7 @@ app.controller('NavController', ['$http', 'DataFactory', '$location', '$firebase
 
   auth.$onAuthStateChanged(function(firebaseUser){
     self.userIsLoggedIn = !!firebaseUser;
-
   })
-
-
-  // self.logOut = function(){
-  //   console.log('log out button fxn');
-  //   DataFactory.logOut();
-  // }
 
   self.logOut = function(){
     auth.$signOut().then(function(){
@@ -20,8 +13,5 @@ app.controller('NavController', ['$http', 'DataFactory', '$location', '$firebase
     $location.path('/login')
      });
   };
-
-
-
 
 }]);

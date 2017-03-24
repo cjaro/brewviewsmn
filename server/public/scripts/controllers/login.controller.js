@@ -3,11 +3,6 @@ app.controller('LoginController', ['$http', '$firebaseAuth', '$location','DataFa
     var self = this;
     var auth = $firebaseAuth();
 
-  // self.logIn = function(){
-  //   console.log('log in button clicked');
-  //   DataFactory.logIn();
-  // }
-
   // This code runs whenever the user logs in
 self.logIn = function (){
   auth.$signInWithPopup("google").then(function(firebaseUser) {
@@ -28,7 +23,7 @@ auth.$onAuthStateChanged(function(firebaseUser){
     // firebaseUser.getToken().then(function(idToken){
     //   $http({
     //     method: 'GET',
-    //     url: '/privateData',
+    //     url: '/main',
     //     headers: {
     //       id_token: idToken
     //     }
@@ -42,14 +37,4 @@ auth.$onAuthStateChanged(function(firebaseUser){
   }
 });
 
-
 }]);
-
-
-
-
-
-
-// $location
-//
-// redirecting

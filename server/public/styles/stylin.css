@@ -5,31 +5,9 @@ body {
   background-repeat: repeat;
 }
 
-#loginPic {
-  height: 200px;
-  width: 200px;
-  margin: 0 auto;
-}
-
-.logButtons {
-  text-align: center;
-}
-
-.logOutButton {
-  text-align: right;
-}
-
-.navbar-brand {
-  padding: 0px;
-}
-.navbar-brand>img {
-  height: 110%;
-  padding: 0px;
-  width: auto;
-}
-
-.logo, .title {
-  display: inline-block;
+div {
+  padding: 2px;
+  margin: 2px;
 }
 
 h1 {
@@ -65,8 +43,36 @@ h4 {
   margin: 5px;*/
 }
 
-.loginDiv {
-  background-color: white;
+input {
+  padding: 1px;
+}
+
+label {
+  font-size: 14px;
+}
+
+#addNewButton {
+  margin: 2px;
+}
+
+#inputName, #inputDate, #inputBrewery, #inputRating {
+  display: inline-block;
+}
+
+#loginPic {
+  height: 200px;
+  width: 200px;
+  margin: 0 auto;
+}
+
+.addingNewBeer {
+  background: white;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+
+.brewName, .brewDate, .brewBrewery, .ratingButtons {
+  display: inline-block;
 }
 
 .list {
@@ -76,32 +82,22 @@ h4 {
   border: 1px solid black;
 }
 
-input {
-  padding: 1px;
+.loginDiv {
+  background-color: white;
+  text-align: center;
 }
 
-
-.addingNewBeer {
-  background: white;
-  border-radius: 8px;
-  border: 1px solid black;
+.navbar-brand {
+  padding: 0px;
 }
-
-label {
-  font-size: 14px;
+.navbar-brand>img {
+  height: 110%;
+  padding: 0px;
+  width: auto;
+  opacity: 0.65;
 }
-
-div {
-  padding: 2px;
-  margin: 2px;
-}
-
-#inputName, #inputDate, #inputBrewery, #inputRating {
-  display: inline-block;
-}
-
-.brewName, .brewDate, .brewBrewery, .ratingButtons {
-  display: inline-block;
+img:hover {
+    opacity: 1.0;
 }
 
 .selling {
@@ -110,38 +106,8 @@ div {
   margin: 5px;
 }
 
-#addNewButton {
-
-  margin: 2px;
-}
-
-/*p .home, .add {
-  padding: 5px;
-  margin: 5px;
-  background: antiquewhite;
-}*/
-
-
-/*button {
-  background-color: yellow;
-  color: black;
-  border: 1px solid black;
-  border-radius: 10px;
-}*/
-
-/*select {
-  border: 1px solid black;
-}*/
-
-
-/*header {
-  background: green;
+.suggestDiv {
   text-align: center;
-  padding: 2px;
-  border: 1px solid black;
-}*/
-
-/*.navbar {
   background: white;
-  font-size: 14px;
-}*/
+  margin: auto;
+}

@@ -22,7 +22,12 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'LoginController',
     controllerAs: 'lc'
   })
+  .when('/suggestion', {
+    templateUrl: '/views/suggestion.html',
+    // controller: 'SuggestController',
+    // controllerAs: 'sc'
+  })
   .otherwise({
-    redirectTo: 'main'
+    redirectTo: 'login'
   })
 }]);
