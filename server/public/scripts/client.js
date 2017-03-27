@@ -5,17 +5,12 @@ app.config(['$routeProvider', function($routeProvider) {
   .when('/main', {
     templateUrl: '/views/main.html',
     controller: 'MainController',
-    controllerAs: 'hc'
+    controllerAs: 'mc'
   })
   .when('/add', {
     templateUrl: '/views/add.html',
     controller: 'AddController',
     controllerAs: 'ac'
-  })
-  .when('/explore', {
-    templateUrl: '/views/explore.html',
-    controller: 'ExploreController',
-    controllerAs: 'ec'
   })
   .when('/login', {
     templateUrl: '/views/login.html',
@@ -24,9 +19,12 @@ app.config(['$routeProvider', function($routeProvider) {
   })
   .when('/suggestion', {
     templateUrl: '/views/suggestion.html',
-    // controller: 'SuggestController',
-    // controllerAs: 'sc'
   })
+  .when('/brews/:brewID', {
+  templateUrl: '/views/beer-details.html',
+  controller: 'BeerDetailsController',
+  controllerAs: 'bdc'
+})
   .otherwise({
     redirectTo: 'login'
   })

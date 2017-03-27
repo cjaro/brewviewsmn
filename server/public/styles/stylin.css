@@ -31,6 +31,7 @@ h3 {
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   border: 1px solid black;
+  padding: 3px;
 }
 
 h4 {
@@ -53,6 +54,7 @@ label {
 
 #addNewButton {
   margin: 2px;
+  float: right;
 }
 
 #inputName, #inputDate, #inputBrewery, #inputRating {
@@ -64,6 +66,8 @@ label {
   width: 200px;
   margin: 0 auto;
 }
+
+
 
 .addingNewBeer {
   background: white;
@@ -110,4 +114,24 @@ img:hover {
   text-align: center;
   background: white;
   margin: auto;
+}
+
+table, thead, td, tr {
+  border-collapse: collapse;
+  padding: 1px;
+}
+
+table td #seeMore {
+  font-size: 72px
+}
+
+table th {
+  background-color: rgb(255, 255, 255);
+}
+
+table tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+table tr:nth-child(even) {
+  background-color: #ffffff;
 }

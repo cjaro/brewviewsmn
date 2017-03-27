@@ -1,13 +1,10 @@
 <h3 class="main">add a brew</h3>
 
 <div class="addingNewBeer">
-<!-- {{ac.testMessage}} -->
+  <!-- {{ac.testMessage}} -->
 
-  <div class="form-group" id="inputName">
-    <label>brew name:</label>
-    <input class="form-control" ng-model="ac.newBeer.beer_name" placeholder="brew name">
-  </div>
 
+<div class="staticFields">
   <div class="form-group dropdown" id="inputDate">
     <!-- TODO get date to display as editable Month, Day, & Year, not 2017-03-11T06:00:00.000Z -->
     <label>date enjoyed:</label>
@@ -17,7 +14,14 @@
   <div class="form-group" id="inputBrewery">
     <label>brewery:</label>
     <select class="form-control" ng-model="ac.newBeer.brewery_id" ng-options="item.id as item.name for item in ac.breweries.list"></select>
-    <!-- okay, but if I want this to be more than just a select, how can I make it an autofill/auto-populate field???? -->
+    <!-- typeahead -->
+  </div>
+</div>
+
+<div class="dynamicFields">
+  <div class="form-group" id="inputName">
+    <label>brew name:</label>
+    <input class="form-control" ng-model="ac.newBeer.beer_name" placeholder="brew name">
   </div>
 
   <div class="form-group" id="inputRating">
@@ -34,15 +38,26 @@
       <option value="9">9</option>
       <option value="10">10</option>
     </select>
+    <!-- <input type="number" name="" value=""> -->
   </div>
 
   <div class="form-group" id="inputNotes">
     <label>notes:</label>
-    <textarea class="form-control" rows="4" cols="50" ng-model="ac.newBeer.notes" placeholder="notes"></textarea>
+    <textarea class="form-control" rows="4" cols="50" ng-model="ac.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
   </div>
 
-  <button id="addNewButton" ng-click="ac.addNewBrew(ac.newBeer)" type="button" class="btn btn-success" action="/#!main"><span class="glyphicon glyphicon-plus-sign"></span> beer me</button>
+</div>
 
-<!-- {{ac.newBeer}} -->
+
+  <!-- TODO here: option to add multiple beers to this record -->
+  <div class="addField">
+    <button class="btn btn-primary" ng-click="addField()"><span class="glyphicon glyphicon-plus-sign"></span> another!</button>
+  </div>
+
+  <div class="addNewButton">
+    <button  ng-click="ac.addNewBrew(ac.newBeer)" type="button" class="btn btn-success" action="/#!main"><span class="fa fa-hand-peace-o"></span> beer me</button>
+  </div>
+
+  <!-- {{ac.newBeer}} -->
 
 </div>

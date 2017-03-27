@@ -7,14 +7,10 @@ var router = require('express').Router();
 var admin = require('firebase-admin');
 var serviceAccount = require('../firebase-service-account.json');
 
-// return all brews_test
-//This is working!!!
-//or not - keep at it
-// MArch 20 4:45pm - it's working
-
-// March 21 11:00am
-//initialize routes
-//fxnlity requires ability to act with firebase tokens
+//create command that specificies user id
+//SELECT * (recorded brews) <- by specific user
+// WHERE user_id = $1
+// INSERT INTO users (user_name, email) VALUES ($1, $2);
 
 admin.initializeApp({
   credential: admin.credential.cert("./server/firebase-service-account.json"),
@@ -36,14 +32,6 @@ router.get('/', function (req, res) {
         });
     });
 });
-
-//having trouble ehre with my post - getting an error on attempt to save
-//get dropdown for rating working
-//error message reading that name is null - problem with id?
-// 3/20 4:22pm UPDATE: dropdown rating is working and corresponding to SQL db
-// updating still isn't working, though
-// error: possibly unhandled rejection
-// resolved
 
 router.post('/', function (req, res) {
   var newBeer = req.body;
@@ -103,3 +91,13 @@ router.put('/:id', function(req, res) {
 
 
 module.exports = router;
+
+
+
+//having trouble ehre with my post - getting an error on attempt to save
+//get dropdown for rating working
+//error message reading that name is null - problem with id?
+// 3/20 4:22pm UPDATE: dropdown rating is working and corresponding to SQL db
+// updating still isn't working, though
+// error: possibly unhandled rejection
+// resolved

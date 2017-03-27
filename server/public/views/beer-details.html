@@ -1,0 +1,72 @@
+{{bdc}}
+<!-- {{bdc.testVariable}} -->
+
+
+<h3 class="main">{{bdc.brew.details.name}}</h3>
+{{bdc.brew.name}}
+<div class="brewBrewList table-responsive">
+  <table class="table table-bordered ">
+
+    <thead>
+      <tr>
+        <th class="date">date enjoyed:</th>
+        <th class="beer_name">beer name:</th>
+        <th class="rating">rating:</th>
+        <th class="notes">notes:</th>
+        <th class="update">update</th>
+        <th class="delete">delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>{{bdc.brew.details.date_had | date: 'MMMM dd, yyyy'}}</td>
+        <td ng-model="bdc.brew.beer_name">{{bdc.brew.details.beer_name}}</td>
+        <td ng-model="bdc.brew.rating">{{bdc.brew.details.rating}}</td>
+        <td ng-model="bdc.brew.notes">{{bdc.brew.details.notes}}</td>
+        <td class="update">
+          <button ng-click="bdc.updateBrew(brew)" type="button" class="btn btn-info">
+          <span class="glyphicon glyphicon-ok-sign"></span></button>
+          </td>
+        <td class="delete">
+          <button ng-click="bdc.deleteBrew(brew.id)" type="button" class="btn btn-danger">
+          <span class="fa fa-trash-o"></span></button>
+          </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>
+
+
+
+
+
+<!-- {{mc.testVariable}} -->
+
+  <!-- x-editable table????? -->
+  <!-- neater way to display -->
+  <!-- notes could be a popup -->
+  <!-- onaftersave="saveTable()" oncancel="cancel()" -->
+
+   <!-- <form editable-form name="tableform" >
+     <table class="table table-bordered table-hover table-condensed">
+       <tr>
+         <td>brew name</td>
+         <td>brewery</td>
+         <td>date enjoyed</td>
+         <td>rating</td>
+         <td>notes</td>
+         <td"><span ng-show="tableform.$visible">Action</span></td>
+       </tr>
+         <tr ng-repeat="brew in mc.brewList">
+           <td><span editable-text="brew.beer_name"></span></td>
+           <td><span editable-text="brew.name"></span></td>
+           <td><span editable-text="brew.date_had"></span></td>
+           <td><span editable-text="brew.rating"></span></td>
+           <td><span editable-text="brew.notes"></span></td>
+         </tr>
+     </table>
+
+   </form> -->
