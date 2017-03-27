@@ -5,7 +5,7 @@ var pool = require('../config/database-pool.js'); // Creates database pool, if y
 // return all brews
 router.use('/', function (req, res) {
   var brewID = req.query.brewID
-  console.log('working here! and brewID is', brewID);
+  console.log('working at beer-details route and brewID is', brewID);
 
   pool.connect()
     .then(function (client) {

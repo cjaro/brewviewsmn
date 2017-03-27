@@ -53,12 +53,12 @@ router.post('/', function (req, res) {
 
 
 router.delete('/:id', function(req, res) {
-  var brewID = req.params.id;
-  console.log('Deleting brewID: ', brewID);
+  var brewRecordDeleteID = req.params.id;
+  console.log('Deleting brewID: ', brewRecordDeleteID);
   pool.connect()
     .then(function (client) {
       client.query('DELETE FROM brews_test WHERE id=$1;',
-        [brewID])
+        [brewRecordDeleteID])
         .then(function (result) {
           client.release();
           res.sendStatus(200);
@@ -71,13 +71,13 @@ router.delete('/:id', function(req, res) {
 });
 
 router.put('/:id', function(req, res) {
-  var brewID = req.params.id;
-  var brew = req.body;
-  console.log('Updating brew: ', brew);
+  var brewRecordUpdateID = req.params.id;
+  var brewRecordUpdate = req.body;
+  console.log('Updating brew: ', brewRecordUpdate);
   pool.connect()
     .then(function (client) {
       client.query('UPDATE brews_test SET beer_name=$1, date_had=$2, notes=$3, rating=$4, brewery_id=$5 WHERE id=$6;',
-        [brew.beer_name, brew.date_had, brew.notes, brew.rating, brew.brewery_id, brewID])
+        [brewsRecordUpdate.beer_name, brewsRecordUpdate.date_had, brewsRecordUpdate.notes, brewsRecordUpdate.rating, brewsRecordUpdate.brewery_id, brewRecordUpdateID])
         .then(function (result) {
           client.release();
           res.sendStatus(200);

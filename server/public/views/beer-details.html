@@ -1,37 +1,32 @@
-{{bdc}}
+<!-- {{bdc}} -->
 <!-- {{bdc.testVariable}} -->
+<h3 class="main">{{bdc.brew.details.name}} - {{bdc.brew.details.date_had | date: 'MMMM dd, yyyy'}}</h3>
 
+<div class="brewBrewList table-editable">
 
-<h3 class="main">{{bdc.brew.details.name}}</h3>
-{{bdc.brew.name}}
-<div class="brewBrewList table-responsive">
   <table class="table table-bordered ">
 
     <thead>
       <tr>
-        <th class="date">date enjoyed:</th>
-        <th class="beer_name">beer name:</th>
-        <th class="rating">rating:</th>
-        <th class="notes">notes:</th>
-        <th class="update">update</th>
-        <th class="delete">delete</th>
+        <th class="beer_name">Beer Name:</th>
+        <th class="rating">Rating:</th>
+        <th class="notes">Notes:</th>
+        <th class="update">Update/Delete</th>
       </tr>
     </thead>
 
     <tbody>
       <tr>
-        <td>{{bdc.brew.details.date_had | date: 'MMMM dd, yyyy'}}</td>
-        <td ng-model="bdc.brew.beer_name">{{bdc.brew.details.beer_name}}</td>
+        <td contenteditable="true" ng-model="bdc.brew.beer_name">{{bdc.brew.details.beer_name}}</td>
         <td ng-model="bdc.brew.rating">{{bdc.brew.details.rating}}</td>
-        <td ng-model="bdc.brew.notes">{{bdc.brew.details.notes}}</td>
-        <td class="update">
-          <button ng-click="bdc.updateBrew(brew)" type="button" class="btn btn-info">
+        <td contenteditable="true" ng-model="bdc.brew.notes">{{bdc.brew.details.notes}}</td>
+        <td>
+          <button ng-click="bdc.updateBrew(bdc.brew.details)" type="button" class="btn btn-info">
           <span class="glyphicon glyphicon-ok-sign"></span></button>
-          </td>
-        <td class="delete">
-          <button ng-click="bdc.deleteBrew(brew.id)" type="button" class="btn btn-danger">
+          <button ng-click="bdc.deleteBrew(bdc.brew.details.id)" type="button" class="btn btn-danger">
           <span class="fa fa-trash-o"></span></button>
           </td>
+
       </tr>
     </tbody>
 

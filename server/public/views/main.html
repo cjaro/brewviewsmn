@@ -1,26 +1,32 @@
 <!-- <div class="mainLoggedView" ng-show="mc.userIsLoggedIn"> -->
-{{userIsLoggedIn}}
+<!-- {{mc.userIsLoggedIn}} -->
 
-  <h3 class="main">my brews</h3>
+<h3 class="main">My Brews</h3>
 
-  <div class="brewBrewList table-responsive">
-    <table class="table table-hover">
+<div class="brewBrewList table-responsive">
+  <table class="table table-hover">
 
-      <thead>
-        <tr>
-          <th class="date"><span class="fa fa-calendar"></span> date enjoyed</th>
-          <th class="brewery"><span class="fa fa-building-o"></span> brewery</th>
-          <th><span class="fa fa-eye"></span> details</th>
-        </tr>
-      </thead>
+    <thead>
+      <tr>
+        <th class="date"><span class="fa fa-calendar"></span> Date Enjoyed</th>
+        <th class="brewery"><span class="fa fa-building-o"></span> Brewery</th>
+        <th><span class="fa fa-eye"></span> Details</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
 
-      <tbody>
-        <tr ng-repeat="brew in mc.brewList">
-          <td>{{brew.date_had | date: 'MMMM dd, yyyy'}}</td>
-          <td ng-model="brew.name">{{brew.name}}</td>
-          <td id="#seeMore">
+    <tbody>
+      <tr ng-repeat="brew in mc.brewList">
+        <td>{{brew.date_had | date: 'MMMM dd, yyyy'}}</td>
+        <td ng-model="brew.name">{{brew.name}}</td>
+        <td id="#seeMore">
           <button class="btn btn-default" type="button" ng-click="">
-            <a ng-href="#!brews/{{brew.id}}"> see more for this {{brew.name}} experience
+            <a ng-href="#!brews/{{brew.id}}"> See more for this {{brew.name}} experience
+            </button>
+          </td>
+          <td>
+            <button ng-click="mc.deleteBrew(brew.id)" type="button" class="btn btn-danger">
+              <span class="fa fa-trash-o"></span>
             </button>
           </td>
 
@@ -31,33 +37,20 @@
 
   </div>
 
-
-
-
-
-
-
-
-
-
-
-
 <!--
-
-
-drink up my hearties yo ho drink up
-it's a pirate's life for me
-      ~  ~  ~
-    ( o )o) o)
-  ( o )o ) )o)o)
- (o( ~~~~~~~~~~o
- ( )' ~~~~~~~~~.
-( )|)          |-.
-  o|  _  _     |-. \
-  o| |_||_)\ / |  \ \
-   | | ||_)\/  |   | |
-  o|           |  / /
-   |           |." "
-   |           |- '
-   .===========.
- -->
+||drink up my hearties yo ho drink up
+|| it's a pirate's life for me
+||      ~  ~  ~
+||      ( o )o) o)
+||     ( o )o ) )o)o)
+||    (o( ~~~~~~~~~~o
+||    ( )' ~~~~~~~~~.
+||   ( )|)          |-.
+||     o|  _  _     |-. \
+||     o| |_||_)\ / |  \ \
+||      | | ||_)\/  |   | |
+||     o|           |  / /
+||      |           |." "
+||      |           |- '
+||      .===========.
+-->

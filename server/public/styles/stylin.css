@@ -6,8 +6,8 @@ body {
 }
 
 div {
-  padding: 2px;
-  margin: 2px;
+  padding: 1px;
+  margin: 1px;
 }
 
 h1 {
@@ -57,9 +57,22 @@ label {
   float: right;
 }
 
-#inputName, #inputDate, #inputBrewery, #inputRating {
+
+#inputName, #inputRating {
   display: inline-block;
 }
+
+#inputDate, #inputBrewery {
+  display: inline-block;
+}
+
+/*.dynamicFields {
+    display: inline-block;
+}
+
+.staticFields {
+  display:inline-block;
+}*/
 
 #loginPic {
   height: 200px;
@@ -102,12 +115,6 @@ label {
 }
 img:hover {
     opacity: 1.0;
-}
-
-.selling {
-  background: white;
-  padding: 5px;
-  margin: 5px;
 }
 
 .suggestDiv {

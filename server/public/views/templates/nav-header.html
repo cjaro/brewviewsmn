@@ -1,5 +1,5 @@
 <span ng-controller="NavController as nc" ng-show="nc.userIsLoggedIn">
-  <!-- {{nc}} -->
+  {{nc}}
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -8,15 +8,15 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#!main"><img src="/assets/brewviewslogotype.png" alt="awesome brew views logo"></a>
+        <a class="navbar-brand" href="#!main"><img src="/assets/brewviewslogotype.png" class="img-responsive" height="25px" alt="awesome brew views logo"></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
-            <li><a href="#!main"><span class="fa fa-beer"></span> my brews</a></li>
-            <li><a href="#!add"><span class="fa fa-plus"></span> add brew</a></li>
+            <li><a href="#!main"><span class="fa fa-beer"></span> My Brews</a></li>
+            <li><a href="#!add"><span class="fa fa-plus"></span> Add Brew</a></li>
 
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" ><span class="fa fa-globe"></span> brewsources<span class="caret"></span></a>
+            <a class="dropdown-toggle" data-toggle="dropdown" ><span class="fa fa-globe"></span> Brewsources<span class="caret"></span></a>
             <ul class="dropdown-menu">
                 <li><a href="http://growlermag.com/" target="_blank"><span class="fa fa-external-link"></span>  Growler Magazine</a></li>
                 <li><a href="http://www.mncraftbrew.org/" target="_blank"><span class="fa fa-external-link"></span>  MN Craft Brewer's Guild</a></li>
@@ -24,14 +24,14 @@
             </ul>
           </li>
 
-          <li> <a href="#!suggestion"><span class="fa fa-comments-o"></span> suggestions</a></li>
+          <li> <a href="#!suggestion"><span class="fa fa-comments-o"></span> Suggestions</a></li>
 
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <!-- <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> log out</a></li> -->
 
           <button id="logoutbutton" type="button" class="btn btn-danger" ng-click="nc.logOut()">
-            <span class="glyphicon glyphicon-log-out"></span> log out</button>
+            <span class="glyphicon glyphicon-log-out"></span> Cut Me Off</button>
 
         </ul>
       </div>

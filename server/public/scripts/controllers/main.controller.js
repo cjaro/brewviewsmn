@@ -18,7 +18,10 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
 
   self.deleteBrew = function(brewID) {
     console.log('brewID to delete: ', brewID);
-
+    $http.delete('/brews/' + brewID).then(function(response){
+      getBrews();
+    });
+  }
     // swal({
     //   title: "Are you sure?",
     //   text: "You will not be able to recover this imaginary file!",
@@ -38,19 +41,16 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
     //   }
     // });
 
-    $http.delete('/brews/' + brewID).then(function(response){
-      getBrews();
-    });
-  }
+
 
 //something is wrong with 'brew'
 // fixed 3/21/17
-
-  self.updateBrew = function(brew) {
-    console.log('brew to update: ', brew);
-    $http.put('/brews/' + brew.id, brew).then(function(response){
-      getBrews();
-    });
-  }
+  //
+  // self.updateBrew = function(brew) {
+  //   console.log('brew to update: ', brew);
+  //   $http.put('/brews/' + brew.id, brew).then(function(response){
+  //     getBrews();
+  //   });
+  // }
 
 }]);
