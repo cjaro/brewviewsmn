@@ -4,8 +4,8 @@ var app = express();
 var bodyParser = require('body-parser');
 var path = require('path');
 var breweries = require('./routes/breweries.js');
-var brews = require('./routes/brews.js');
-var beerDetails = require('./routes/beer-details.js');
+var visits = require('./routes/visits.js');
+var visitDetails = require('./routes/visit-details.js');
 
 var port = 5000;
 
@@ -15,8 +15,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 // routes
 app.use('/breweries', breweries);
-app.use('/brews', brews);
-app.use('/beerDetails', beerDetails);
+app.use('/visits', visits);
+app.use('/visitDetails', visitDetails);
 
 // serve index.html
 app.get('/', function(req, res) {

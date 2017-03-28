@@ -20,10 +20,10 @@ app.config(['$routeProvider', function($routeProvider) {
   .when('/suggestion', {
     templateUrl: '/views/suggestion.html',
   })
-  .when('/brews/:brewID', {
-  templateUrl: '/views/beer-details.html',
-  controller: 'BeerDetailsController',
-  controllerAs: 'bdc'
+  .when('/visits/:visitID', {
+  templateUrl: '/views/visit-details.html',
+  controller: 'VisitDetailsController',
+  controllerAs: 'vdc'
 })
   .otherwise({
     redirectTo: 'login'

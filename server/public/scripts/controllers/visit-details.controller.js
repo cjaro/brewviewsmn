@@ -1,13 +1,13 @@
-app.controller('BeerDetailsController', ['$http', '$location','BeerDetailsFactory', '$routeParams',
-function ($http, $location, BeerDetailsFactory, $routeParams) {
-  console.log('Beer deets controller loaded');
+app.controller('VisitDetailsController', ['$http', '$location','VisitDetailsFactory', '$routeParams',
+function ($http, $location, VisitDetailsFactory, $routeParams) {
+  console.log('Visit deets controller loaded');
   console.log($routeParams)
   var self = this;
   self.testVariable = 'I am a test!';
   self.brewList = [];
-  self.brew = BeerDetailsFactory.brew;
+  self.brew = VisitDetailsFactory.brew;
   // console.log(BeerDetailsFactory.brew);
-  BeerDetailsFactory.getBeerDetails($routeParams.brewID);
+  VisitDetailsFactory.getVisitDetails($routeParams.visitID);
 
   self.deleteBrew = function(brewID) {
     console.log('brewID to delete: ', brewID);

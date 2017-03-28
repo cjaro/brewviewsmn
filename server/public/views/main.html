@@ -1,10 +1,12 @@
 <!-- <div class="mainLoggedView" ng-show="mc.userIsLoggedIn"> -->
 <!-- {{mc.userIsLoggedIn}} -->
 
-<h3 class="main">My Brews</h3>
+<h3 class="main">My Visits</h3>
+
+{{mc}}
 
 <div class="brewBrewList table-responsive">
-  <table class="table table-hover">
+  <table class="table table-hover table-bordered">
 
     <thead>
       <tr>
@@ -16,16 +18,14 @@
     </thead>
 
     <tbody>
-      <tr ng-repeat="brew in mc.brewList">
-        <td>{{brew.date_had | date: 'MMMM dd, yyyy'}}</td>
-        <td ng-model="brew.name">{{brew.name}}</td>
+      <tr ng-repeat="visit in mc.visitList">
+        <td>{{visit.date_had | date: 'MMMM dd, yyyy'}}</td>
+        <td ng-model="visit.name">{{visit.name}}</td>
         <td id="#seeMore">
-          <button class="btn btn-default" type="button" ng-click="">
-            <a ng-href="#!brews/{{brew.id}}"> See more for this {{brew.name}} experience
-            </button>
+            <a href="/#!visits/{{visit.id}}" class="btn btn-default" role="button">Details about this {{visit.name}} Experience</a>
           </td>
           <td>
-            <button ng-click="mc.deleteBrew(brew.id)" type="button" class="btn btn-danger">
+            <button ng-click="mc.deleteVisit(visit.id)" type="button" class="btn btn-danger">
               <span class="fa fa-trash-o"></span>
             </button>
           </td>

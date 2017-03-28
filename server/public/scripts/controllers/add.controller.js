@@ -1,6 +1,7 @@
 app.controller('AddController', ['$http','$location', 'DataFactory', function($http, $location, DataFactory){
     console.log('Add Controller loaded');
     var self = this;
+    self.items = [];
     // self.testMessage = 'Can you hear me?';
 
     self.addNewBrew = function(newBrewObject) {
@@ -11,12 +12,19 @@ app.controller('AddController', ['$http','$location', 'DataFactory', function($h
       });
     };
 
-    self.addField = function(){
-      console.log();
-    };
+    // self.addField = function(){
+    //   var newItem = self.items.length+1;
+    //   console.log(newItem);
+    //   $('.addNewButton').on('click', function(){
+    //     console.log('add button clicked');
+    //   })
+    //   self.push({
+    //
+    //   })
+    // };
     // self.removeField = function(){
-    //   var lastItem = self./something/.length-1;
-    //   self./something/.splice(lastItem);
+    //   var lastItem = self.items.length-1;
+    //   self.items.splice(lastItem);
     // };
 
     self.breweries = DataFactory.breweries;

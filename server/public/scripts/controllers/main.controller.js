@@ -4,22 +4,22 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
   var auth = $firebaseAuth();
   // var swl = sweetalert;
   // self.testVariable = 'am test';
-  self.brewList = [];
-  self.breweries = DataFactory.breweries;
+  self.visitList = [];
+  self.visits = DataFactory.visits;
 
-  getBrews();
+  getVisits();
 
-  function getBrews() {
-    $http.get('/brews').then(function(response){
+  function getVisits() {
+    $http.get('/visits').then(function(response){
       console.log('response data: ', response.data);
-      self.brewList = response.data;
+      self.visitList = response.data;
     });
   }
 
-  self.deleteBrew = function(brewID) {
-    console.log('brewID to delete: ', brewID);
-    $http.delete('/brews/' + brewID).then(function(response){
-      getBrews();
+  self.deleteVisit = function(visitID) {
+    console.log('visitID to delete: ', visitID);
+    $http.delete('/visits/' + visitID).then(function(response){
+      getVisits();
     });
   }
     // swal({

@@ -1,0 +1,66 @@
+<h3 class="main">{{vdc.visit.details.name}} - {{vdc.brew.details.date_had | date: 'MMMM dd, yyyy'}}</h3>
+
+<div class="brewBrewList">
+
+  <table class="table table-bordered">
+
+    <thead>
+      <tr>
+        <th class="beer_name">Beer Name:</th>
+        <th class="rating">Rating:</th>
+        <th class="notes">Notes:</th>
+        <th class="update">Update/Delete</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td type="text" ng-model="vdc.visit.beer_name">{{vdc.visit.details.beer_name}}</td>
+        <td type="number" ng-model="vdc.brew.rating">{{vdc.brew.details.rating}}</td>
+        <td type="text" ng-model="vdc.brew.notes">{{vdc.brew.details.notes}}</td>
+        <td>
+          <button ng-click="vdc.updateBrew(vdc.brew.details)" type="button" class="btn btn-info">
+            <span class="glyphicon glyphicon-ok-sign"></span></button>
+            <button ng-click="vdc.deleteBrew(vdc.brew.details.id)" type="button" class="btn btn-danger">
+              <span class="fa fa-trash-o"></span>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+
+
+  <!-- {{vdc}} -->
+  <!-- {{vdc.testVariable}} -->
+
+
+  <!-- {{mc.testVariable}} -->
+
+  <!-- x-editable table????? -->
+  <!-- neater way to display -->
+  <!-- notes could be a popup -->
+  <!-- onaftersave="saveTable()" oncancel="cancel()" -->
+
+  <!-- <form editable-form name="tableform" >
+  <table class="table table-bordered table-hover table-condensed">
+  <tr>
+  <td>brew name</td>
+  <td>brewery</td>
+  <td>date enjoyed</td>
+  <td>rating</td>
+  <td>notes</td>
+  <td"><span ng-show="tableform.$visible">Action</span></td>
+</tr>
+<tr ng-repeat="brew in mc.brewList">
+<td><span editable-text="brew.beer_name"></span></td>
+<td><span editable-text="brew.name"></span></td>
+<td><span editable-text="brew.date_had"></span></td>
+<td><span editable-text="brew.rating"></span></td>
+<td><span editable-text="brew.notes"></span></td>
+</tr>
+</table>
+
+</form> -->

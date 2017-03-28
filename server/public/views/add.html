@@ -3,63 +3,65 @@
 <div class="addingNewBeer">
   <!-- {{ac.testMessage}} -->
 
+  <div class="staticFields">
+    <div class="form-group dropdown" id="inputDate">
+      <!-- TODO get date to display as editable Month, Day, & Year, not 2017-03-11T06:00:00.000Z -->
+      <label>Date Enjoyed:</label>
+      <input type="date" class="form-control" ng-model="ac.newBeer.date_had">
+    </div>
 
-<div class="staticFields">
-  <div class="form-group dropdown" id="inputDate">
-    <!-- TODO get date to display as editable Month, Day, & Year, not 2017-03-11T06:00:00.000Z -->
-    <label>Date Enjoyed:</label>
-    <input type="date" class="form-control" ng-model="ac.newBeer.date_had">
+    <div class="form-group" id="inputBrewery">
+      <label>Brewery:</label>
+      <select class="form-control" ng-model="ac.newBeer.brewery_id" ng-options="item.id as item.name for item in ac.breweries.list"></select>
+      <!-- typeahead -->
+    </div>
+  </div>
+  <!-- this element will repeat as brews are added to the visit record -->
+  <div class="dynamicFields">
+
+    <div class="form-group" id="inputName">
+      <label>Brew Name:</label>
+      <input type="text" class="form-control" ng-model="ac.newBeer.beer_name" placeholder="brew name">
+    </div>
+
+    <div class="form-group" id="inputRating">
+      <label>Rating (1-10):</label>
+      <select class="form-control" ng-model="ac.newBeer.rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+
+    <div class="form-group" id="inputNotes">
+      <label>Notes:</label>
+      <textarea class="form-control" rows="3" cols="35" ng-model="ac.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
+    </div>
+
   </div>
 
-  <div class="form-group" id="inputBrewery">
-    <label>Brewery:</label>LOOK AT ME make this autocomplete
-    <select class="form-control" ng-model="ac.newBeer.brewery_id" ng-options="item.id as item.name for item in ac.breweries.list"></select>
-    <!-- typeahead -->
-  </div>
-</div>
-
-<div class="dynamicFields">
-
-  <div class="form-group" id="inputName">
-    <label>Brew Name:</label>
-    <input class="form-control" ng-model="ac.newBeer.beer_name" placeholder="brew name">
-  </div>
-
-  <div class="form-group" id="inputRating">
-    <label>Rating (1-10):</label>
-    <select class="form-control" ng-model="ac.newBeer.rating">
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-    </select>
-  </div>
-
-  <div class="form-group" id="inputNotes">
-    <label>Notes:</label>
-    <textarea class="form-control" rows="3" cols="35" ng-model="ac.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
-  </div>
-
-</div>
-
-<div class="buttons">
   <!-- TODO here: option to add multiple beers to this record -->
-  <div class="addField">
+  <!-- <div class="addField">
     <button class="btn btn-primary" ng-click="addField()"><span class="glyphicon glyphicon-plus-sign"></span> Another!</button>
-  </div>
+  </div> -->
 
   <div class="addNewButton">
     <button  ng-click="ac.addNewBrew(ac.newBeer)" type="button" class="btn btn-success" action="/#!main"><span class="fa fa-hand-peace-o"></span> Beer Me</button>
   </div>
-</div>
-
 
   <!-- {{ac.newBeer}} -->
-
 </div>
+
+
+<!--
+
+
+
+-->

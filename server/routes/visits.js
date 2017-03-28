@@ -1,27 +1,24 @@
 //DOM - home view
-
 var express = require('express');
 var pool = require('../config/database-pool.js');
 var router = require('express').Router();
-
 var admin = require('firebase-admin');
 var serviceAccount = require('../firebase-service-account.json');
-
-//create command that specificies user id
-//SELECT * (recorded brews) <- by specific user
-// WHERE user_id = $1
-// INSERT INTO users (user_name, email) VALUES ($1, $2);
 
 admin.initializeApp({
   credential: admin.credential.cert("./server/firebase-service-account.json"),
   databaseURL: "https://brewviewsmn.firebaseio.com" // replace this line with your URL
 });
 
+//create command that specificies user id
+//SELECT * (recorded brews) <- by specific user
+// WHERE user_id = $1
+// auth --> INSERT INTO users (user_name, email) VALUES ($1, $2);
 
 router.get('/', function (req, res) {
   pool.connect()
     .then(function (client) {
-      client.query('SELECT brews_test.*, my_brewery_db.name FROM brews_test JOIN my_brewery_db ON brews_test.brewery_id = my_brewery_db.id ORDER BY date_had DESC;')
+      client.query('SELECT visits.*, my_brewery_db.name FROM visits JOIN my_brewery_db ON visits.brewery_id = my_brewery_db.id ORDER BY date_had DESC;')
         .then(function (result) {
           client.release();
           res.send(result.rows);
@@ -77,7 +74,7 @@ router.put('/:id', function(req, res) {
   pool.connect()
     .then(function (client) {
       client.query('UPDATE brews_test SET beer_name=$1, date_had=$2, notes=$3, rating=$4, brewery_id=$5 WHERE id=$6;',
-        [brewsRecordUpdate.beer_name, brewsRecordUpdate.date_had, brewsRecordUpdate.notes, brewsRecordUpdate.rating, brewsRecordUpdate.brewery_id, brewRecordUpdateID])
+        [brewRecordUpdate.beer_name, brewRecordUpdate.date_had, brewRecordUpdate.notes, brewRecordUpdate.rating, brewRecordUpdate.brewery_id, brewRecordUpdateID])
         .then(function (result) {
           client.release();
           res.sendStatus(200);
@@ -88,7 +85,6 @@ router.put('/:id', function(req, res) {
         });
     });
 });
-
 
 module.exports = router;
 
