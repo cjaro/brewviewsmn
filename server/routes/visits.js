@@ -35,8 +35,8 @@ router.post('/', function (req, res) {
   console.log('New brew: ', newBeer);
   pool.connect()
     .then(function (client) {
-      client.query('INSERT INTO brews_test (beer_name, rating, notes, visit_id) VALUES ($1, $2, $3, $4, $5)',
-        [newBeer.beer_name, newBeer.date_had, newBeer.rating, newBeer.notes, newBeer.brewery_id])
+      client.query('INSERT INTO brews_test (beer_name, rating, notes, visit_id) VALUES ($1, $2, $3, $4)',
+        [newBeer.beer_name, newBeer.rating, newBeer.notes, newBeer.visit_id])
         .then(function (result) {
           client.release();
           res.sendStatus(201);

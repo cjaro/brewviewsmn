@@ -5,36 +5,56 @@
 
 <!-- {{mc}} -->
 
-<div class="brewBrewList table-responsive">
-  <table class="table table-hover table-bordered">
+<div class="brewBrewList ">
+  <table class="table table-hover table-bordered table-responsive">
 
     <thead>
       <tr>
-        <th class="date"><span class="fa fa-calendar"></span> Date Enjoyed</th>
-        <th class="brewery"><span class="fa fa-building-o"></span> Brewery</th>
-        <th><span class="fa fa-eye"></span> Details</th>
-        <th>Delete</th>
+        <th class="date"><span class="fa fa-calendar"></span> Date of Visit</th>
+        <th class="brewery"><span class="fa fa-building-o"></span> Brewery (click for details!)</th>
+        <!-- <th><span class="fa fa-eye"></span> Details</th> -->
       </tr>
     </thead>
 
     <tbody>
       <tr ng-repeat="visit in mc.visitList">
         <td>{{visit.date_had | date: 'MMMM dd, yyyy'}}</td>
-        <td ng-model="visit.name">{{visit.name}}</td>
+        <!-- <td ng-model="visit.name">{{visit.name}}</td> -->
         <td id="#seeMore">
-            <a href="/#!visits/{{visit.id}}" class="btn btn-default" role="button">Details about this {{visit.name}} Visit</a>
+            <a href="/#!visits/{{visit.id}}" class="btn btn-default" role="button">{{visit.name}}</a>
           </td>
-          <td>
-            <button ng-click="mc.deleteVisit(visit.id)" type="button" class="btn btn-danger">
-              <span class="fa fa-trash-o"></span>
-            </button>
-          </td>
-
         </tr>
       </tbody>
 
     </table>
 
+  </div>
+
+
+
+ 
+  <h3 class="main">Add a Visit</h3>
+
+  <div class="addingNewVisit">
+    <!-- {{avc.testMessage}} -->
+
+      <div class="form-group dropdown" id="inputDate">
+        <!-- TODO get date to display as editable Month, Day, & Year, not 2017-03-11T06:00:00.000Z -->
+        <label>Date Enjoyed:</label>
+        <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
+      </div>
+
+      <div class="form-group" id="inputBrewery">
+        <label>Brewery:</label>
+        <select class="form-control" ng-model="mc.newBeer.brewery_id" ng-options="item.id as item.name for item in mc.breweries.list"></select>
+        <!-- typeahead -->
+      </div>
+
+    <div class="addNewButton">
+      <button  ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="/#!main"><span class="fa fa-book"></span> Record Visit</button>
+    </div>
+
+    <!-- {{ac.newBeer}} -->
   </div>
 
 <!--

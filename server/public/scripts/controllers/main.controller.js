@@ -6,6 +6,7 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
   // self.testVariable = 'am test';
   self.visitList = [];
   self.visits = DataFactory.visits;
+  self.breweries = DataFactory.breweries;
 
   getVisits();
 
@@ -16,12 +17,34 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
     });
   }
 
-  self.deleteVisit = function(visitID) {
-    console.log('visitID to delete: ', visitID);
-    $http.delete('/visits/' + visitID).then(function(response){
-      getVisits();
+  self.addNewVisit = function(newVisitObject) {
+    console.log('newVisitObject: ', newVisitObject);
+    $http.post('/visits', newVisitObject).then(function(response){
+
+      var visitUrl = '/visit/'+response.data.id;
+      $location.url(visitUrl);
+      console.log('visitUrl: ', visitUrl);
+      // $location.path('/addBrew');
+      console.log('response: ', response);
     });
-  }
+  };
+
+  // self.addField = function(){
+  //   var newItem = self.items.length+1;
+  //   console.log(newItem);
+  //   $('.addNewButton').on('click', function(){
+  //     console.log('add button clicked');
+  //   })
+  //   self.push({
+  //
+  //   })
+  // };
+  // self.removeField = function(){
+  //   var lastItem = self.items.length-1;
+  //   self.items.splice(lastItem);
+  // };
+
+
     // swal({
     //   title: "Are you sure?",
     //   text: "You will not be able to recover this imaginary file!",

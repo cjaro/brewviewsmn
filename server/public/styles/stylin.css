@@ -1,8 +1,8 @@
 body {
-  background-color: dodgerblue;
-  /*background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');*/
-  background-size: 50px 50px;
-  background-repeat: repeat;
+  /*background-color: dodgerblue;
+  background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');
+  background-size: 75px 75px;
+  background-repeat: repeat;*/
 }
 
 div {
@@ -55,8 +55,8 @@ label {
 #addNewButton {
   margin: 2px;
   margin: auto;
+  text-align: center;
 }
-
 
 #inputName, #inputRating {
   display: inline-block;
@@ -66,30 +66,36 @@ label {
   display: inline-block;
 }
 
-/*.dynamicFields {
-    display: inline-block;
-}
-
-.staticFields {
-  display:inline-block;
-}*/
-
 #loginPic {
   height: 200px;
   width: 200px;
   margin: 0 auto;
 }
 
+#logoutbutton {
+  margin: auto;
+}
 
+#updateDeleteButtons {
+  margin: auto;
+  text-align: center;
+}
 
-.addingNewBeer {
+.addingNewBeer, .addingNewVisit {
   background: white;
   border-radius: 8px;
   border: 1px solid black;
+  text-align: center;
 }
 
 .brewName, .brewDate, .brewBrewery, .ratingButtons {
   display: inline-block;
+}
+
+.deleteThisVisit {
+  text-align: center;
+  background: white;
+  border: 1px solid black;
 }
 
 .list {
@@ -117,6 +123,14 @@ img:hover {
     opacity: 1.0;
 }
 
+.spacer {
+  margin-top: 25px;
+}
+
+.spacer2 {
+  text-align: center;
+}
+
 .suggestDiv {
   text-align: center;
   background: white;
@@ -126,10 +140,6 @@ img:hover {
 table, thead, td, tr {
   border-collapse: collapse;
   padding: 1px;
-}
-
-table td #seeMore {
-  font-size: 72px
 }
 
 table th {

@@ -1,13 +1,13 @@
-<h3 class="main">{{vdc.visit.details[id].name}} - {{vdc.brew.details.date_had | date: 'MMMM dd, yyyy'}}</h3>
-
+<h3 class="main">brewery name || visit date</h3>
+{{brew.name}} - {{brew.date_had | date: 'MMMM dd, yyyy'}}
 <!-- {{vdc}} -->
 <!-- {{vdc.visit}} -->
 <!-- {{vdc.visit.details}} -->
-{{vdc.visit.details[i].beer_name}}
+<!-- {{vdc.visit.details[i].beer_name}} -->
 <!-- {{vdc.visit.details.beer_name}} -->
-{{vdc.visit.details}}
+<!-- {{vdc.visit.details}} -->
 
-{{brew}}
+<!-- {{brew}} -->
 
 <div class="brewBrewList">
 
@@ -15,10 +15,10 @@
 
     <thead>
       <tr>
-        <th class="beer_name">Beer Name:</th>
-        <th class="rating">Rating:</th>
-        <th class="notes">Notes:</th>
-        <th class="update">Update/Delete</th>
+        <th>Beer Name:</th>
+        <th>Rating:</th>
+        <th>Notes:</th>
+        <th>Update/Delete</th>
       </tr>
     </thead>
 
@@ -27,10 +27,10 @@
         <td>{{brew.beer_name}}</td>
         <td>{{brew.rating}}</td>
         <td>{{brew.notes}}</td>
-        <td>
-          <button ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info">
+        <td id="updateDeleteButtons">
+          <button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info">
             <span class="glyphicon glyphicon-ok-sign"></span></button>
-            <button ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger">
+            <button id="deleteButton"ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger">
               <span class="fa fa-trash-o"></span>
             </button>
           </td>
@@ -68,19 +68,44 @@
 
       <div class="form-group" id="inputNotes">
         <label>Notes:</label>
-        <textarea class="form-control" rows="3" cols="35" ng-model="vdc.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
+        <textarea class="form-control" rows="3" cols="5" ng-model="vdc.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
       </div>
 
     <div class="addNewButton">
-      <button  ng-click="vdc.addNewBrew(abc.newBeer)" type="button" class="btn btn-success" action="/#!main"><span class="fa fa-hand-peace-o"></span> Beer Me</button>
+      <button ng-click="vdc.addNewBrew(vdc.newBeer)" type="button" class="btn btn-success"><span class="fa fa-hand-peace-o"></span> Beer Me</button>
     </div>
 
     {{vdc.newBeer}}
   </div>
 
 
+<div class="spacer">
+  <div>
+    <div>
+      <div class="spacer2">
+        <span class="fa fa-exclamation-triangle"></span>
+        <span class="fa fa-exclamation-triangle"></span>
+        <span class="fa fa-exclamation-triangle"></span>
+        <span class="fa fa-exclamation-triangle"></span>
+        DANGER ZONE
+        <span class="fa fa-exclamation-triangle"></span>
+        <span class="fa fa-exclamation-triangle"></span>
+        <span class="fa fa-exclamation-triangle"></span>
+        <span class="fa fa-exclamation-triangle"></span>
+        <div>
+          <div class="deleteThisVisit">
+            <button type="button" class="btn btn-danger btn-xs">
+              <span class="fa fa-trash-o"></span> Delete This Entire Visit <span class="fa fa-frown-o"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
+ <!-- ng-click="vdc.deleteVisit(visit.id)" -->
 
 
   <!-- {{vdc}} -->

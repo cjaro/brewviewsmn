@@ -1,13 +1,12 @@
-app.controller('VisitDetailsController', ['$http', '$location','VisitDetailsFactory', '$routeParams',
-function ($http, $location, VisitDetailsFactory, $routeParams) {
+app.controller('VisitDetailsController', ['$http', '$location','DataFactory', '$routeParams',
+function ($http, $location, DataFactory, $routeParams) {
   console.log('Visit deets controller loaded');
   console.log($routeParams)
   var self = this;
   self.testVariable = 'I am a test!';
   self.visitList = [];
-  self.visit = VisitDetailsFactory.visit;
-  // console.log(BeerDetailsFactory.brew);
-  VisitDetailsFactory.getVisitDetails($routeParams.visitID);
+  self.visit = DataFactory.visit;
+  DataFactory.getVisitDetails($routeParams.visitID);
 
   console.log('self.visit', self.visit);
 
@@ -18,13 +17,12 @@ function ($http, $location, VisitDetailsFactory, $routeParams) {
     });
   };
 
-
   self.deleteBrew = function(brewID) {
     console.log('brewID to delete: ', brewID);
     $http.delete('/brews/' + brewID).then(function(response){
       $location.path('/main');
     });
-  }
+  };
   //fuckballs
   //
   //fuckballs Round 2
@@ -33,14 +31,21 @@ function ($http, $location, VisitDetailsFactory, $routeParams) {
     $http.put('/brews/' + brew.id, brew).then(function(response){
       getBrews();
     });
-  }
+  };
+
+  self.deleteVisit = function(visitID) {
+    console.log('visitID to delete: ', visitID);
+    $http.delete('/visits/' + visitID).then(function(response){
+      getVisits();
+    });
+  };
 
   function getBrews() {
     $http.get('/brews').then(function(response){
       console.log('response data: ', response.data);
       self.brewList = response.data;
     });
-  }
+  };
 
 }]);
 
