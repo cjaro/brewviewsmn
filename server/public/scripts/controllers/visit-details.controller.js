@@ -19,16 +19,14 @@ function ($http, $location, DataFactory, $routeParams) {
 
   self.deleteBrew = function(brewID) {
     console.log('brewID to delete: ', brewID);
-    $http.delete('/brews/' + brewID).then(function(response){
-      $location.path('/main');
+    $http.delete('/visits/' + brewID).then(function(response){
+      getBrews();
     });
   };
-  //fuckballs
-  //
-  //fuckballs Round 2
+
   self.updateBrew = function(brew) {
     console.log('brew to update: ', brew);
-    $http.put('/brews/' + brew.id, brew).then(function(response){
+    $http.put('/visits/' + brew.id, brew).then(function(response){
       getBrews();
     });
   };
@@ -41,7 +39,7 @@ function ($http, $location, DataFactory, $routeParams) {
   };
 
   function getBrews() {
-    $http.get('/brews').then(function(response){
+    $http.get('/visits/').then(function(response){
       console.log('response data: ', response.data);
       self.brewList = response.data;
     });

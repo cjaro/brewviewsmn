@@ -30,23 +30,6 @@ router.get('/', function (req, res) {
     });
 });
 
-router.post('/', function (req, res) {
-  var newBeer = req.body;
-  console.log('New brew: ', newBeer);
-  pool.connect()
-    .then(function (client) {
-      client.query('INSERT INTO brews_test (beer_name, rating, notes, visit_id) VALUES ($1, $2, $3, $4)',
-        [newBeer.beer_name, newBeer.rating, newBeer.notes, newBeer.visit_id])
-        .then(function (result) {
-          client.release();
-          res.sendStatus(201);
-        })
-        .catch(function (err) {
-          console.log('error on INSERT', err);
-          res.sendStatus(500);
-        });
-    });
-});
 
 router.post('/', function (req, res) {
   var newVisit = req.body;
@@ -66,42 +49,7 @@ router.post('/', function (req, res) {
     });
 });
 
-router.delete('/:id', function(req, res) {
-  var brewRecordDeleteID = req.params.id;
-  console.log('Deleting brewID: ', brewRecordDeleteID);
-  pool.connect()
-    .then(function (client) {
-      client.query('DELETE FROM brews_test WHERE id=$1;',
-        [brewRecordDeleteID])
-        .then(function (result) {
-          client.release();
-          res.sendStatus(200);
-        })
-        .catch(function (err) {
-          console.log('error on SELECT', err);
-          res.sendStatus(500);
-        });
-    });
-});
 
-router.put('/:id', function(req, res) {
-  var brewRecordUpdateID = req.params.id;
-  var brewRecordUpdate = req.body;
-  console.log('Updating brew: ', brewRecordUpdate);
-  pool.connect()
-    .then(function (client) {
-      client.query('UPDATE brews_test SET beer_name=$1, date_had=$2, notes=$3, rating=$4, brewery_id=$5 WHERE id=$6;',
-        [brewRecordUpdate.beer_name, brewRecordUpdate.date_had, brewRecordUpdate.notes, brewRecordUpdate.rating, brewRecordUpdate.brewery_id, brewRecordUpdateID])
-        .then(function (result) {
-          client.release();
-          res.sendStatus(200);
-        })
-        .catch(function (err) {
-          console.log('error on UPDATE', err);
-          res.sendStatus(500);
-        });
-    });
-});
 
 module.exports = router;
 

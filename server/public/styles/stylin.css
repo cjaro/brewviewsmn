@@ -1,14 +1,15 @@
 body {
-  /*background-color: dodgerblue;
-  background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');
+  background-color: #428bca
+  /*dodgerblue;*/
+  /*background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');
   background-size: 75px 75px;
   background-repeat: repeat;*/
 }
 
-div {
+/*div {
   padding: 1px;
   margin: 1px;
-}
+}*/
 
 h1 {
   font-size: 40px;
@@ -25,7 +26,7 @@ h2 {
 }
 
 h3 {
-  background: green;
+  background: #5cb85c;
   font-size: 20px;
   text-align: center;
   color: white;
@@ -58,8 +59,14 @@ label {
   text-align: center;
 }
 
-#inputName, #inputRating {
+#inputName, #inputRating  {
   display: inline-block;
+
+}
+
+#inputNotes {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 #inputDate, #inputBrewery {
@@ -74,6 +81,7 @@ label {
 
 #logoutbutton {
   margin: auto;
+  float: right;
 }
 
 #updateDeleteButtons {
@@ -81,11 +89,20 @@ label {
   text-align: center;
 }
 
-.addingNewBeer, .addingNewVisit {
+.addingNewBeer {
   background: white;
   border-radius: 8px;
-  border: 1px solid black;
+  /*border: 1px solid black;*/
   text-align: center;
+
+}
+
+.addingNewVisit {
+  background: white;
+  border-radius: 8px;
+  /*border: 1px solid black;*/
+  text-align: center;
+  padding: 2px;
 }
 
 .brewName, .brewDate, .brewBrewery, .ratingButtons {
@@ -94,8 +111,9 @@ label {
 
 .deleteThisVisit {
   text-align: center;
-  background: white;
-  border: 1px solid black;
+
+  background: #d9534f;
+  /*border: 1px solid black;*/
 }
 
 .list {
@@ -129,6 +147,7 @@ img:hover {
 
 .spacer2 {
   text-align: center;
+  background: #d9534f;
 }
 
 .suggestDiv {
@@ -140,15 +159,16 @@ img:hover {
 table, thead, td, tr {
   border-collapse: collapse;
   padding: 1px;
+  background-color: #ffffff;
 }
 
 table th {
   background-color: rgb(255, 255, 255);
 }
 
-table tr:nth-child(odd) {
-  background-color: #ffffff;
+/*table tr:nth-child(odd) {
+  background-color: #d8fbfb;
 }
 table tr:nth-child(even) {
   background-color: #ffffff;
-}
+}*/

@@ -1,5 +1,5 @@
 <h3 class="main">brewery name || visit date</h3>
-{{brew.name}} - {{brew.date_had | date: 'MMMM dd, yyyy'}}
+<!-- {{brew.name}} - {{brew.date_had | date: 'MMMM dd, yyyy'}} -->
 <!-- {{vdc}} -->
 <!-- {{vdc.visit}} -->
 <!-- {{vdc.visit.details}} -->
@@ -15,9 +15,9 @@
 
     <thead>
       <tr>
-        <th>Beer Name:</th>
-        <th>Rating:</th>
-        <th>Notes:</th>
+        <th ng-model="vdc.newBeer.beer_name">Beer Name:</th>
+        <th ng-model="vdc.newBeer.rating">Rating:</th>
+        <th ng-model="vdc.newBeer.notes">Notes:</th>
         <th>Update/Delete</th>
       </tr>
     </thead>
@@ -42,8 +42,9 @@
   </div>
 
 
+  <h3 class="main">Add a Brew to this Visit</h3>
+
   <div class="addingNewBeer">
-    <!-- {{abc.testMessage}} -->
 
       <div class="form-group" id="inputName">
         <label>Brew Name:</label>
@@ -68,7 +69,7 @@
 
       <div class="form-group" id="inputNotes">
         <label>Notes:</label>
-        <textarea class="form-control" rows="3" cols="5" ng-model="vdc.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
+        <textarea class="form-control" rows="3" ng-model="vdc.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
       </div>
 
     <div class="addNewButton">
@@ -82,6 +83,7 @@
 <div class="spacer">
   <div>
     <div>
+      <div>
       <div class="spacer2">
         <span class="fa fa-exclamation-triangle"></span>
         <span class="fa fa-exclamation-triangle"></span>
@@ -91,10 +93,10 @@
         <span class="fa fa-exclamation-triangle"></span>
         <span class="fa fa-exclamation-triangle"></span>
         <span class="fa fa-exclamation-triangle"></span>
-        <span class="fa fa-exclamation-triangle"></span>
+        <span class="fa fa-exclamation-triangle"></span></div>
         <div>
           <div class="deleteThisVisit">
-            <button type="button" class="btn btn-danger btn-xs">
+            <button type="button" class="btn btn-default btn-xs">
               <span class="fa fa-trash-o"></span> Delete This Entire Visit <span class="fa fa-frown-o"></span>
             </button>
           </div>
@@ -103,39 +105,3 @@
     </div>
   </div>
 </div>
-
-
- <!-- ng-click="vdc.deleteVisit(visit.id)" -->
-
-
-  <!-- {{vdc}} -->
-  <!-- {{vdc.testVariable}} -->
-
-
-  <!-- {{mc.testVariable}} -->
-
-  <!-- x-editable table????? -->
-  <!-- neater way to display -->
-  <!-- notes could be a popup -->
-  <!-- onaftersave="saveTable()" oncancel="cancel()" -->
-
-  <!-- <form editable-form name="tableform" >
-  <table class="table table-bordered table-hover table-condensed">
-  <tr>
-  <td>brew name</td>
-  <td>brewery</td>
-  <td>date enjoyed</td>
-  <td>rating</td>
-  <td>notes</td>
-  <td"><span ng-show="tableform.$visible">Action</span></td>
-</tr>
-<tr ng-repeat="brew in mc.brewList">
-<td><span editable-text="brew.beer_name"></span></td>
-<td><span editable-text="brew.name"></span></td>
-<td><span editable-text="brew.date_had"></span></td>
-<td><span editable-text="brew.rating"></span></td>
-<td><span editable-text="brew.notes"></span></td>
-</tr>
-</table>
-
-</form> -->

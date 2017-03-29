@@ -3,25 +3,23 @@
 
 <h3 class="main">My Visits</h3>
 
-<!-- {{mc}} -->
-
 <div class="brewBrewList ">
   <table class="table table-hover table-bordered table-responsive">
 
     <thead>
       <tr>
         <th class="date"><span class="fa fa-calendar"></span> Date of Visit</th>
-        <th class="brewery"><span class="fa fa-building-o"></span> Brewery (click for details!)</th>
-        <!-- <th><span class="fa fa-eye"></span> Details</th> -->
+        <th class="brewery"><span class="fa fa-building-o"></span> Brewery</th>
+        <th><span class="fa fa-eye"></span> Details</th>
       </tr>
     </thead>
 
     <tbody>
       <tr ng-repeat="visit in mc.visitList">
         <td>{{visit.date_had | date: 'MMMM dd, yyyy'}}</td>
-        <!-- <td ng-model="visit.name">{{visit.name}}</td> -->
+        <td ng-model="visit.name">{{visit.name}}</td>
         <td id="#seeMore">
-            <a href="/#!visits/{{visit.id}}" class="btn btn-default" role="button">{{visit.name}}</a>
+            <a href="/#!visits/{{visit.id}}" class="btn btn-info" role="button">Your Brews from {{visit.name}}</a>
           </td>
         </tr>
       </tbody>
@@ -32,7 +30,7 @@
 
 
 
- 
+
   <h3 class="main">Add a Visit</h3>
 
   <div class="addingNewVisit">
