@@ -1,15 +1,18 @@
 --Create tables
-
+--visits
+CREATE TABLE visits (
+	id SERIAL PRIMARY KEY,
+	brewery_id INT REFERENCES my_brewery_db NOT NULL,
+	date_had DATE
+);
 --brews
 CREATE TABLE brews_test (
 	id SERIAL PRIMARY KEY,
 	beer_name VARCHAR(100) NOT NULL,
-	date_had DATE,
 	rating INT,
 	notes VARCHAR(500),
-	brewery_id INT REFERENCES my_brewery_db NOT NULL
+	visit_id INT REFERENCES visits NOT NULL
 );
-
 --breweries db
 CREATE TABLE my_brewery_db (
 	id SERIAL PRIMARY KEY,

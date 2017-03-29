@@ -1,0 +1,44 @@
+<h3 class="main">Add a Brew to your [[brewery name]] visit</h3>
+
+<div class="addingNewBeer">
+  <!-- {{abc.testMessage}} -->
+
+    <div class="form-group" id="inputName">
+      <label>Brew Name:</label>
+      <input type="text" class="form-control" ng-model="abc.newBeer.beer_name" placeholder="brew name">
+    </div>
+
+    <div class="form-group" id="inputRating">
+      <label>Rating (1-10):</label>
+      <select class="form-control" ng-model="abc.newBeer.rating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
+    </div>
+
+    <div class="form-group" id="inputNotes">
+      <label>Notes:</label>
+      <textarea class="form-control" rows="3" cols="35" ng-model="abc.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
+    </div>
+
+  <div class="addNewButton">
+    <button  ng-click="abc.addNewBrew(abc.newBeer)" type="button" class="btn btn-success" action="/#!main"><span class="fa fa-hand-peace-o"></span> Beer Me</button>
+  </div>
+
+  <!-- {{ac.newBeer}} -->
+</div>
+
+
+<!--
+
+
+
+-->

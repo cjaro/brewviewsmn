@@ -1,4 +1,13 @@
-<h3 class="main">{{vdc.visit.details.name}} - {{vdc.brew.details.date_had | date: 'MMMM dd, yyyy'}}</h3>
+<h3 class="main">{{vdc.visit.details[id].name}} - {{vdc.brew.details.date_had | date: 'MMMM dd, yyyy'}}</h3>
+
+<!-- {{vdc}} -->
+<!-- {{vdc.visit}} -->
+<!-- {{vdc.visit.details}} -->
+{{vdc.visit.details[i].beer_name}}
+<!-- {{vdc.visit.details.beer_name}} -->
+{{vdc.visit.details}}
+
+{{brew}}
 
 <div class="brewBrewList">
 
@@ -14,14 +23,14 @@
     </thead>
 
     <tbody>
-      <tr>
-        <td type="text" ng-model="vdc.visit.beer_name">{{vdc.visit.details.beer_name}}</td>
-        <td type="number" ng-model="vdc.brew.rating">{{vdc.brew.details.rating}}</td>
-        <td type="text" ng-model="vdc.brew.notes">{{vdc.brew.details.notes}}</td>
+      <tr ng-repeat="brew in vdc.visit.details">
+        <td>{{brew.beer_name}}</td>
+        <td>{{brew.rating}}</td>
+        <td>{{brew.notes}}</td>
         <td>
-          <button ng-click="vdc.updateBrew(vdc.brew.details)" type="button" class="btn btn-info">
+          <button ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info">
             <span class="glyphicon glyphicon-ok-sign"></span></button>
-            <button ng-click="vdc.deleteBrew(vdc.brew.details.id)" type="button" class="btn btn-danger">
+            <button ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger">
               <span class="fa fa-trash-o"></span>
             </button>
           </td>
@@ -31,6 +40,47 @@
     </table>
 
   </div>
+
+
+  <div class="addingNewBeer">
+    <!-- {{abc.testMessage}} -->
+
+      <div class="form-group" id="inputName">
+        <label>Brew Name:</label>
+        <input type="text" class="form-control" ng-model="vdc.newBeer.beer_name" placeholder="brew name">
+      </div>
+
+      <div class="form-group" id="inputRating">
+        <label>Rating (1-10):</label>
+        <select class="form-control" ng-model="vdc.newBeer.rating">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="inputNotes">
+        <label>Notes:</label>
+        <textarea class="form-control" rows="3" cols="35" ng-model="vdc.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
+      </div>
+
+    <div class="addNewButton">
+      <button  ng-click="vdc.addNewBrew(abc.newBeer)" type="button" class="btn btn-success" action="/#!main"><span class="fa fa-hand-peace-o"></span> Beer Me</button>
+    </div>
+
+    {{vdc.newBeer}}
+  </div>
+
+
+
+
 
 
   <!-- {{vdc}} -->

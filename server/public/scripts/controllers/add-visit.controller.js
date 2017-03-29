@@ -1,13 +1,15 @@
-app.controller('AddController', ['$http','$location', 'DataFactory', function($http, $location, DataFactory){
-    console.log('Add Controller loaded');
+app.controller('AddVisitController', ['$http','$location', 'DataFactory', function($http, $location, DataFactory){
+    console.log('Add Visit Controller loaded');
     var self = this;
-    self.items = [];
+    // self.items = [];
     // self.testMessage = 'Can you hear me?';
 
-    self.addNewBrew = function(newBrewObject) {
-      console.log('newBrewObject: ', newBrewObject);
-      $http.post('/brews', newBrewObject).then(function(response){
-        $location.path('/main');
+    self.addNewVisit = function(newVisitObject) {
+      console.log('newVisitObject: ', newVisitObject);
+      $http.post('/visits', newVisitObject).then(function(response){
+        var visitUrl = '/visit/'+response.data.id;
+        $location.url(visitUrl);
+        // $location.path('/addBrew');
         console.log('response: ', response);
       });
     };

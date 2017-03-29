@@ -1,6 +1,6 @@
 body {
   background-color: dodgerblue;
-  background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');
+  /*background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');*/
   background-size: 50px 50px;
   background-repeat: repeat;
 }
@@ -54,7 +54,7 @@ label {
 
 #addNewButton {
   margin: 2px;
-  float: right;
+  margin: auto;
 }
 
 

@@ -3,7 +3,7 @@
 
 <h3 class="main">My Visits</h3>
 
-{{mc}}
+<!-- {{mc}} -->
 
 <div class="brewBrewList table-responsive">
   <table class="table table-hover table-bordered">
@@ -22,7 +22,7 @@
         <td>{{visit.date_had | date: 'MMMM dd, yyyy'}}</td>
         <td ng-model="visit.name">{{visit.name}}</td>
         <td id="#seeMore">
-            <a href="/#!visits/{{visit.id}}" class="btn btn-default" role="button">Details about this {{visit.name}} Experience</a>
+            <a href="/#!visits/{{visit.id}}" class="btn btn-default" role="button">Details about this {{visit.name}} Visit</a>
           </td>
           <td>
             <button ng-click="mc.deleteVisit(visit.id)" type="button" class="btn btn-danger">

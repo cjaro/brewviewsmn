@@ -8,9 +8,14 @@ app.config(['$routeProvider', function($routeProvider) {
     controllerAs: 'mc'
   })
   .when('/add', {
-    templateUrl: '/views/add.html',
-    controller: 'AddController',
-    controllerAs: 'ac'
+    templateUrl: '/views/add-visit.html',
+    controller: 'AddVisitController',
+    controllerAs: 'avc'
+  })
+  .when('/addBrew', {
+    templateUrl: '/views/add-brew.html',
+    controller: 'AddBrewController',
+    controllerAs: 'abc'
   })
   .when('/login', {
     templateUrl: '/views/login.html',

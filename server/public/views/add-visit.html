@@ -1,0 +1,30 @@
+<h3 class="main">Add a Visit</h3>
+
+<div class="addingNewBeer">
+  <!-- {{avc.testMessage}} -->
+
+    <div class="form-group dropdown" id="inputDate">
+      <!-- TODO get date to display as editable Month, Day, & Year, not 2017-03-11T06:00:00.000Z -->
+      <label>Date Enjoyed:</label>
+      <input type="date" class="form-control" ng-model="avc.newBeer.date_had">
+    </div>
+
+    <div class="form-group" id="inputBrewery">
+      <label>Brewery:</label>
+      <select class="form-control" ng-model="avc.newBeer.brewery_id" ng-options="item.id as item.name for item in avc.breweries.list"></select>
+      <!-- typeahead -->
+    </div>
+
+  <div class="addNewButton">
+    <button  ng-click="avc.addNewVisit(avc.newBeer)" type="button" class="btn btn-success" action="/#!main"><span class="fa fa-hand-peace-o"></span> Record Visit</button>
+  </div>
+
+  <!-- {{ac.newBeer}} -->
+</div>
+
+
+<!--
+
+
+
+-->

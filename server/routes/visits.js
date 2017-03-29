@@ -35,7 +35,7 @@ router.post('/', function (req, res) {
   console.log('New brew: ', newBeer);
   pool.connect()
     .then(function (client) {
-      client.query('INSERT INTO brews_test (beer_name, date_had, rating, notes, brewery_id) VALUES ($1, $2, $3, $4, $5)',
+      client.query('INSERT INTO brews_test (beer_name, rating, notes, visit_id) VALUES ($1, $2, $3, $4, $5)',
         [newBeer.beer_name, newBeer.date_had, newBeer.rating, newBeer.notes, newBeer.brewery_id])
         .then(function (result) {
           client.release();
@@ -48,6 +48,23 @@ router.post('/', function (req, res) {
     });
 });
 
+router.post('/', function (req, res) {
+  var newVisit = req.body;
+  console.log('New visit: ', newVisit);
+  pool.connect()
+    .then(function (client) {
+      client.query('INSERT INTO visits (date_had, brewery_id) VALUES ($1, $2)',
+        [newVisit.date_had, newVisit.brewery_id])
+        .then(function (result) {
+          client.release();
+          res.sendStatus(201);
+        })
+        .catch(function (err) {
+          console.log('error on INSERT', err);
+          res.sendStatus(500);
+        });
+    });
+});
 
 router.delete('/:id', function(req, res) {
   var brewRecordDeleteID = req.params.id;

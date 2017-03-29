@@ -9,8 +9,11 @@ router.use('/', function (req, res) {
 
   pool.connect()
     .then(function (client) {
-      client.query('SELECT * FROM brews_test JOIN visits ON brews_test.visit_id = visits.id ' +
-      'JOIN my_brewery_db ON visits.brewery_id = my_brewery_db.id WHERE visits.id=$1 ORDER BY date_had DESC',[visitID])
+      client.query('SELECT brews_test.*, my_brewery_db.name FROM brews_test ' +
+      'JOIN visits ON brews_test.visit_id = visits.id '+
+      'JOIN my_brewery_db ON visits.brewery_id = my_brewery_db.id '+
+      'WHERE visits.id=$1 ' +
+      'ORDER BY date_had DESC;',[visitID])
 
         .then(function (result) {
           client.release();

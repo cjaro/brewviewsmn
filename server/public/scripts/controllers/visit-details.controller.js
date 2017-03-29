@@ -4,10 +4,20 @@ function ($http, $location, VisitDetailsFactory, $routeParams) {
   console.log($routeParams)
   var self = this;
   self.testVariable = 'I am a test!';
-  self.brewList = [];
-  self.brew = VisitDetailsFactory.brew;
+  self.visitList = [];
+  self.visit = VisitDetailsFactory.visit;
   // console.log(BeerDetailsFactory.brew);
   VisitDetailsFactory.getVisitDetails($routeParams.visitID);
+
+  console.log('self.visit', self.visit);
+
+  self.addNewBrew = function(newBrewObject) {
+    console.log('newBrewObject: ', newBrewObject);
+    $http.post('/visits/', newBrewObject).then(function(response){
+      console.log('response: ', response);
+    });
+  };
+
 
   self.deleteBrew = function(brewID) {
     console.log('brewID to delete: ', brewID);
@@ -15,7 +25,9 @@ function ($http, $location, VisitDetailsFactory, $routeParams) {
       $location.path('/main');
     });
   }
-//the update & delete 'brew' has to change its name - brew is an object that's being returned & passed now
+  //fuckballs
+  //
+  //fuckballs Round 2
   self.updateBrew = function(brew) {
     console.log('brew to update: ', brew);
     $http.put('/brews/' + brew.id, brew).then(function(response){
