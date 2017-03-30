@@ -6,7 +6,6 @@ var pool = require('../config/database-pool.js'); // Creates database pool, if y
 router.get('/', function (req, res) {
   var visitID = req.query.visitID
   console.log('working at visit-details route and visitID is', visitID);
-
   pool.connect()
     .then(function (client) {
       client.query('SELECT brews_test.*, my_brewery_db.name FROM brews_test ' +

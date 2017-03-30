@@ -48,6 +48,31 @@ router.post('/', function (req, res) {
     });
 });
 
+// 
+// delete visit id 
+// DELETE FROM brews_test WHERE visit_id=16;
+// DELETE FROM visits WHERE id=16;
+// 
+// something like this (ETF): 
+// 
+// router.delete('/:id', function(req, res) {
+//   var brewRecordDeleteID = req.params.id;
+//   console.log('Deleting brewID: ', brewRecordDeleteID);
+//   pool.connect()
+//     .then(function (client) {
+//       client.query('DELETE FROM brews_test WHERE visit_id=$1;',
+//         [brewRecordDeleteID])
+//         .then(function (result) {
+//           client.release();
+//           res.sendStatus(200);
+//         })
+//         .catch(function (err) {
+//           console.log('error on SELECT', err);
+//           res.sendStatus(500);
+//         });
+//     });
+// });
+
 module.exports = router;
 
 

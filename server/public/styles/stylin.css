@@ -1,15 +1,11 @@
 body {
   background-color: #428bca;
-  /*dodgerblue;*/
-  background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');
-  background-size: 65px 65px;
-  background-repeat: repeat;
-}
+  /*background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');*/
+  background-size: 60px 60px;
 
-/*div {
-  padding: 1px;
-  margin: 1px;
-}*/
+  background-repeat: repeat;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
 
 h1 {
   font-size: 40px;
@@ -53,10 +49,19 @@ label {
   font-size: 14px;
 }
 
+p {
+  background: white;
+  text-align: center;
+}
+
 #addNewButton {
   margin: 2px;
   margin: auto;
   text-align: center;
+}
+
+#seeMoreButton {
+  float: right;
 }
 
 #inputName, #inputRating  {
@@ -77,10 +82,11 @@ label {
   height: 200px;
   width: 200px;
   margin: 0 auto;
+  padding: 5px;
 }
 
 #logoutbutton {
-  margin: auto;
+  margin: 5px;
   float: right;
 }
 
@@ -91,16 +97,15 @@ label {
 
 .addingNewBeer {
   background: white;
-  border-radius: 8px;
-  /*border: 1px solid black;*/
   text-align: center;
+}
 
+.addNewButton {
+  padding: 2px;
 }
 
 .addingNewVisit {
   background: white;
-  border-radius: 8px;
-  /*border: 1px solid black;*/
   text-align: center;
   padding: 2px;
 }
@@ -111,7 +116,7 @@ label {
 
 .deleteThisVisit {
   text-align: center;
-
+  padding-bottom: 15px;
   background: #d9534f;
   /*border: 1px solid black;*/
 }
@@ -119,7 +124,6 @@ label {
 .list {
   background: white;
   padding: 2px;
-  border-radius: 8px;
   border: 1px solid black;
 }
 
@@ -132,13 +136,18 @@ label {
   padding: 0px;
 }
 .navbar-brand>img {
-  height: 110%;
+  height: 100%;
   padding: 0px;
   width: auto;
-  opacity: 0.65;
+  opacity: 0.75;
 }
 img:hover {
     opacity: 1.0;
+}
+
+.logButtons {
+    margin: 5px;
+    padding: 5px;
 }
 
 .spacer {
@@ -148,6 +157,9 @@ img:hover {
 .spacer2 {
   text-align: center;
   background: #d9534f;
+  margin-top: 50px;
+  padding-bottom: 15px;
+  padding-top: 5px;
 }
 
 .suggestDiv {
@@ -159,8 +171,9 @@ img:hover {
 table, thead, td, tr {
   border-collapse: collapse;
   padding: 1px;
-  background-color: #ffffff;
+  background-color: #ffffff;    
 }
+
 
 table th {
   background-color: rgb(255, 255, 255);
@@ -171,4 +184,9 @@ table th {
 }
 table tr:nth-child(even) {
   background-color: #ffffff;
+}*/
+
+/*div {
+  padding: 1px;
+  margin: 1px;
 }*/

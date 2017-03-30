@@ -1,5 +1,5 @@
 <span ng-controller="NavController as nc" ng-show="nc.userIsLoggedIn">
-  {{nc}}
+  <!--{{nc}}-->
   <nav class="navbar navbar-default">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -18,15 +18,19 @@
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" ><span class="fa fa-globe"></span> Brewsources<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="http://growlermag.com/" target="_blank"><span class="fa fa-external-link"></span>  Growler Magazine</a></li>
-              <li><a href="http://www.mncraftbrew.org/" target="_blank"><span class="fa fa-external-link"></span>  MN Craft Brewer's Guild</a></li>
               <li><a href="http://www.brewerydb.com/" target="_blank"><span class="fa fa-external-link"></span>  brewerydb</a></li>
+              <li><a href="http://growlermag.com/" target="_blank"><span class="fa fa-external-link"></span>  Growler Magazine</a></li>
+              <li><a href="http://mnbeer.com/" target="_blank"><span class="fa fa-external-link"></span>  MN Beer</a></li>
+              <li><a href="http://www.minnesotacraftbeerfestival.com/" target="_blank"><span class="fa fa-external-link"></span>  MN Craft Beer Festival</a></li>
+              <li><a href="http://www.mncraftbrew.org/" target="_blank"><span class="fa fa-external-link"></span>  MN Craft Brewer's Guild</a></li>
+              <li><a href="http://www.northernaleguide.com/" target="_blank"><span class="fa fa-external-link"></span>  Northern Ale Guide</a></li> 
+
             </ul>
           </li>
           <li> <a href="#!suggestion"><span class="fa fa-comments-o"></span> Suggestions</a></li>
         </ul>
         <ul>
-          <button id="logoutbutton" type="button" class="btn btn-danger btn-sm" ng-click="nc.logOut()">
+          <button id="logoutbutton" type="button" class="btn btn-danger btn-xs" ng-click="nc.logOut()">
             <span class="glyphicon glyphicon-log-out"></span> Cut Me Off<br>(log out)</button>
           </ul>
         </div>

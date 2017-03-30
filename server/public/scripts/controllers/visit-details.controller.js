@@ -14,6 +14,7 @@ function ($http, $location, DataFactory, $routeParams) {
     newBrewObject.visit_id = $routeParams.visitID;
     console.log('newBrewObject: ', newBrewObject);
     $http.post('/visitDetails' , newBrewObject).then(function(response){
+      self.newBeer={};
       console.log('response: ', response);
       DataFactory.getVisitDetails($routeParams.visitID);
     });
@@ -29,7 +30,7 @@ function ($http, $location, DataFactory, $routeParams) {
 
   self.updateBrew = function(brew) {
     console.log('brew to update: ', brew);
-    $http.put('/visitDetails/' + brew.id, brew).then(function(response){
+    $http.put('/visitDetails/' + brewID, brew).then(function(response){
       DataFactory.getVisitDetails($routeParams.visitID);
     });
   };
@@ -37,7 +38,7 @@ function ($http, $location, DataFactory, $routeParams) {
   self.deleteVisit = function(visitID) {
     console.log('visitID to delete: ', visitID);
     $http.delete('/visits/' + visitID).then(function(response){
-      DataFactory.getVisitDetails($routeParams.visitID);
+      $location.url('/main');
     });
   };
 

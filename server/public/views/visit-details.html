@@ -1,13 +1,12 @@
-<h3 class="main">{{visit.name}} - {{visit.date_had | date: 'MMMM dd, yyyy'}}</h3>
-<!-- {{brew.name}} - {{brew.date_had | date: 'MMMM dd, yyyy'}} -->
-<!-- {{vdc}} -->
-<!-- {{vdc.visit}} -->
-<!-- {{vdc.visit.details}} -->
-<!-- {{vdc.visit.details[i].beer_name}} -->
-<!-- {{vdc.visit.details.beer_name}} -->
-<!-- {{vdc.visit.details}} -->
+<h3 class="main">{{vdc.visit.details[0].name}}</h3>
+<!-- {{vdc.visit.details.name}} -->
+<!-- {{vdc.visit.details.date_had | date: 'MMMM dd, yyyy'}} -->
 
-<!-- {{brew}} -->
+<!-- {{vdc}} -->
+ <!--{{vdc.visit}} -->
+ {{vdc.visit.details.visit_id}} 
+
+ {{vdc.visit.details.name}} 
 
 <div class="brewBrewList">
 
@@ -15,10 +14,10 @@
 
     <thead>
       <tr>
-        <th>Brew Name</th>
+        <th>Name</th>
         <th>Rating</th>
         <th>Notes</th>
-        <th>Delete Brew</th>
+        <th>Delete</th>
       </tr>
     </thead>
 
@@ -28,7 +27,7 @@
         <td ng-model="vdc.newBeer.rating">{{brew.rating}}</td>
         <td ng-model="vdc.newBeer.notes">{{brew.notes}}</td>
         <td id="updateDeleteButtons">
-          <!-- <button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info">
+           <!--<button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info">
             <span class="glyphicon glyphicon-ok-sign"></span></button> -->
             <button id="deleteButton"ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger">
               <span class="fa fa-trash-o"></span>
@@ -73,7 +72,7 @@
       </div>
 
     <div class="addNewButton">
-      <button ng-click="vdc.addNewBrew(vdc.newBeer)" type="button" class="btn btn-success"><span class="fa fa-hand-peace-o"></span> Beer Me</button>
+      <button ng-click="vdc.addNewBrew(vdc.newBeer)" type="button" class="btn btn-success btn-md"><span class="fa fa-hand-peace-o"></span> Beer Me</button>
     </div>
 
     <!--{{vdc.newBeer}}-->
@@ -86,13 +85,7 @@
       <div>
       <div class="spacer2">
         <span class="fa fa-exclamation-triangle"></span>
-        <span class="fa fa-exclamation-triangle"></span>
-        <span class="fa fa-exclamation-triangle"></span>
-        <span class="fa fa-exclamation-triangle"></span>
         DANGER ZONE
-        <span class="fa fa-exclamation-triangle"></span>
-        <span class="fa fa-exclamation-triangle"></span>
-        <span class="fa fa-exclamation-triangle"></span>
         <span class="fa fa-exclamation-triangle"></span></div>
         <div>
           <div class="deleteThisVisit">
