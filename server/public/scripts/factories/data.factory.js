@@ -5,7 +5,7 @@ app.factory('DataFactory', ['$http', function($http){
   var brewery = { list: [] };
 
   function getVisitDetails(visitID) {
-    console.log('visit ID is ',visitID);
+    console.log('visit ID is ', visitID);
     $http({
       method: 'GET',
       url: '/visitDetails',

@@ -1,4 +1,4 @@
-<h3 class="main">brewery name || visit date</h3>
+<h3 class="main">{{visit.name}} - {{visit.date_had | date: 'MMMM dd, yyyy'}}</h3>
 <!-- {{brew.name}} - {{brew.date_had | date: 'MMMM dd, yyyy'}} -->
 <!-- {{vdc}} -->
 <!-- {{vdc.visit}} -->
@@ -15,21 +15,21 @@
 
     <thead>
       <tr>
-        <th ng-model="vdc.newBeer.beer_name">Beer Name:</th>
-        <th ng-model="vdc.newBeer.rating">Rating:</th>
-        <th ng-model="vdc.newBeer.notes">Notes:</th>
-        <th>Update/Delete</th>
+        <th>Brew Name</th>
+        <th>Rating</th>
+        <th>Notes</th>
+        <th>Delete Brew</th>
       </tr>
     </thead>
 
     <tbody>
       <tr ng-repeat="brew in vdc.visit.details">
-        <td>{{brew.beer_name}}</td>
-        <td>{{brew.rating}}</td>
-        <td>{{brew.notes}}</td>
+        <td ng-model="vdc.newBeer.beer_name">{{brew.beer_name}}</td>
+        <td ng-model="vdc.newBeer.rating">{{brew.rating}}</td>
+        <td ng-model="vdc.newBeer.notes">{{brew.notes}}</td>
         <td id="updateDeleteButtons">
-          <button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info">
-            <span class="glyphicon glyphicon-ok-sign"></span></button>
+          <!-- <button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info">
+            <span class="glyphicon glyphicon-ok-sign"></span></button> -->
             <button id="deleteButton"ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger">
               <span class="fa fa-trash-o"></span>
             </button>
@@ -76,7 +76,7 @@
       <button ng-click="vdc.addNewBrew(vdc.newBeer)" type="button" class="btn btn-success"><span class="fa fa-hand-peace-o"></span> Beer Me</button>
     </div>
 
-    {{vdc.newBeer}}
+    <!--{{vdc.newBeer}}-->
   </div>
 
 
@@ -96,7 +96,7 @@
         <span class="fa fa-exclamation-triangle"></span></div>
         <div>
           <div class="deleteThisVisit">
-            <button type="button" class="btn btn-default btn-xs">
+            <button ng-click="vdc.deleteVisit(vdc.visitID)" type="button" class="btn btn-default btn-xs">
               <span class="fa fa-trash-o"></span> Delete This Entire Visit <span class="fa fa-frown-o"></span>
             </button>
           </div>

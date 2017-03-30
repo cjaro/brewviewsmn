@@ -3,7 +3,7 @@ var router = express.Router();
 var pool = require('../config/database-pool.js'); // Creates database pool, if you need to change database, do it in the config object in this file
 
 // return all visit details
-router.use('/', function (req, res) {
+router.get('/', function (req, res) {
   var visitID = req.query.visitID
   console.log('working at visit-details route and visitID is', visitID);
 
@@ -30,8 +30,8 @@ router.post('/', function (req, res) {
   console.log('NewBeer = ', newBeer);
   pool.connect()
     .then(function (client) {
-      client.query('INSERT INTO brews_test (beer_name, rating, notes) VALUES ($1, $2, $3)',
-        [newBeer.beer_name, newBeer.rating, newBeer.notes])
+      client.query('INSERT INTO brews_test (beer_name, rating, notes, visit_id) VALUES ($1, $2, $3, $4)',
+        [newBeer.beer_name, newBeer.rating, newBeer.notes, newBeer.visit_id])
         .then(function (result) {
           client.release();
           res.sendStatus(201);
@@ -68,7 +68,7 @@ router.put('/:id', function(req, res) {
   pool.connect()
     .then(function (client) {
       client.query('UPDATE brews_test SET beer_name=$1, rating=$2, notes=$3, WHERE id=$4;',
-        [brewRecordUpdate.beer_name, brewRecordUpdate.rating, brewRecordUpdate.notes, [brewRecordUpdateID])
+        [brewRecordUpdate.beer_name, brewRecordUpdate.rating, brewRecordUpdate.notes, brewRecordUpdateID])
         .then(function (result) {
           client.release();
           res.sendStatus(200);
@@ -80,20 +80,6 @@ router.put('/:id', function(req, res) {
     });
 });
 
-router.get('/', function (req, res) {
-  // console.log('getting breweries from controller');
-  pool.connect()
-    .then(function (client) {
-      client.query('SELECT * FROM my_brewery_db ORDER BY name ASC;')
-        .then(function (result) {
-          client.release();
-          res.send(result.rows);
-        })
-        .catch(function (err) {
-          console.log('error on SELECT', err);
-          res.sendStatus(500);
-        });
-    });
-});
+
 
 module.exports = router;

@@ -30,7 +30,6 @@ router.get('/', function (req, res) {
     });
 });
 
-
 router.post('/', function (req, res) {
   var newVisit = req.body;
   console.log('New visit: ', newVisit);
@@ -49,8 +48,6 @@ router.post('/', function (req, res) {
     });
 });
 
-
-
 module.exports = router;
 
 
@@ -61,4 +58,3 @@ module.exports = router;
 // 3/20 4:22pm UPDATE: dropdown rating is working and corresponding to SQL db
 // updating still isn't working, though
 // error: possibly unhandled rejection
-// resolved

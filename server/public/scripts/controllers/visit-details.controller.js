@@ -11,39 +11,42 @@ function ($http, $location, DataFactory, $routeParams) {
   console.log('self.visit', self.visit);
 
   self.addNewBrew = function(newBrewObject) {
+    newBrewObject.visit_id = $routeParams.visitID;
     console.log('newBrewObject: ', newBrewObject);
-    $http.post('/visits/', newBrewObject).then(function(response){
+    $http.post('/visitDetails' , newBrewObject).then(function(response){
       console.log('response: ', response);
+      DataFactory.getVisitDetails($routeParams.visitID);
     });
   };
 
   self.deleteBrew = function(brewID) {
     console.log('brewID to delete: ', brewID);
-    $http.delete('/visits/' + brewID).then(function(response){
-      getBrews();
+    // console.log('visitID', visitID);
+    $http.delete('/visitDetails/' + brewID).then(function(response){
+      DataFactory.getVisitDetails($routeParams.visitID);
     });
   };
 
   self.updateBrew = function(brew) {
     console.log('brew to update: ', brew);
-    $http.put('/visits/' + brew.id, brew).then(function(response){
-      getBrews();
+    $http.put('/visitDetails/' + brew.id, brew).then(function(response){
+      DataFactory.getVisitDetails($routeParams.visitID);
     });
   };
 
   self.deleteVisit = function(visitID) {
     console.log('visitID to delete: ', visitID);
     $http.delete('/visits/' + visitID).then(function(response){
-      getVisits();
+      DataFactory.getVisitDetails($routeParams.visitID);
     });
   };
 
-  function getBrews() {
-    $http.get('/visits/').then(function(response){
-      console.log('response data: ', response.data);
-      self.brewList = response.data;
-    });
-  };
+  // function getBrews() {
+  //   $http.get('/visits/' + visitID).then(function(response){
+  //     console.log('response data: ', response.data);
+  //     self.brewList = response.data;
+  //   });
+  // };
 
 }]);
 
