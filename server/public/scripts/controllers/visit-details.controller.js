@@ -19,8 +19,9 @@ app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '
                 console.log('response: ', response);
                 swal(
                     'Brew added!',
-                    'Yo-ho!',
+                    'Drink up, me hearties, yo-ho!',
                     'success'
+
                 )
                 DataFactory.getVisitDetails($routeParams.visitID);
             });
@@ -54,58 +55,5 @@ app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '
                 DataFactory.getVisitDetails($routeParams.visitID);
             });
         };
-
-        // self.deleteVisit = function(visitID) {
-        //   console.log('visitID to delete: ', visitID);
-        //   swal({
-        //     title: 'Are you sure?',
-        //     text: "You won't be able to revert this!",
-        //     type: 'warning',
-        //     showCancelButton: true,
-        //     confirmButtonColor: '#3085d6',
-        //     cancelButtonColor: '#d33',
-        //     confirmButtonText: 'Yes, delete it!'
-        // }).then(function() {
-        //     $http.delete('/visits/' + visitID)
-        //     swal(
-        //         'Deleted!',
-        //         'This brew has been deleted.',
-        //         'success'
-        //     ).then(function(response) {
-        //         $location.url('/main');
-        //     })
-        //     DataFactory.getVisitDetails($routeParams.visitID);
-        // });
-
-
-        // function getBrews() {
-        //   $http.get('/visits/' + visitID).then(function(response){
-        //     console.log('response data: ', response.data);
-        //     self.brewList = response.data;
-        //   });
-        // };
-
     }
 ]);
-
-
-
-
-// swal({
-//   title: "Are you sure?",
-//   text: "You will not be able to recover this imaginary file!",
-//   type: "warning",
-//   showCancelButton: true,
-//   confirmButtonColor: "#DD6B55",
-//   confirmButtonText: "Yes, delete it!",
-//   cancelButtonText: "No, cancel plx!",
-//   closeOnConfirm: false,
-//   closeOnCancel: false
-// },
-// function(isConfirm){
-//   if (isConfirm) {
-//     swal("Deleted!", "Your imaginary file has been deleted.", "success");
-//   } else {
-//     swal("Cancelled", "Your imaginary file is safe :)", "error");
-//   }
-// });

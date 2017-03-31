@@ -13,7 +13,7 @@ router.get('/', function(req, res) {
                     'JOIN visits ON brews_test.visit_id = visits.id ' +
                     'JOIN my_brewery_db ON visits.brewery_id = my_brewery_db.id ' +
                     'WHERE visits.id=$1 ' +
-                    'ORDER BY date_had DESC;', [visitID])
+                    'ORDER BY rating DESC;', [visitID])
                 .then(function(result) {
                     client.release();
                     res.send(result.rows);
