@@ -28,8 +28,13 @@ var tokenDecoder = function(req, res, next) {
 
 
 
-
-                next();
+                // // a sql query to get user SQL id if in database
+                //     // if user not found, create INSERT into db (users) RETURNING id
+                //         req.decodedToken.sqlUSERid = returned
+                //         next
+                //     // else 
+                //         req.decodedToken.sqlUSERid = cool, what's their id
+                //         next();
 
 
 

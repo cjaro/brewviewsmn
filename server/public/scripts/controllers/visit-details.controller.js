@@ -57,10 +57,26 @@ app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '
 
         // self.deleteVisit = function(visitID) {
         //   console.log('visitID to delete: ', visitID);
-        //   $http.delete('/visits/' + visitID).then(function(response){
-        //     $location.url('/main');
-        //   });
-        // };
+        //   swal({
+        //     title: 'Are you sure?',
+        //     text: "You won't be able to revert this!",
+        //     type: 'warning',
+        //     showCancelButton: true,
+        //     confirmButtonColor: '#3085d6',
+        //     cancelButtonColor: '#d33',
+        //     confirmButtonText: 'Yes, delete it!'
+        // }).then(function() {
+        //     $http.delete('/visits/' + visitID)
+        //     swal(
+        //         'Deleted!',
+        //         'This brew has been deleted.',
+        //         'success'
+        //     ).then(function(response) {
+        //         $location.url('/main');
+        //     })
+        //     DataFactory.getVisitDetails($routeParams.visitID);
+        // });
+
 
         // function getBrews() {
         //   $http.get('/visits/' + visitID).then(function(response){

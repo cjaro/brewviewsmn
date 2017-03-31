@@ -6,8 +6,8 @@ var admin = require('firebase-admin');
 var serviceAccount = require('../firebase-service-account.json');
 
 admin.initializeApp({
-  credential: admin.credential.cert("./server/firebase-service-account.json"),
-  databaseURL: "https://brewviewsmn.firebaseio.com" // replace this line with your URL
+    credential: admin.credential.cert("./server/firebase-service-account.json"),
+    databaseURL: "https://brewviewsmn.firebaseio.com" // replace this line with your URL
 });
 
 //create command that specificies user id
@@ -15,37 +15,36 @@ admin.initializeApp({
 // WHERE user_id = $1
 // auth --> INSERT INTO users (user_name, email) VALUES ($1, $2);
 
-router.get('/', function (req, res) {
-  pool.connect()
-    .then(function (client) {
-      client.query('SELECT visits.*, my_brewery_db.name FROM visits JOIN my_brewery_db ON visits.brewery_id = my_brewery_db.id ORDER BY date_had DESC;')
-        .then(function (result) {
-          client.release();
-          res.send(result.rows);
-        })
-        .catch(function (err) {
-          console.log('error on SELECT', err);
-          res.sendStatus(500);
+router.get('/', function(req, res) {
+    pool.connect()
+        .then(function(client) {
+            client.query('SELECT visits.*, my_brewery_db.name FROM visits JOIN my_brewery_db ON visits.brewery_id = my_brewery_db.id ORDER BY date_had DESC;')
+                .then(function(result) {
+                    client.release();
+                    res.send(result.rows);
+                })
+                .catch(function(err) {
+                    console.log('error on SELECT', err);
+                    res.sendStatus(500);
+                });
         });
-    });
 });
 
-router.post('/', function (req, res) {
-  var newVisit = req.body;
-  console.log('New visit: ', newVisit);
-  pool.connect()
-    .then(function (client) {
-      client.query('INSERT INTO visits (date_had, brewery_id) VALUES ($1, $2)',
-        [newVisit.date_had, newVisit.brewery_id])
-        .then(function (result) {
-          client.release();
-          res.sendStatus(201);
-        })
-        .catch(function (err) {
-          console.log('error on INSERT', err);
-          res.sendStatus(500);
+router.post('/', function(req, res) {
+    var newVisit = req.body;
+    console.log('New visit: ', newVisit);
+    pool.connect()
+        .then(function(client) {
+            client.query('INSERT INTO visits (date_had, brewery_id) VALUES ($1, $2) RETURNING id', [newVisit.date_had, newVisit.brewery_id])
+                .then(function(result) {
+                    client.release();
+                    res.send(result.rows);
+                })
+                .catch(function(err) {
+                    console.log('error on INSERT', err);
+                    res.sendStatus(500);
+                });
         });
-    });
 });
 
 // 

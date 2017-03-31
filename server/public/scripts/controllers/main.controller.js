@@ -1,48 +1,48 @@
-app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebaseAuth',  function($http, DataFactory, $location, $firebaseAuth){
-  console.log('Main Controller loaded');
-  var self = this;
-  var auth = $firebaseAuth();
-  // var swl = sweetalert;
-  // self.testVariable = 'am test';
-  self.visitList = [];
-  self.visits = DataFactory.visits;
-  self.breweries = DataFactory.breweries;
+app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebaseAuth', function($http, DataFactory, $location, $firebaseAuth) {
+    console.log('Main Controller loaded');
+    var self = this;
+    var auth = $firebaseAuth();
+    // var swl = sweetalert;
+    // self.testVariable = 'am test';
+    self.visitList = [];
+    self.visits = DataFactory.visits;
+    self.breweries = DataFactory.breweries;
 
-  getVisits();
+    getVisits();
 
-  function getVisits() {
-    $http.get('/visits').then(function(response){
-      console.log('response data: ', response.data);
-      self.visitList = response.data;
-    });
-  }
+    function getVisits() {
+        $http.get('/visits').then(function(response) {
+            console.log('response data: ', response.data);
+            self.visitList = response.data;
+        });
+    }
 
-  self.addNewVisit = function(newVisitObject) {
-    console.log('newVisitObject: ', newVisitObject);
-    $http.post('/visits', newVisitObject).then(function(response){
+    self.addNewVisit = function(newVisitObject) {
+        console.log('newVisitObject: ', newVisitObject);
+        $http.post('/visits', newVisitObject).then(function(response) {
 
-      var visitUrl = '/visit/'+response.data.id;
-      $location.url(visitUrl);
-      console.log('visitUrl: ', visitUrl);
-      // $location.path('/addBrew');
-      console.log('response: ', response);
-    });
-  };
+            var visitUrl = '/visits/' + response.data[0].id;
+            $location.url(visitUrl);
+            console.log('visitUrl: ', visitUrl);
+            // $location.path('/addBrew');
+            console.log('response: ', response);
+        });
+    };
 
-  // self.addField = function(){
-  //   var newItem = self.items.length+1;
-  //   console.log(newItem);
-  //   $('.addNewButton').on('click', function(){
-  //     console.log('add button clicked');
-  //   })
-  //   self.push({
-  //
-  //   })
-  // };
-  // self.removeField = function(){
-  //   var lastItem = self.items.length-1;
-  //   self.items.splice(lastItem);
-  // };
+    // self.addField = function(){
+    //   var newItem = self.items.length+1;
+    //   console.log(newItem);
+    //   $('.addNewButton').on('click', function(){
+    //     console.log('add button clicked');
+    //   })
+    //   self.push({
+    //
+    //   })
+    // };
+    // self.removeField = function(){
+    //   var lastItem = self.items.length-1;
+    //   self.items.splice(lastItem);
+    // };
 
 
     // swal({
@@ -66,14 +66,14 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
 
 
 
-//something is wrong with 'brew'
-// fixed 3/21/17
-  //
-  // self.updateBrew = function(brew) {
-  //   console.log('brew to update: ', brew);
-  //   $http.put('/brews/' + brew.id, brew).then(function(response){
-  //     getBrews();
-  //   });
-  // }
+    //something is wrong with 'brew'
+    // fixed 3/21/17
+    //
+    // self.updateBrew = function(brew) {
+    //   console.log('brew to update: ', brew);
+    //   $http.put('/brews/' + brew.id, brew).then(function(response){
+    //     getBrews();
+    //   });
+    // }
 
 }]);
