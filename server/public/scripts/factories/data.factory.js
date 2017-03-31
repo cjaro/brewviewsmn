@@ -15,9 +15,6 @@ app.factory('DataFactory', ['$http', function($http){
       visit.details = response.data;
     });
   }
-  console.log("visit.details = ", visit.details);
-
-console.log('brewery', brewery);
 
   getBreweries();
 

@@ -3,54 +3,52 @@
 <!-- {{vdc.visit.details.date_had | date: 'MMMM dd, yyyy'}} -->
 
 <!-- {{vdc}} -->
- <!--{{vdc.visit}} -->
- {{vdc.visit.details.visit_id}} 
-
- {{vdc.visit.details.name}} 
+<!--{{vdc.visit}} -->
+{{vdc.visit.details.visit_id}} {{vdc.visit.details.name}}
 
 <div class="brewBrewList">
 
-  <table class="table table-bordered">
+    <table class="table table-bordered">
 
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Rating</th>
-        <th>Notes</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Rating</th>
+                <th>Notes</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
 
-    <tbody>
-      <tr ng-repeat="brew in vdc.visit.details">
-        <td ng-model="vdc.newBeer.beer_name">{{brew.beer_name}}</td>
-        <td ng-model="vdc.newBeer.rating">{{brew.rating}}</td>
-        <td ng-model="vdc.newBeer.notes">{{brew.notes}}</td>
-        <td id="updateDeleteButtons">
-           <!--<button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info">
+        <tbody>
+            <tr ng-repeat="brew in vdc.visit.details">
+                <td ng-model="brew.beer_name">{{brew.beer_name}}</td>
+                <td ng-model="brew.rating">{{brew.rating}}</td>
+                <td ng-model="brew.notes">{{brew.notes}}</td>
+                <td id="updateDeleteButtons">
+                    <!--<button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info">
             <span class="glyphicon glyphicon-ok-sign"></span></button> -->
-            <button id="deleteButton"ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger">
+                    <button id="deleteButton" ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger">
               <span class="fa fa-trash-o"></span>
             </button>
-          </td>
-        </tr>
-      </tbody>
+                </td>
+            </tr>
+        </tbody>
 
     </table>
 
-  </div>
+</div>
 
 
-  <h3 class="main">Add a Brew to this Visit</h3>
+<h3 class="main">Add a Brew to this Visit</h3>
 
-  <div class="addingNewBeer">
+<div class="addingNewBeer">
 
-      <div class="form-group" id="inputName">
+    <div class="form-group" id="inputName">
         <label>Brew Name:</label>
         <input type="text" class="form-control" ng-model="vdc.newBeer.beer_name" placeholder="brew name">
-      </div>
+    </div>
 
-      <div class="form-group" id="inputRating">
+    <div class="form-group" id="inputRating">
         <label>Rating (1-10):</label>
         <select class="form-control" ng-model="vdc.newBeer.rating">
           <option value="1">1</option>
@@ -64,37 +62,41 @@
           <option value="9">9</option>
           <option value="10">10</option>
         </select>
-      </div>
+    </div>
 
-      <div class="form-group" id="inputNotes">
+    <div class="form-group" id="inputNotes">
         <label>Notes:</label>
         <textarea class="form-control" rows="3" ng-model="vdc.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
-      </div>
+    </div>
 
     <div class="addNewButton">
-      <button ng-click="vdc.addNewBrew(vdc.newBeer)" type="button" class="btn btn-success btn-md"><span class="fa fa-hand-peace-o"></span> Beer Me</button>
+        <button ng-click="vdc.addNewBrew(vdc.newBeer)" type="button" class="btn btn-success btn-lg"><span class="fa fa-hand-peace-o"></span> Beer Me</button>
     </div>
 
     <!--{{vdc.newBeer}}-->
-  </div>
+</div>
 
 
 <div class="spacer">
-  <div>
     <div>
-      <div>
-      <div class="spacer2">
-        <span class="fa fa-exclamation-triangle"></span>
-        DANGER ZONE
-        <span class="fa fa-exclamation-triangle"></span></div>
         <div>
-          <div class="deleteThisVisit">
-            <button ng-click="vdc.deleteVisit(vdc.visitID)" type="button" class="btn btn-default btn-xs">
+            <div>
+                <div class="spacer2">
+                    <span class="fa fa-exclamation-triangle"></span>
+                    <span class="fa fa-exclamation-triangle"></span>
+                    <span class="fa fa-exclamation-triangle"></span> DANGER ZONE
+                    <span class="fa fa-exclamation-triangle"></span>
+                    <span class="fa fa-exclamation-triangle"></span>
+                    <span class="fa fa-exclamation-triangle"></span>
+                    <span class="fa fa-exclamation-triangle"></span></div>
+                <div>
+                    <div class="deleteThisVisit">
+                        <button ng-click="vdc.deleteVisit(vdc.visitID)" type="button" class="btn btn-default btn-xs">
               <span class="fa fa-trash-o"></span> Delete This Entire Visit <span class="fa fa-frown-o"></span>
             </button>
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
