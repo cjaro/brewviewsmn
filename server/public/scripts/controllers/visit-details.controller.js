@@ -18,10 +18,9 @@ app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '
                 self.newBeer = {};
                 console.log('response: ', response);
                 swal(
-                    'Brew added!',
+                    'Beertastic!',
                     'Drink up, me hearties, yo-ho!',
                     'success'
-
                 )
                 DataFactory.getVisitDetails($routeParams.visitID);
             });
@@ -32,7 +31,7 @@ app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '
             // console.log('visitID', visitID);
             swal({
                 title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                text: "You won't be able to undo this!",
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',

@@ -25,6 +25,12 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
             $http.post('/visits', newVisitObject).then(function(response) {
 
                 var visitUrl = '/visits/' + response.data[0].id;
+                swal(
+                    'Brewery added!',
+                    'Now add some details!',
+                    'success'
+
+                )
                 $location.url(visitUrl);
                 console.log('visitUrl: ', visitUrl);
                 // $location.path('/addBrew');

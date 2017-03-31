@@ -4,7 +4,7 @@ body {
     background-size: 60px 60px;
     background-repeat: repeat;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    /*font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;*/
+    padding: 2px;
 }
 
 h1 {
@@ -14,13 +14,6 @@ h1 {
     text-align: center;
 }
 
-h2 {
-    font-size: 30px;
-    text-align: center;
-    color: white;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-}
-
 h3 {
     background: #5cb85c;
     font-size: 20px;
@@ -28,122 +21,136 @@ h3 {
     color: white;
     text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
     border: 1px solid black;
-    padding: 3px;
-}
-
-
-/*h4 {
-    font-size: 20px;
-    text-align: center;
-    color: white;
-    text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
-    border: 1px solid black;
-    /*padding: 5px;
-  margin: 5px;*/
-
-
-}
-*/ input {
     padding: 1px;
 }
+
 label {
     font-size: 14px;
 }
+
 p {
     background: white;
     text-align: center;
 }
+
 #addNewButton {
     margin: 2px;
     margin: auto;
     text-align: center;
 }
+
+#disabled {
+    pointer-events: none;
+    /* for "disabled" effect */
+    opacity: 0.5;
+    background: #CCC;
+}
+
 #seeMoreButton,
 #nuclearButton {
     float: right;
 }
+
 #inputName,
 #inputRating {
     display: inline-block;
 }
+
 #inputNotes {
     margin-left: 20px;
     margin-right: 20px;
 }
+
 #inputDate,
 #inputBrewery {
     display: inline-block;
 }
+
 #loginPic {
     height: 200px;
     width: 200px;
     margin: 0 auto;
     padding: 5px;
 }
+
 #logoutbutton {
     margin: 5px;
     float: right;
 }
+
 #updateDeleteButtons {
-    margin: auto;
     text-align: center;
 }
+
 .addingNewBeer {
     background: white;
     text-align: center;
 }
+
 .addNewButton {
     padding: 2px;
 }
+
 .addingNewVisit {
     background: white;
     text-align: center;
     padding: 2px;
 }
 
+
 /*.brewBrewList{
   display: inline-block;
 }*/
+
 .brewName,
 .brewDate,
 .brewBrewery,
 .ratingButtons {
     display: inline-block;
 }
+
 .deleteThisVisit {
     text-align: center;
     padding-bottom: 15px;
     background: #d9534f;
     /*border: 1px solid black;*/
 }
+
 .list {
     background: white;
-    padding: 2px;
+    /*padding: 2px;*/
     border: 1px solid black;
 }
+
 .loginDiv {
     background-color: white;
     text-align: center;
 }
+
 .navbar-brand {
     padding: 0px;
 }
+
 .navbar-brand>img {
     height: 100%;
     padding: 0px;
     width: auto;
     opacity: 0.75;
 }
+
 img:hover {
     opacity: 1.0;
 }
+
 .logButtons {
     margin: 5px;
     padding: 5px;
 }
+
 .spacer {
     margin-top: 25px;
 }
+
 .spacer2 {
     text-align: center;
     background: #d9534f;
@@ -151,11 +158,13 @@ img:hover {
     padding-bottom: 15px;
     padding-top: 5px;
 }
+
 .suggestDiv {
     text-align: center;
     background: white;
     margin: auto;
 }
+
 table,
 thead,
 td,
@@ -164,18 +173,7 @@ tr {
     padding: 1px;
     background-color: #ffffff;
 }
+
 table th {
     background-color: rgb(255, 255, 255);
 }
-
-/*table tr:nth-child(odd) {
-  background-color: #d8fbfb;
-}
-table tr:nth-child(even) {
-  background-color: #ffffff;
-}*/
-
-/*div {
-  padding: 1px;
-  margin: 1px;
-}*/

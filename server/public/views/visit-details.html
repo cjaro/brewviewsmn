@@ -4,7 +4,8 @@
 
 <!-- {{vdc}} -->
 <!--{{vdc.visit}} -->
-{{vdc.visit.details.visit_id}} {{vdc.visit.details.name}}
+<!--{{vdc.visit.details.visit_id}} -->
+{{vdc.visit.details.name}}
 
 <div class="brewBrewList">
 
@@ -78,7 +79,7 @@
 
 
 <div class="spacer">
-    <div>
+    <div id="disabled">
         <div>
             <div>
                 <div class="spacer2">
@@ -99,7 +100,7 @@
                     <span class="fa fa-exclamation-triangle"></span></div>
                 <div>
                     <div class="deleteThisVisit">
-                        <button ng-click="vdc.deleteVisit(vdc.visitID)" type="button" class="btn btn-default btn-xs">
+                        <button ng-click="vdc.deleteVisit(vdc.visitID)" type="button" class="btn btn-default">
                         do not click me <br> I will destroy everything you love</span>
                 </button>
                     </div>
