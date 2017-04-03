@@ -17,11 +17,14 @@ app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '
             $http.post('/visitDetails', newBrewObject).then(function(response) {
                 self.newBeer = {};
                 console.log('response: ', response);
-                swal(
-                    'Beertastic!',
-                    'Drink up, me hearties, yo-ho!',
-                    'success'
-                )
+                swal({
+                    title: 'Beertastic!',
+                    html: $('<div>')
+                        .addClass('some-class')
+                        .text('Drink up, me hearties, yo ho!'),
+                    animation: false,
+                    customClass: 'animated tada'
+                })
                 DataFactory.getVisitDetails($routeParams.visitID);
             });
         };
@@ -34,14 +37,14 @@ app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '
                 text: "You won't be able to undo this!",
                 type: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonColor: '#185FEF',
+                cancelButtonColor: '#FF1300',
+                confirmButtonText: 'Yes, bye!'
             }).then(function() {
                 $http.delete('/visitDetails/' + brewID)
                 swal(
                     'Deleted!',
-                    'This brew has been deleted.',
+                    'This brew has been deleted :(',
                     'success'
                 ).then(function(response) {})
                 DataFactory.getVisitDetails($routeParams.visitID);

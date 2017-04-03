@@ -42,22 +42,22 @@ router.post('/', function(req, res) {
         });
 });
 
-router.delete('/:id', function(req, res) {
-    var brewRecordDeleteID = req.params.id;
-    console.log('Deleting brewID: ', brewRecordDeleteID);
-    pool.connect()
-        .then(function(client) {
-            client.query('DELETE FROM brews_test WHERE id=$1;', [brewRecordDeleteID])
-                .then(function(result) {
-                    client.release();
-                    res.sendStatus(200);
-                })
-                .catch(function(err) {
-                    console.log('error on SELECT', err);
-                    res.sendStatus(500);
-                });
-        });
-});
+// router.delete('/:id', function(req, res) {
+//     var brewRecordDeleteID = req.params.id;
+//     console.log('Deleting brewID: ', brewRecordDeleteID);
+//     pool.connect()
+//         .then(function(client) {
+//             client.query('DELETE FROM brews_test WHERE id=$1;', [brewRecordDeleteID])
+//                 .then(function(result) {
+//                     client.release();
+//                     res.sendStatus(200);
+//                 })
+//                 .catch(function(err) {
+//                     console.log('error on SELECT', err);
+//                     res.sendStatus(500);
+//                 });
+//         });
+// });
 
 router.put('/:id', function(req, res) {
     var brewRecordUpdateID = req.params.id;

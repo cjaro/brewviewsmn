@@ -23,14 +23,15 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
         self.addNewVisit = function(newVisitObject) {
             console.log('newVisitObject: ', newVisitObject);
             $http.post('/visits', newVisitObject).then(function(response) {
-
                 var visitUrl = '/visits/' + response.data[0].id;
-                swal(
-                    'Brewery added!',
-                    'Now add some details!',
-                    'success'
-
-                )
+                swal({
+                    title: 'Brewery Added!',
+                    html: $('<div>')
+                        .addClass('some-class')
+                        .text('Add some details!'),
+                    animation: false,
+                    customClass: 'animated rubberBand'
+                })
                 $location.url(visitUrl);
                 console.log('visitUrl: ', visitUrl);
                 // $location.path('/addBrew');
@@ -38,15 +39,15 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
             });
         };
 
-        self.deleteVisit = function(visit) {
-            console.log('visit to delete: ', visit);
+        self.deleteVisit = function(visitID) {
+            console.log('visit to delete: ', visitID);
             swal({
                 title: 'Are you super duper sure??',
                 text: "like super super super sure?????",
                 type: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
+                confirmButtonColor: '#185FEF',
+                cancelButtonColor: '#FF1300',
                 confirmButtonText: 'go nuclear'
             }).then(function() {
                 $http.delete('/visits/' + visitID)
@@ -55,9 +56,9 @@ app.controller('MainController', ['$http', 'DataFactory', '$location', '$firebas
                     'This visit has been wiped from the history of the universe.',
                     'success'
                 ).then(function(response) {
+                    DataFactory.getVisitDetails($routeParams.visitID);
                     // $location.url('/main');
                 })
-                DataFactory.getVisitDetails($routeParams.visitID);
             });
         }
 
