@@ -17,10 +17,10 @@
         <tbody>
             <tr ng-repeat="visit in mc.visitList">
                 <td>{{visit.date_had | date: 'M/d/yy'}}<br>
-                    <!--<button ng-click="mc.deleteVisit(mc.visitID)" id="nuclearButton" type="button" class="btn btn-danger btn-xs">
-                    <span class="fa fa-trash-o">delete visit</button>-->
+                    <!-- <button type="button" class="btn btn-danger btn-sm" id="nuclearButton" ng-click="mc.deleteVisit(mc.visitID)">
+                    <span class="fa fa-trash-o"> delete visit</span></button> -->
                 </td>
-                <td ng-model="visit.name">{{visit.name}}
+                <td ng-model="visit.brewery">{{visit.brewery}}
                     <a href="/#!visits/{{visit.id}}" id="seeMoreButton" class="btn btn-info" role="button">
                         <span class="fa fa-bars"></span></a>
                 </td>
@@ -29,11 +29,7 @@
         </tbody>
 
     </table>
-
 </div>
-
-
-
 
 <h3 class="main">Add a Visit</h3>
 
@@ -48,7 +44,7 @@
 
     <div class="form-group" id="inputBrewery">
         <label>Brewery:</label>
-        <select class="form-control" ng-model="mc.newBeer.brewery_id" ng-options="item.id as item.name for item in mc.breweries.list"></select>
+        <input type="text" ng-model="mc.newBeer.brewery">
         <!-- typeahead -->
     </div>
 
@@ -59,6 +55,9 @@
 
     <!-- {{ac.newBeer}} -->
 </div>
+<?php
+echo "it's php time";
+?>
 
 <!--
 ||drink up my hearties yo ho drink up

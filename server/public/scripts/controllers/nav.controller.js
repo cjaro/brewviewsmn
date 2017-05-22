@@ -1,4 +1,4 @@
-app.controller('NavController', ['$http', 'DataFactory', '$location', '$firebaseAuth',  function($http, DataFactory, $location, $firebaseAuth){
+app.controller('NavController', ['$http', 'DataFactory', '$location', '$window', '$firebaseAuth',  function($http, DataFactory, $location, $window, $firebaseAuth){
   console.log('Nav Controller loaded');
   var self = this;
   var auth = $firebaseAuth();
@@ -10,7 +10,8 @@ app.controller('NavController', ['$http', 'DataFactory', '$location', '$firebase
   self.logOut = function(){
     auth.$signOut().then(function(){
     console.log('Logging out!');
-    $location.path('/login')
+    $location.path('/login');
+    $window.location.reload();
      });
   };
 

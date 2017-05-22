@@ -16,18 +16,27 @@ app.factory('DataFactory', ['$http', function($http){
     });
   }
 
-  getBreweries();
+//   function updateDetails() {
+//     $http({
+//       method: 'PUT',
+//       url: '/visits/' + visitID
+//     }).then(function(response) {
+//       getVisitDetails();
+// });
+// }
+//   }
 
-  function getBreweries() {
-    $http.get('/breweries').then(function(response){
-      // console.log('factory response.data: ', response.data);
-      brewery.list = response.data;
-    });
-  }
-
+  // getBreweries();
+  //
+  // function getBreweries() {
+  //   $http.get('/breweries').then(function(response){
+  //     // console.log('factory response.data: ', response.data);
+  //     brewery.list = response.data;
+  //   });
+  // }
 
   return {
-    breweries: brewery,
+    // breweries: brewery,
     visit: visit,
     getVisitDetails: getVisitDetails
   }

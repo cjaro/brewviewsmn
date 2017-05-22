@@ -23,6 +23,14 @@ CREATE TABLE brews_test (
 	visit_id INT REFERENCES visits
 );
 
+CREATE TABLE users (
+  id integer NOT NULL,
+  user_name character varying(60),
+  user_email character varying(120),
+  user_photo character varying(200),
+  google_id character varying(30)
+);
+
 INSERT INTO my_brewery_db VALUES ('10K Brewing','2005 2nd Av, Anoka, MN 55303','10kbrew.com'),
 	('56 Brewing','134 California Street NE #122, Minneapolis, MN 55418','56brewing.com'),
 	('612 Brew','945 Broadway Street #188, Minneapolis, MN 55413','612brew.com'),
@@ -63,7 +71,7 @@ INSERT INTO my_brewery_db VALUES ('10K Brewing','2005 2nd Av, Anoka, MN 55303','
 	('Fulton Brewing','414 6th Avenue North, Minneapolis, MN 55401','fultonbeer.com'),
 	('Goat Ridge Brewing Co.','17 Central Ave W PO Box 526, New London, MN 56273','goatridgebrewing.com'),
 	('Grand Rounds Brewpub','4 3rd St SW, Rochester, MN 55902','grandroundsbrewpub.com'),
-	('Great Waters Brewing Co.','426 Saint Peter Street, Saint Paul, MN 55102-1105','greatwatersbc.com'), 
+	('Great Waters Brewing Co.','426 Saint Peter Street, Saint Paul, MN 55102-1105','greatwatersbc.com'),
 	('Gull Dam Brewing','23836 Smiley Rd, Nisswa, MN 56468','gulldambrewing.com'),
 	('Gun Flint Tavern & Brewpub','111 W Wisconsin St PO 985, Grand Marais, MN 55604','gunflinttavern.com'),
 	('Hayes'' Public House','112 First St. S, Buffalo, MN 55313','hayespublichouse.com'),
@@ -118,10 +126,10 @@ INSERT INTO my_brewery_db VALUES ('10K Brewing','2005 2nd Av, Anoka, MN 55303','
 
 
 --brews GET
-SELECT brews_test.*, my_brewery_db.name FROM brews_test 
-JOIN visits ON brews_test.visit_id = visits.id 
+SELECT brews_test.*, my_brewery_db.name FROM brews_test
+JOIN visits ON brews_test.visit_id = visits.id
 JOIN my_brewery_db ON visits.brewery_id = my_brewery_db.id
-WHERE visits.id=$1 
+WHERE visits.id=$1
 ORDER BY date_had DESC;
 
 --brews POST
@@ -133,11 +141,11 @@ DELETE FROM brews_test WHERE id=$1;
 --brews UPDATE
 UPDATE brews_test SET beer_name=$1, rating=$2, notes=$3, WHERE id=$4;
 
---breweries GET 
+--breweries GET
 SELECT * FROM my_brewery_db ORDER BY name ASC;
 
 --main GET
 SELECT visits.*, my_brewery_db.name FROM visits JOIN my_brewery_db ON visits.brewery_id = my_brewery_db.id ORDER BY date_had DESC;
 
---main POST 
+--main POST
 INSERT INTO visits (date_had, brewery_id) VALUES ($1, $2);

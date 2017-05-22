@@ -64,6 +64,7 @@ p {
 #seeMoreButton,
 #nuclearButton {
     float: right;
+    margin: auto;
 }
 
 #inputName,
@@ -124,12 +125,12 @@ p {
     display: inline-block;
 }
 
-.deleteThisVisit {
+/*.deleteThisVisit {
     text-align: center;
     padding-bottom: 15px;
     background: #d9534f;
     /*border: 1px solid black;*/
-}
+}*/
 
 .list {
     background: white;
@@ -159,8 +160,9 @@ img:hover {
 }
 
 .logButtons {
-    margin: 5px;
-    padding: 5px;
+  margin: 5px;
+  padding: 5px;
+  display: inline-block;
 }
 
 .spacer {
@@ -181,12 +183,17 @@ img:hover {
     margin: auto;
 }
 
+.footerBody {
+  background: aliceblue;
+
+}
+
 table,
 thead,
 td,
 tr {
-    border-collapse: collapse;
-    padding: 1px;
+    /*border-collapse: collapse;*/
+    /*padding: 1px;*/
     background-color: #ffffff;
 }
 

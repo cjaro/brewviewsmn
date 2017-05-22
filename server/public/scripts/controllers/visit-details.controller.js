@@ -17,14 +17,14 @@ app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '
             $http.post('/visitDetails', newBrewObject).then(function(response) {
                 self.newBeer = {};
                 console.log('response: ', response);
-                swal({
-                    title: 'Beertastic!',
-                    html: $('<div>')
-                        .addClass('some-class')
-                        .text('Drink up, me hearties, yo ho!'),
-                    animation: false,
-                    customClass: 'animated tada'
-                })
+                // swal({
+                //     title: 'Beertastic!',
+                //     html: $('<div>')
+                //         .addClass('some-class')
+                //         .text('Drink up, me hearties, yo ho!'),
+                //     animation: false,
+                //     customClass: 'animated tada'
+                // })
                 DataFactory.getVisitDetails($routeParams.visitID);
             });
         };
@@ -53,9 +53,40 @@ app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '
 
         self.updateBrew = function(brew) {
             console.log('brew: ', brew);
-            $http.put('/visitDetails/' + brew.id, brew).then(function(response) {
-                DataFactory.getVisitDetails($routeParams.visitID);
+        //     $http.put('/visitDetails/' + brew.id, brew).then(function(response) {
+        //         DataFactory.getVisitDetails($routeParams.visitID);
+        //     });
+        // };
+        //
+        //   function updateDetails() {
+            $http({
+              method: 'PUT',
+              url: '/visits/' + brew.id
+            }).then(function(response) {
+              DataFactory.getVisitDetails($routeParams.visitID);
+        });
+        }
+
+        self.deleteVisit = function(visitID) {
+            console.log('visit to delete: ', visitID);
+            swal({
+                title: 'Are you sure?',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#185FEF',
+                cancelButtonColor: '#FF1300',
+                confirmButtonText: 'Delete Brew'
+            }).then(function() {
+                $http.delete('/visits/' + visitID)
+                swal(
+                    'This visit has been deleted!',
+                    'success'
+                ).then(function(response) {
+                    DataFactory.getVisitDetails($routeParams.visitID);
+                    // $location.url('/main');
+                })
             });
-        };
+        }
     }
+
 ]);

@@ -2,7 +2,7 @@
 
 var express = require('express');
 var router = express.Router();
-var pool = require('../config/database-pool.js'); // Creates database pool, if you need to change database, do it in the config object in this file
+var pool = require('../modules/pg-pool.js'); // Creates database pool, if you need to change database, do it in the config object in this file
 
 // return all breweries
 router.get('/', function (req, res) {
