@@ -17,6 +17,11 @@ app.config(['$routeProvider', function($routeProvider) {
     controller: 'AddBrewController',
     controllerAs: 'abc'
   })
+  .when('/halloffame', {
+    templateUrl: '/views/fame.html',
+    controller: 'FameController',
+    controllerAs: 'fc'
+  })
   .when('/login', {
     templateUrl: '/views/login.html',
     controller: 'LoginController',
@@ -31,6 +36,6 @@ app.config(['$routeProvider', function($routeProvider) {
   controllerAs: 'vdc'
 })
   .otherwise({
-    redirectTo: 'login'
+    redirectTo: 'main'
   })
 }]);

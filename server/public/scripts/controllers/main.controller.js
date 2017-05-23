@@ -1,6 +1,6 @@
 app.controller('MainController', ['$http', 'DataFactory', 'AuthFactory', '$location', '$firebaseAuth', '$routeParams',
     function($http, DataFactory, AuthFactory, $location, $firebaseAuth, $routeParams) {
-        console.log('Main Controller loaded');
+        console.log('main controller loaded');
         var self = this;
         var auth = $firebaseAuth();
         // var swl = sweetalert;
@@ -16,16 +16,18 @@ app.controller('MainController', ['$http', 'DataFactory', 'AuthFactory', '$locat
         // TODO jesus h christ fix this montrosity
 
         function getVisits() {
+          // var firebaseUser = auth.$getAuth();
+          // if(firebaseUser) {
+          //     firebaseUser.getToken().then(function(idToken) {
           $http.get('/visits').then(function(response) {
             console.log('response data: ', response.data);
             self.visitList = response.data;
           });
         }
 
-        // // // gets all visits from the db
         // function getVisits() {
         //   var firebaseUser = auth.$getAuth();
-        //   // if(firebaseUser) {
+        //   if(firebaseUser) {
         //     firebaseUser.getToken().then(function(idToken) {
         //       $http({
         //         method: 'GET',
@@ -34,13 +36,14 @@ app.controller('MainController', ['$http', 'DataFactory', 'AuthFactory', '$locat
         //           id_token: idToken
         //         }
         //       }).then(function(response) {
+        //         console.log('response data: ', response.data);
         //         self.visitList = response.data;
         //       });
         //     });
-        //   // } else {
+        //   } else {
         //     self.visitList = [];
         //     console.log('cannot get when not logged in');
-        //   // }
+        //   }
         // }
 
 

@@ -5,9 +5,10 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var decoder = require('./modules/decoder');
 var visits = require('./routes/main-route.js');
-var breweries = require('./routes/breweries.js')
+var breweries = require('./routes/breweries.js');
+// var fame = require('./routes/fame-route.js');
 var visitDetails = require('./routes/visit-details-route.js');
-var users = require('./routes/users');
+var users = require('./routes/users.js');
 var port = 5000;
 
 // uses
@@ -20,6 +21,7 @@ app.use('/visits', visits);
 app.use('/visitDetails', visitDetails);
 app.use('/breweries', breweries);
 app.use('/users', users);
+// app.use('/fame', fame);
 
 // Decodes the token in the request header and attaches the decoded token to req.decodedToken on the request
 app.use(decoder.token);

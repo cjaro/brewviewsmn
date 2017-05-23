@@ -4,7 +4,7 @@ body {
     background-size: 60px 60px;
     background-repeat: repeat;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding: 2px;
+    padding: 10px;
 }
 
 
@@ -37,6 +37,7 @@ h3 {
 
 h4 {
     padding: 15px;
+    background: white;
 }
 
 label {

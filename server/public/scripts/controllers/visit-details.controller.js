@@ -1,12 +1,13 @@
 app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '$routeParams',
     function($http, $location, DataFactory, $routeParams) {
-        console.log('Visit deets controller loaded');
+        console.log('visit deets controller loaded');
         console.log($routeParams)
         var self = this;
         self.testVariable = 'I am a test!';
         self.visitList = [];
         self.visit = DataFactory.visit;
         DataFactory.getVisitDetails($routeParams.visitID);
+
 
         console.log('self.visit', self.visit);
 
@@ -53,19 +54,11 @@ app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '
 
         self.updateBrew = function(brew) {
             console.log('brew: ', brew);
-        //     $http.put('/visitDetails/' + brew.id, brew).then(function(response) {
-        //         DataFactory.getVisitDetails($routeParams.visitID);
-        //     });
-        // };
-        //
-        //   function updateDetails() {
-            $http({
-              method: 'PUT',
-              url: '/visits/' + brew.id
-            }).then(function(response) {
-              DataFactory.getVisitDetails($routeParams.visitID);
-        });
-        }
+            swal("Brew updated!")
+            $http.put('/visitDetails/' + brew.id, brew).then(function(response) {
+                DataFactory.getVisitDetails($routeParams.visitID);
+            });
+        };
 
         self.deleteVisit = function(visitID) {
             console.log('visit to delete: ', visitID);

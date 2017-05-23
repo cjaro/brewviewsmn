@@ -40,34 +40,25 @@ router.post('/', function(req, res) {
       });
 });
 
-router.delete('/:id', function(req, res) {
-  var brewRecordDeleteID = req.body;
-  console.log('brewRecordDeleteID = req.params.id', req.body)
-  console.log('Deleting brewID main: ', brewRecordDeleteID);
-  pool.connect()
-    .then(function(client) {
-      client.query('DELETE FROM brews_test WHERE visit_id=$1;', [brewRecordDeleteID])
-      .then(function(result){
-        client.query('DELETE FROM visits WHERE id=$1;')
-      })
-        .then(function(result) {
-          client.release();
-          res.sendStatus(200);
-        })
-        .catch(function(err) {
-          console.log('error on SELECT', err);
-          res.sendStatus(500);
-        });
-    });
-});
+// router.delete('/:id', function(req, res) {
+//   var brewRecordDeleteID = req.body;
+//   console.log('brewRecordDeleteID = req.params.id', req.body)
+//   console.log('Deleting brewID main: ', brewRecordDeleteID);
+//   pool.connect()
+//     .then(function(client) {
+//       client.query('DELETE FROM brews_test WHERE visit_id=$1;', [brewRecordDeleteID])
+//       .then(function(result){
+//         client.query('DELETE FROM visits WHERE id=$1;')
+//       })
+//         .then(function(result) {
+//           client.release();
+//           res.sendStatus(200);
+//         })
+//         .catch(function(err) {
+//           console.log('error on SELECT', err);
+//           res.sendStatus(500);
+//         });
+//     });
+// });
 
 module.exports = router;
-
-
-
-//having trouble ehre with my post - getting an error on attempt to save
-//get dropdown for rating working
-//error message reading that name is null - problem with id?
-// 3/20 4:22pm UPDATE: dropdown rating is working and corresponding to SQL db
-// updating still isn't working, though
-// error: possibly unhandled rejection

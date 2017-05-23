@@ -24,7 +24,7 @@ app.factory('AuthFactory', ['FirebaseAuthFactory', '$http', '$location', '$windo
         console.log("Authentication failed: ", error);
       });
     }
-
+    
     function getUserData(firebaseUser) {
       firebaseUser.getToken().then(function(idToken){
         $http({

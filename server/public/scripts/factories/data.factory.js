@@ -2,7 +2,7 @@ app.factory('DataFactory', ['$http', function($http){
   console.log('Data Factory loaded');
 
   var visit = { details: {} };
-  var brewery = { list: [] };
+  var brewery = { details: [] };
 
   function getVisitDetails(visitID) {
     console.log('visit ID is ', visitID);
@@ -26,17 +26,16 @@ app.factory('DataFactory', ['$http', function($http){
 // }
 //   }
 
-  // getBreweries();
-  //
   // function getBreweries() {
   //   $http.get('/breweries').then(function(response){
-  //     // console.log('factory response.data: ', response.data);
-  //     brewery.list = response.data;
+  //     console.log('factory response.data: ', response.data);
+  //     breweries.list = response.data;
+  //     console.log('breweries.list', breweries.list);
   //   });
   // }
 
   return {
-    // breweries: brewery,
+    breweries: brewery,
     visit: visit,
     getVisitDetails: getVisitDetails
   }

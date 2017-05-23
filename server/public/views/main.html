@@ -16,7 +16,7 @@
 
         <tbody>
             <tr ng-repeat="visit in mc.visitList">
-                <td>{{visit.date_had | date: 'M/d/yy'}}<br>
+                <td>{{visit.date_had | date: 'MMM d, yyyy'}}<br>
                     <!-- <button type="button" class="btn btn-danger btn-sm" id="nuclearButton" ng-click="mc.deleteVisit(mc.visitID)">
                     <span class="fa fa-trash-o"> delete visit</span></button> -->
                 </td>
@@ -44,13 +44,13 @@
 
     <div class="form-group" id="inputBrewery">
         <label>Brewery:</label>
-        <input type="text" ng-model="mc.newBeer.brewery">
+        <input type="text" class="form-control" ng-model="mc.newBeer.brewery">
         <!-- typeahead -->
     </div>
 
     <div class="addNewButton">
         <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">
-        <span class="fa fa-book"></span> Record Visit</button>
+        <span class=""></span> Record Visit</button>
     </div>
 
     <!-- {{ac.newBeer}} -->

@@ -1,25 +1,23 @@
-//controls list of breweries for dropdown in add.html
-
 var express = require('express');
 var router = express.Router();
-var pool = require('../modules/pg-pool.js'); // Creates database pool, if you need to change database, do it in the config object in this file
+var pool = require('../modules/pg-pool.js');
 
-// return all breweries
-router.get('/', function (req, res) {
-  // console.log('getting breweries from controller');
+router.get('/', function(req, res){
+  // var fameBrews = req.query.fameBrews
+  // console.log('getting hall of fame beers: ', fameBrews);
   pool.connect()
-    .then(function (client) {
-      client.query('SELECT * FROM my_brewery_db ORDER BY name ASC;')
-        .then(function (result) {
-          client.release();
-          res.send(result.rows);
-        })
-        .catch(function (err) {
-          console.log('error on SELECT', err);
-          res.sendStatus(500);
-        });
-    });
+      .then(function(client) {
+          client.query('SELECT brews_test.beer_name, brews_test.rating, brews_test.notes, visits.brewery, visits.date_had ' +
+          'FROM brews_test JOIN visits ON brews_test.visit_id = visits.id WHERE rating >= 9 ORDER BY date_had ASC;')
+              .then(function(result) {
+                  client.release();
+                  res.send(result.rows);
+              })
+              .catch(function(err) {
+                  console.log('error on SELECT', err);
+                  res.sendStatus(500);
+              });
+      });
 });
-
 
 module.exports = router;
