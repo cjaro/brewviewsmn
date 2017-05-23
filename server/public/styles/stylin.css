@@ -1,10 +1,11 @@
 body {
     background-color: #428bca;
-    /*background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');*/
-    background-size: 60px 60px;
-    background-repeat: repeat;
+    /*background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');
+    background-size: 40px 40px;
+    background-repeat: repeat;*/
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding: 10px;
+    margin-top: 30px;
 }
 
 
@@ -91,7 +92,7 @@ p {
 }
 
 #logoutbutton {
-    margin: 5px;
+    margin: 10px;
     float: right;
 }
 

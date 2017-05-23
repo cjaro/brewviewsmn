@@ -4,7 +4,7 @@ app.controller('FameController', ['$http', 'DataFactory', 'AuthFactory', '$locat
       var self = this;
       var auth = $firebaseAuth();
       self.brewery = [];
-      console.log('self.breweries', self.breweries); //returning empty array list
+      console.log('self.brewery', self.brewery); //returning empty array list
 
 
         getHallOfFame()

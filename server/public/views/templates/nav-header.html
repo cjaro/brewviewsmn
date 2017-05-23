@@ -1,6 +1,6 @@
 <span ng-controller="NavController as nc" ng-show="nc.userIsLoggedIn">
   <!--{{nc}}-->
-  <nav class="navbar navbar-default">
+  <nav class="navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -31,7 +31,7 @@
         <!-- <li> <a href="#!suggestion"><span class="fa fa-comments-o"></span> Suggestions</a></li> -->
     </ul>
     <ul>
-        <button id="logoutbutton" type="button" class="btn btn-warning" ng-click="nc.logOut()">
+        <button id="logoutbutton" type="button" class="btn btn-warning btn-sm" ng-click="nc.logOut()">
             <span class="fa fa-sign-out"></span> Cut Me Off</button>
     </ul>
 </div>
