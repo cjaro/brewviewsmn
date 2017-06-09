@@ -10,40 +10,39 @@ app.factory('AuthFactory', ['FirebaseAuthFactory', '$http', '$location', '$windo
     loggedIn.value = firebaseUser !== null;
     if (loggedIn.value) {
       getUserData(firebaseUser);
-       $location.path('/main');
+      $location.path('/main');
     } else {
       console.log('user is not logged in');
     }
   });
 
-    function logIn() {
-      console.log('login clicked');
-      auth.$signInWithPopup("google").then(function(firebaseUser) {
-        console.log("Firebase Authenticated: ", firebaseUser.user.displayName);
-      }).catch(function(error) {
-        console.log("Authentication failed: ", error);
-      });
-    }
-    
-    function getUserData(firebaseUser) {
-      firebaseUser.getToken().then(function(idToken){
-        $http({
-          method: 'GET',
-          url: '/users',
-          headers: {
-            id_token: idToken
-          }
-        }).then(function(response) {
-          console.log('from user get (response.data):', response.data);
-          userInfo.info = response.data;
-        });
-      });
-    }
+  function logIn() {
+    console.log('login clicked');
+    auth.$signInWithPopup("google").then(function(firebaseUser) {
+      console.log("Firebase Authenticated: ", firebaseUser.user.displayName);
+    }).catch(function(error) {
+      console.log("Authentication failed: ", error);
+    });
+  }
 
-    return {
-      logIn: logIn,
-      // logOut: logOut,
-      userInfo: userInfo,
-      newLoggedIn: newLoggedIn
-    };
-  }]);
+  function getUserData(firebaseUser) {
+    firebaseUser.getToken().then(function(idToken){
+      $http({
+        method: 'GET',
+        url: '/users',
+        headers: {
+          id_token: idToken
+        }
+      }).then(function(response) {
+        console.log('this garbage can function getUserData is not working blargh fuck');
+        userInfo.info = response.data;
+      });
+    });
+  }
+
+  return {
+    logIn: logIn,
+    userInfo: userInfo,
+    newLoggedIn: newLoggedIn
+  };
+}]);

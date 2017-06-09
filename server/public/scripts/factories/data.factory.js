@@ -1,5 +1,5 @@
 app.factory('DataFactory', ['$http', function($http){
-  console.log('Data Factory loaded');
+  console.log('data factory loaded');
 
   var visit = { details: {} };
   var brewery = { details: [] };
@@ -16,6 +16,14 @@ app.factory('DataFactory', ['$http', function($http){
     });
   }
 
+  return {
+    breweries: brewery,
+    visit: visit,
+    getVisitDetails: getVisitDetails
+  }
+
+}]);
+
 //   function updateDetails() {
 //     $http({
 //       method: 'PUT',
@@ -26,18 +34,10 @@ app.factory('DataFactory', ['$http', function($http){
 // }
 //   }
 
-  // function getBreweries() {
-  //   $http.get('/breweries').then(function(response){
-  //     console.log('factory response.data: ', response.data);
-  //     breweries.list = response.data;
-  //     console.log('breweries.list', breweries.list);
-  //   });
-  // }
-
-  return {
-    breweries: brewery,
-    visit: visit,
-    getVisitDetails: getVisitDetails
-  }
-
-}]);
+// function getBreweries() {
+//   $http.get('/breweries').then(function(response){
+//     console.log('factory response.data: ', response.data);
+//     breweries.list = response.data;
+//     console.log('breweries.list', breweries.list);
+//   });
+// }

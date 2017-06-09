@@ -1,5 +1,5 @@
 app.controller('NavController', ['$http', 'DataFactory', '$location', '$window', '$firebaseAuth',  function($http, DataFactory, $location, $window, $firebaseAuth){
-  console.log('Nav Controller loaded');
+  console.log('nav controller loaded');
   var self = this;
   var auth = $firebaseAuth();
 

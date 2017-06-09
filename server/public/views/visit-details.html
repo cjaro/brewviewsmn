@@ -1,4 +1,4 @@
-<h3 class="main">{{vdc.visit.details[0].brewery}}</h3>
+<h3 class="main">{{vdc.visit.details[0].brewery}} - {{vdc.visit.details[0].date_had | date: 'MMM d, yyyy'}}</h3>
 
 <div class="brewBrewList">
 
@@ -15,14 +15,14 @@
 
         <tbody>
             <tr ng-repeat="brew in vdc.visit.details">
-                <td contenteditable="true" ng-model="brew.beer_name">{{brew.beer_name}}</td>
-                <td contenteditable="true" ng-model="brew.rating">{{brew.rating}}</td>
-                <td contenteditable="true" ng-model="brew.notes">{{brew.notes}}</td>
+                <td ng-model="brew.beer_name">{{brew.beer_name}}</td>
+                <td ng-model="brew.rating" class="text-center">{{brew.rating}}</td>
+                <td ng-model="brew.notes">{{brew.notes}}</td>
                 <td id="updateDeleteButtons">
                   <button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info btn-sm">
                 <span class="glyphicon glyphicon-ok-sign"></span></button>
-                  <button id="deleteButton" ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger btn-sm">
-                <span class="fa fa-trash-o"></span></button>
+                  <!-- <button id="deleteButton" ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger btn-sm"> -->
+                <!-- <span class="fa fa-trash-o"></span></button> -->
                 </td>
             </tr>
         </tbody>

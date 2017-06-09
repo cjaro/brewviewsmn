@@ -1,22 +1,18 @@
 app.controller('FameController', ['$http', 'DataFactory', 'AuthFactory', '$location', '$firebaseAuth', '$routeParams',
   function($http, DataFactory, AuthFactory, $location, $firebaseAuth, $routeParams) {
     console.log('hall of fame controller loaded');
-      var self = this;
-      var auth = $firebaseAuth();
-      self.brewery = [];
-      console.log('self.brewery', self.brewery); //returning empty array list
+    var self = this;
+    var auth = $firebaseAuth();
+    self.brewery = [];
+    console.log('self.brewery', self.brewery); //returning empty array list
 
+    getHallOfFame()
 
-        getHallOfFame()
-
-        function getHallOfFame() {
-          $http.get('/breweries').then(function(response) {
-            console.log('response data: ', response.data);
-            self.brewery = response.data;
-          });
-        };
-
-
+    function getHallOfFame() {
+      $http.get('/breweries').then(function(response) {
+        console.log('response data: ', response.data);
+        self.brewery = response.data;
+      });
+    };
   }
-
 ]);
