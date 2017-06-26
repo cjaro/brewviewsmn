@@ -9,7 +9,7 @@
                 <th>Name</th>
                 <th>Rating</th>
                 <th>Notes</th>
-                <th>U/D</th>
+                <th>Edit/</br>Delete</th>
             </tr>
         </thead>
 
@@ -19,10 +19,10 @@
                 <td ng-model="brew.rating" class="text-center">{{brew.rating}}</td>
                 <td ng-model="brew.notes">{{brew.notes}}</td>
                 <td id="updateDeleteButtons">
-                  <button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info btn-sm">
-                <span class="glyphicon glyphicon-ok-sign"></span></button>
-                  <!-- <button id="deleteButton" ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger btn-sm"> -->
-                <!-- <span class="fa fa-trash-o"></span></button> -->
+                    <button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info btn-sm">
+                <span class="glyphicon glyphicon-edit"></span></button>
+                    <button id="deleteButton" ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger btn-sm"> 
+                 <span class="fa fa-trash-o"></span></button>
                 </td>
             </tr>
         </tbody>

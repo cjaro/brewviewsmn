@@ -37,9 +37,10 @@ h3 {
     padding: 1px;
 }
 
-h4 {
+#fameTag {
     padding: 15px;
     background: white;
+    margin: 10px;
 }
 
 label {
@@ -51,7 +52,6 @@ p {
     text-align: center;
 }
 
-
 #addNewButton {
     margin: 2px;
     margin: auto;
@@ -59,10 +59,9 @@ p {
 }
 
 #appButtons {
-  display: inline-block;
-  padding: 10px;
-  height: auto;
-
+    display: inline-block;
+    padding: 10px;
+    height: auto;
 }
 
 #disabled {
@@ -94,8 +93,8 @@ p {
 }
 
 #loginPic {
-    height: 200px;
-    width: 200px;
+    height: 175px;
+    width: 175px;
     margin: 0 auto;
     padding: 5px;
 }
@@ -137,50 +136,46 @@ p {
     display: inline-block;
 }
 
+
 /*.deleteThisVisit {
     text-align: center;
     padding-bottom: 15px;
     background: #d9534f;
     /*border: 1px solid black;*/
-}*/
 
-.list {
+
+}
+*/ .list {
     background: white;
     /*padding: 2px;*/
+    
     border: 1px solid black;
 }
-
 .loginDiv {
     background-color: white;
     text-align: center;
     margin-bottom: 25px;
 }
-
 .navbar-brand {
     padding: 0px;
 }
-
 .navbar-brand>img {
     height: 100%;
     padding: 0px;
     width: auto;
-    opacity: 0.75;
+    /*opacity: 0.75;*/
 }
-
 img:hover {
     opacity: 1.0;
 }
-
 .logButtons {
-  margin: 5px;
-  padding: 5px;
-  display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
 }
-
 .spacer {
     margin-top: 25px;
 }
-
 .spacer2 {
     text-align: center;
     background: #d9534f;
@@ -188,27 +183,23 @@ img:hover {
     padding-bottom: 15px;
     padding-top: 5px;
 }
-
 .suggestDiv {
     text-align: center;
     background: white;
     margin: auto;
 }
-
 .footerBody {
-  background: aliceblue;
-
+    background: aliceblue;
 }
-
 table,
 thead,
 td,
 tr {
     /*border-collapse: collapse;*/
     /*padding: 1px;*/
+    
     background-color: #ffffff;
 }
-
 table th {
     background-color: rgb(255, 255, 255);
 }

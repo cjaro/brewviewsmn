@@ -9,12 +9,12 @@ var breweries = require('./routes/breweries.js');
 // var fame = require('./routes/fame-route.js');
 var visitDetails = require('./routes/visit-details-route.js');
 var users = require('./routes/users.js');
-var port = 5000;
+var port = 4000;
 
 // uses
 app.use(express.static('./server/public'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // routes
 app.use('/visits', visits);
@@ -28,8 +28,8 @@ app.use(decoder.token);
 
 // serve index.html
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, './public/index.html'));
+    res.sendFile(path.join(__dirname, './public/index.html'));
 });
 
-console.log('kickin back with a cold one on port',port);
+console.log('kickin back with a cold one on port', port);
 app.listen(port);
