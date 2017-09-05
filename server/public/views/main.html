@@ -4,76 +4,76 @@
 <h3 class="main">My Visits</h3>
 
 <div class="brewList ">
-    <table class="table table-hover table-bordered table-responsive table-condensed">
+  <table class="table table-hover table-bordered table-responsive table-condensed">
 
-        <thead>
-            <tr>
-                <th class="date">Date</th>
-                <th class="brewery">Brewery</th>
-                <!--<th>Delete</th>-->
-            </tr>
-        </thead>
+    <thead>
+      <tr>
+        <th class="date">Date</th>
+        <th class="brewery">Brewery</th>
+        <!--<th>Delete</th>-->
+      </tr>
+    </thead>
 
-        <tbody>
-            <tr ng-repeat="visit in mc.visitList">
-                <td>{{visit.date_had | date: 'MMM d, yyyy'}}<br>
-                    <!-- <button type="button" class="btn btn-danger btn-sm" id="nuclearButton" ng-click="mc.deleteVisit(mc.visitID)">
-                    <span class="fa fa-trash-o"> delete visit</span></button> -->
-                </td>
-                <td ng-model="visit.brewery">{{visit.brewery}}
-                    <a href="/#!visits/{{visit.id}}" id="seeMoreButton" class="btn btn-info btn-sm" role="button">
-                        <span class="fa fa-bars"></span></a>
-                </td>
-                <!--<td></td>-->
-            </tr>
-        </tbody>
+    <tbody>
+      <tr ng-repeat="visit in mc.visitList">
+        <td>{{visit.date_had | date: 'MMM d, yyyy'}}<br>
+          <!-- <button type="button" class="btn btn-danger btn-sm" id="nuclearButton" ng-click="mc.deleteVisit(mc.visitID)">
+          <span class="fa fa-trash-o"> delete visit</span></button> -->
+        </td>
+        <td ng-model="visit.brewery">{{visit.brewery}}
+          <a href="/#!visits/{{visit.id}}" id="seeMoreButton" class="btn btn-info btn-sm" role="button">
+            <span class="fa fa-bars"></span></a>
+          </td>
+          <!--<td></td>-->
+        </tr>
+      </tbody>
 
     </table>
-</div>
+  </div>
 
-<h3 class="main">Add a Visit</h3>
+  <h3 class="main">Add a Visit</h3>
 
-<div class="addingNewVisit">
+  <div class="addingNewVisit">
     <!-- {{avc.testMessage}} -->
 
     <div class="form-group dropdown" id="inputDate">
-        <!-- TODO get date to display as editable Month, Day, & Year, not 2017-03-11T06:00:00.000Z -->
-        <label>Date Enjoyed:</label>
-        <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
+      <!-- TODO get date to display as editable Month, Day, & Year, not 2017-03-11T06:00:00.000Z -->
+      <label>Date Enjoyed:</label>
+      <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
     </div>
 
     <div class="form-group" id="inputBrewery">
-        <label>Brewery:</label>
-        <input type="text" class="form-control" ng-model="mc.newBeer.brewery">
-        <!-- typeahead -->
+      <label>Brewery:</label>
+      <input type="text" class="form-control" ng-model="mc.newBeer.brewery">
+      <!-- typeahead -->
     </div>
 
     <div class="addNewButton">
-        <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">
+      <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">
         <span class=""></span> Record Visit</button>
+      </div>
+
+      <!-- {{ac.newBeer}} -->
     </div>
+    <?php
+    echo "it's php time";
+    ?>
 
-    <!-- {{ac.newBeer}} -->
-</div>
-<?php
-echo "it's php time";
-?>
-
-<!--
-||drink up my hearties yo ho drink up
-|| it's a pirate's life for me
-||      ~  ~  ~
-||      ( o )o) o)
-||     ( o )o ) )o)o)
-||    (o( ~~~~~~~~~~o
-||    ( )' ~~~~~~~~~.
-||   ( )|)          |-.
-||     o|  _  _     |-. \
-||     o| |_||_)\  /|  \ \
-||      | | ||_) \/ |   | |
-||     o|           |  / /
-||      |           |." "
-||      |           |- '
-||      .===========.
-||
--->
+    <!--
+    ||drink up my hearties yo ho drink up
+    || it's a pirate's life for me
+    ||      ~  ~  ~
+    ||      ( o )o) o)
+    ||     ( o )o ) )o)o)
+    ||    (o( ~~~~~~~~~~o
+    ||    ( )' ~~~~~~~~~.
+    ||   ( )|)          |-.
+    ||     o|  _  _     |-. \
+    ||     o| |_||_)\  /|  \ \
+    ||      | | ||_) \/ |   | |
+    ||     o|           |  / /
+    ||      |           |." "
+    ||      |           |- '
+    ||      .===========.
+    ||
+  -->

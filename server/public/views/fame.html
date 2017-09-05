@@ -1,4 +1,4 @@
-<h3 class="main">Hall of Fame</h3>
+<h3 class="main">Hall of Fame: Worthy of a rating above 9/10</h3>
 <!--<h7 id="fameTag">You gave these brews a rating of 9 or 10!</h7>-->
 
 <div class="brewBrewList">
@@ -9,7 +9,7 @@
             <tr>
                 <th>Brew</th>
                 <!-- <th>Brew</th> -->
-                <th>Rating</th>
+                <!-- <th>Rating</th> -->
                 <th>Notes</th>
                 <th>Date</th>
             </tr>
@@ -19,7 +19,7 @@
             <tr ng-repeat="best in fc.brewery">
                 <td ng-model="best.brewery">{{best.beer_name}}</br>({{best.brewery}})</td>
                 <!-- <td ng-model="best.beer_name">{{best.beer_name}}</td> -->
-                <td ng-model="best.rating">{{best.rating}}/10</td>
+                <!-- <td ng-model="best.rating">{{best.rating}}/10</td> -->
                 <td ng-model="best.notes">{{best.notes}}</td>
                 <td ng-model="best.notes">{{best.date_had | date: 'dd MMMM yyyy'}}</td>
             </tr>
