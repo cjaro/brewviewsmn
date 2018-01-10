@@ -214,8 +214,6 @@ img:hover {
 table thead,
 td,
 tr {
-    /*border-collapse: collapse;*/
-    /*padding: 1px;*/
     
     background-color: #ffffff;
 }

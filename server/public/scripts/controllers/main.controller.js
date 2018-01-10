@@ -60,29 +60,31 @@ app.controller('MainController', ['$http', 'DataFactory', 'AuthFactory', '$locat
         //   }
         // }
 
-        // self.deleteVisit = function(visitID) {
-        //     console.log('visit to delete: ', visitID);
-        //     swal({
-        //         title: 'Are you super duper sure??',
-        //         text: "like super super super sure?????",
-        //         type: 'warning',
-        //         showCancelButton: true,
-        //         confirmButtonColor: '#185FEF',
-        //         cancelButtonColor: '#FF1300',
-        //         confirmButtonText: 'go nuclear'
-        //     }).then(function() {
-        //         $http.delete('/visits/' + visitID)
-        //         swal(
-        //             'Bummer, dude!',
-        //             'This visit has been deleted!',
-        //             'success'
-        //         ).then(function(response) {
-        //             DataFactory.getVisitDetails($routeParams.visitID);
-        //             // $location.url('/main');
-        //         })
-        //     });
-        // }
+        self.deleteVisit = function(visitID) {
+            console.log('visit to delete: ', visitID);
+            swal({
+                title: 'Are you super duper sure??',
+                text: "like super super super sure?????",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#185FEF',
+                cancelButtonColor: '#FF1300',
+                confirmButtonText: 'go nuclear'
+            }).then(function() {
+                $http.delete('/visits/' + visitID)
+                swal(
+                    'Bummer, dude!',
+                    'This visit has been deleted!',
+                    'success'
+                ).then(function(response) {
+                    DataFactory.getVisitDetails($routeParams.visitID);
+                    // $location.url('/main');
+                })
+            });
+        }
 
 
     }
 ]);
+
+// '$xeditable', $xeditable
