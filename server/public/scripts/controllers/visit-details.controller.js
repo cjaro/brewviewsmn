@@ -16,12 +16,6 @@ app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '
             $http.post('/visitDetails', newBrewObject).then(function(response) {
                 self.newBeer = {};
                 DataFactory.getVisitDetails($routeParams.visitID);
-                //want to add option to star or mark brews added to hall of fame
-                //  ie:
-                // if (brewIsRated>8) {
-                //  add star/mark to brew name on visit-details page
-                // } else {
-                // don't do the thing};
             });
         };
 
