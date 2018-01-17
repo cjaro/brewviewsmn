@@ -17,9 +17,9 @@
 
         <tbody>
             <tr ng-repeat="best in fc.brewery">
-                <td ng-model="best.brewery">{{best.beer_name}}</br>({{best.brewery}})</td>
+                <td ng-model="best.brewery">{{best.beer_name}}: {{best.rating}}/10</br>({{best.brewery}})</td>
                 <!-- <td ng-model="best.beer_name">{{best.beer_name}}</td> -->
-                <!-- <td ng-model="best.rating">{{best.rating}}/10</td> -->
+                <!-- <td ng-model="best.rating"></td> -->
                 <td ng-model="best.notes">{{best.notes}}</td>
                 <td ng-model="best.notes">{{best.date_had | date: 'dd MMMM yyyy'}}</td>
             </tr>
