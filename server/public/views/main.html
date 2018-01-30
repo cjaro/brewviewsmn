@@ -22,7 +22,7 @@
         </td>
         <td ng-model="visit.brewery">{{visit.brewery}}
           <a href="/#!visits/{{visit.id}}" id="seeMoreButton" class="btn btn-info btn-sm" role="button">
-            <span class="fa fa-bars"></span></a>
+            <span class="fa fa-chevron-right"></span></a>
           </td>
           <!--<td></td>-->
         </tr>
@@ -37,7 +37,6 @@
     <!-- {{avc.testMessage}} -->
 
     <div class="form-group dropdown" id="inputDate">
-      <!-- TODO get date to display as editable Month, Day, & Year, not 2017-03-11T06:00:00.000Z -->
       <label>Date Enjoyed:</label>
       <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
     </div>
