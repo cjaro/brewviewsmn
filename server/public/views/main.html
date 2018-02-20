@@ -1,7 +1,31 @@
 <!-- <div class="mainLoggedView" ng-show="mc.userIsLoggedIn"> -->
 <!-- {{mc.userIsLoggedIn}} -->
 
-<h3 class="main">My Visits</h3>
+<h3 class="main">Add a Visit</h3>
+
+<div class="addingNewVisit">
+  <!-- {{avc.testMessage}} -->
+
+  <div class="form-group dropdown" id="inputDate">
+    <label>Date Enjoyed:</label>
+    <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
+  </div>
+
+  <div class="form-group" id="inputBrewery">
+    <label>Brewery:</label>
+    <input type="text" class="form-control" ng-model="mc.newBeer.brewery">
+    <!-- typeahead -->
+  </div>
+
+  <div class="addNewButton">
+    <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">
+      <span class=""></span> Record Visit</button>
+    </div>
+    <!-- {{ac.newBeer}} -->
+  </div>
+
+<h3 class="main">Previous Brewery Visits</h3>
+
 
 <div class="brewList ">
   <table class="table table-hover table-bordered table-responsive table-condensed">
@@ -31,28 +55,7 @@
     </table>
   </div>
 
-  <h3 class="main">Add a Visit</h3>
 
-  <div class="addingNewVisit">
-    <!-- {{avc.testMessage}} -->
-
-    <div class="form-group dropdown" id="inputDate">
-      <label>Date Enjoyed:</label>
-      <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
-    </div>
-
-    <div class="form-group" id="inputBrewery">
-      <label>Brewery:</label>
-      <input type="text" class="form-control" ng-model="mc.newBeer.brewery">
-      <!-- typeahead -->
-    </div>
-
-    <div class="addNewButton">
-      <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">
-        <span class=""></span> Record Visit</button>
-      </div>
-      <!-- {{ac.newBeer}} -->
-    </div>
 
     <!--
     ||drink up my hearties yo ho drink up
