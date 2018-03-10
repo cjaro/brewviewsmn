@@ -1,6 +1,6 @@
 <h3 class="main">{{vdc.visit.details[0].brewery}} - {{vdc.visit.details[0].date_had | date: 'dd MMMM yyyy'}}</h3>
 
-<div class="brewBrewList">
+<div class="col-md-8 brewBrewList">
     <table class="table table-bordered table-condensed">
       <thead>
         <tr>
@@ -24,8 +24,17 @@
     </table>
 </div>
 
-<h3 class="main">Add a Brew to this Visit</h3>
+<div class="col-md-4">
 
+  <div id="breweryNotes">
+    <h3>Brewery Notes</h3>
+    <p>How was the venue? Atmosphere? Parking? Patrons? Bartenders? Prices? Write it down here!</p>
+    <div>
+      {{vdc.visit.details[0].brewery_notes}}
+  </div>
+
+
+<h3 class="main">Add a Brew to this Visit</h3>
 <div class="addingNewBeer">
     <div class="form-group" id="inputName">
         <label>Brew Name:</label>
@@ -53,49 +62,15 @@
     <div class="addNewButton">
         <button ng-click="vdc.addNewBrew(vdc.newBeer)" type="button" class="btn btn-success btn-md"><span class="fa fa-hand-peace-o"></span> Beer Me</button>
     </div>
-
     {{vdc.newBeer}}
+
+
 
 </div>
 
 
-
-
-
-
-<!--
-<div class="spacer">
-    <div>
-        <div>
-            <div>
-                <div class="spacer2">
-                    <span class="fa fa-hand-stop-o"></span>
-                    <span class="fa fa-hand-stop-o"></span>
-                    <span class="fa fa-hand-stop-o"></span>
-                    <span class="fa fa-hand-stop-o"></span>
-                    <span class="fa fa-hand-stop-o"></span>
-                    <span class="fa fa-hand<-stop-o"></span>
-                    <br>
-                    <span class="fa fa-exclamation-triangle"></span>
-                    <span class="fa fa-exclamation-triangle"></span>
-                    <span class="fa fa-exclamation-triangle"></span>
-                    <span class="fa fa-exclamation-triangle"></span> DANGER ZONE
-                    <span class="fa fa-exclamation-triangle"></span>
-                    <span class="fa fa-exclamation-triangle"></span>
-                    <span class="fa fa-exclamation-triangle"></span>
-                    <span class="fa fa-exclamation-triangle"></span></div>
-                <div>
-                  <div class="deleteThisVisit">
-                      <button ng-click="vdc.deleteVisit(vdc.visitID)" type="button" class="btn btn-danger">delete visit</button>
-                  </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
+</div>
 <!--
 || ಠ_ಠ
-|| stop looking at my code
-|| I know it's shit
+|| stop looking at my code, I know it's shit
 -->

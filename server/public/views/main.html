@@ -17,6 +17,11 @@
     <!-- typeahead -->
   </div>
 
+  <div class="" id="breweryNotes">
+    <label>Notes about the Brewery:</label>
+    <textarea type="text" class="form-control" ng-model="mc.newBeer.b_notes"></textarea>
+  </div>
+
   <div class="addNewButton">
     <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">
       <span class=""></span> Record Visit</button>
@@ -24,7 +29,7 @@
     <!-- {{ac.newBeer}} -->
   </div>
 
-<h3 class="main">Previous Brewery Visits</h3>
+<h3 class="main">My Brewery Visits</h3>
 
 
 <div class="brewList ">

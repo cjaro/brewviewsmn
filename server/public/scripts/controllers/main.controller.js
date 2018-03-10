@@ -86,5 +86,4 @@ app.controller('MainController', ['$http', 'DataFactory', 'AuthFactory', '$locat
 
     }
 ]);
-
-// '$xeditable', $xeditable
+ 

@@ -28,7 +28,7 @@ router.post('/', function(req, res) {
   console.log('New visit: ', newVisit);
   pool.connect()
       .then(function(client) {
-          client.query('INSERT INTO visits (date_had, brewery) VALUES ($1, $2) RETURNING id', [newVisit.date_had, newVisit.brewery])
+          client.query('INSERT INTO visits (date_had, brewery, b_notes) VALUES ($1, $2, $3) RETURNING id', [newVisit.date_had, newVisit.brewery, newVisit.b_notes])
               .then(function(result) {
                   client.release();
                   res.send(result.rows);
