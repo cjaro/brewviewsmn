@@ -28,13 +28,14 @@
 
   <div id="breweryNotes">
     <h3>Brewery Notes</h3>
-    <p>How was the venue? Atmosphere? Parking? Patrons? Bartenders? Prices? Write it down here!</p>
-    <div>
+    <div class="form-group">
       {{vdc.visit.details[0].brewery_notes}}
+      <textarea class="form-control" rows="5" ng-model="vdc.newBeer.notes" placeholder="How was the venue? Atmosphere? Parking? Patrons? Bartenders? Prices? Write it down here!"></textarea>
+    </div>
   </div>
 
 
-<h3 class="main">Add a Brew to this Visit</h3>
+<h3>Add a Brew to this Visit</h3>
 <div class="addingNewBeer">
     <div class="form-group" id="inputName">
         <label>Brew Name:</label>
