@@ -1,3 +1,4 @@
+/* general */
 body {
     background-color: #428bca;
     /*background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');
@@ -8,15 +9,12 @@ body {
     margin-top: 30px;
     margin-bottom: 30px;
 }
-
-
-/*h1 {
+h1 {
     font-size: 40px;
     color: white;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     text-align: center;
-}*/
-
+}
 h2 {
     background: #5cb85c;
     font-size: 32px;
@@ -26,7 +24,6 @@ h2 {
     border: 1px solid black;
     padding: 1px;
 }
-
 h3 {
     background: #5cb85c;
     font-size: 24px;
@@ -36,7 +33,6 @@ h3 {
     border: 1px solid black;
     padding: 1px;
 }
-
 h4 {
     /*background: #5cb85c;*/
     /*font-size: 30px;*/
@@ -46,79 +42,49 @@ h4 {
     /*border: 1px solid black;*/
     padding: 5px;
 }
-
-#fameTag {
-    padding: 15px;
-    background: white;
-    margin: 10px;
+table thead, td, tr {
+    background-color: #ffffff;
+}
+table th {
+    background-color: rgb(255, 255, 255);
+}
+input{
+  padding: 2px !important;
 }
 
-label {
-    font-size: 14px;
-}
 
-p {
+/* main.html */
+#addingNewVisit {
     background: white;
     text-align: center;
+    padding: 2px;
 }
-
-#addNewButton {
-    margin: 2px;
-    margin: auto;
-    text-align: center;
-}
-
-#appButtons {
-    display: inline-block;
-    padding: 10px;
-    height: auto;
-}
-
-#disabled {
-    pointer-events: none;
-    /* for "disabled" effect */
-    opacity: 0.5;
-    background: #CCC;
-}
-
-#seeMoreButton,
-#nuclearButton {
-    float: right;
-    margin: auto;
-}
-
-#inputName,
-#inputRating {
-    display: inline-block;
-}
-
-#inputNotes {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
 #inputDate,
 #inputBrewery {
     display: inline-block;
 }
-
-#loginPic {
-    height: 175px;
-    width: 175px;
-    margin: 0 auto;
-    padding: 5px;
+#breweryNotesInput{
+  margin: auto;
+  width: 70%;
+}
+#addNewButton {
+  padding 5px;
 }
 
-#logoutbutton {
-    margin: 10px;
+
+#seeMoreButton {
     float: right;
+    margin: auto;
 }
 
+/* visit-details.html */
+#brewBrewList{
+
+}
 #updateDeleteButtons {
     text-align: center;
     /*display: inline-block;*/
 }
-
 #updateButton,
 #deleteButton {
     float: right;
@@ -128,54 +94,58 @@ p {
     height: 25px;
     width: 25px;*/
 }
+#breweryNotes{
 
-.addingNewBeer {
+}
+#addingNewBeer {
     background: white;
     text-align: center;
 }
-
-.addNewButton {
-    padding: 2px;
-}
-
-.addingNewVisit {
-    background: white;
-    text-align: center;
-    padding: 2px;
-}
-
-
-/*.brewBrewList{
-  display: inline-block;
-}*/
-
-.brewName,
-.brewDate,
-.brewBrewery,
-.ratingButtons {
+#inputName,
+#inputRating {
     display: inline-block;
 }
-
-
-/*.deleteThisVisit {
-    text-align: center;
-    padding-bottom: 15px;
-    background: #d9534f;
-    /*border: 1px solid black;*/
-
-
+#inputNotes {
+    margin: auto;
+    width: 70%;;
 }
-*/ .list {
-    background: white;
-    /*padding: 2px;*/
+#addNewButton {
+    padding-bottom: 15px;
+    margin: auto;
+    text-align: center;
+}
 
-    border: 1px solid black;
+
+/* fame.html */
+#fameTag {
+    padding: 15px;
+    background: white;
+    margin: 10px;
+}
+
+/* login.html */
+#loginPic {
+    height: 175px;
+    width: 175px;
+    margin: 0 auto;
+    padding: 5px;
+  }
+#logoutbutton {
+    margin: 10px;
+    float: right;
 }
 .loginDiv {
     background-color: white;
     text-align: center;
     margin-bottom: 25px;
 }
+.logButtons {
+    margin: 5px;
+    padding: 5px;
+    display: inline-block;
+}
+
+/* index.html */
 .navbar-brand {
     padding: 0px;
 }
@@ -187,39 +157,4 @@ p {
 }
 img:hover {
     opacity: 1.0;
-}
-.logButtons {
-    margin: 5px;
-    padding: 5px;
-    display: inline-block;
-}
-.spacer {
-    margin-top: 25px;
-}
-.spacer2 {
-    text-align: center;
-    background: #d9534f;
-    margin-top: 50px;
-    padding-bottom: 15px;
-    padding-top: 5px;
-}
-.suggestDiv {
-    text-align: center;
-    background: white;
-    margin: auto;
-}
-.footerBody {
-    background: aliceblue;
-}
-table thead,
-td,
-tr {
-
-    background-color: #ffffff;
-}
-table th {
-    background-color: rgb(255, 255, 255);
-}
-input{
-  padding: 2px !important;
 }

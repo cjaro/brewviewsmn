@@ -3,7 +3,7 @@
 
 <h3 class="main">Add a Visit</h3>
 
-<div class="addingNewVisit">
+<div id="addingNewVisit">
   <!-- {{avc.testMessage}} -->
 
   <div class="form-group dropdown" id="inputDate">
@@ -17,12 +17,12 @@
     <!-- typeahead -->
   </div>
 
-  <div class="" id="breweryNotes">
+  <div class="form-group" id="breweryNotes">
     <label>Notes about the Brewery:</label>
-    <textarea type="text" class="form-control" ng-model="mc.newBeer.b_notes"></textarea>
+    <textarea id="breweryNotesInput" type="text" class="form-control" ng-model="mc.newBeer.b_notes"></textarea>
   </div>
 
-  <div class="addNewButton">
+  <div id="addNewButton">
     <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">
       <span class=""></span> Record Visit</button>
     </div>
@@ -32,7 +32,7 @@
 <h3 class="main">My Brewery Visits</h3>
 
 
-<div class="brewList ">
+<div id="brewList">
   <table class="table table-hover table-bordered table-responsive table-condensed">
 
     <thead>
