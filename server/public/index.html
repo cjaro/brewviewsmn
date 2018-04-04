@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-    <!-- jQuery TODO remove this shit -->
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <!-- Bootstrap -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
@@ -20,64 +20,59 @@
     <script src="vendors/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="vendors/sweetalert2.min.css">
     <!-- font awesome -->
-    <script src="https://use.fontawesome.com/32a1d6b9cc.js"></script>
-
+<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <!-- scripts -->
     <script src="scripts/config.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
-
     <!-- factories -->
     <script src="scripts/factories/data.factory.js" charset="utf-8"></script>
     <script src="scripts/factories/auth.factory.js" charset="utf-8"></script>
     <script src="scripts/factories/firebase-auth.factory.js" charset="utf-8"></script>
-
     <!-- controllers -->
     <script src="scripts/controllers/main.controller.js" charset="utf-8"></script>
     <script src="scripts/controllers/fame.controller.js" charset="utf-8"></script>
     <script src="scripts/controllers/login.controller.js" charset="utf-8"></script>
     <script src="scripts/controllers/nav.controller.js" charset="utf-8"></script>
     <script src="scripts/controllers/visit-details.controller.js" charset="utf-8"></script>
-    <!-- <script src="scripts/controllers/add-visit.controller.js" charset="utf-8"></script> -->
-    <!-- <script src="scripts/controllers/add-brew.controller.js" charset="utf-8"></script> -->
-
     <!-- stylesheet -->
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="vendors/animate.css">
-
     <!-- favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/beer-icon.png">
-
     <title>awesome brew views</title>
 </head>
 
 <body class="container" ng-app="BrewApp">
     <header ng-include="'/views/templates/nav-header.html'"></header>
     <main ng-view></main>
-    <span class="fa fa-creative-commons"></span> cjaro 2018
+  <div>
+    &copy; cj 2018
+  </div>
     <!-- <header ng-include="'/views/templates/footer.html'"></header> -->
 </body>
-<!--                          ....
-||                          .'    '.                               ||
-||                         /        \          oOoOo               ||
-||                        |         |       ,==|||||               ||
-||                         \       /       _|| |||||               ||
-||                          '.___.'    _.-'^|| |||||               ||
-||                        __/_______.-'     '==HHHHH               ||
-||                   _.-'` /                   """""               ||
-||                .-'     /   oOoOo                                ||
-||                `-._   / ,==|||||                                ||
-||                    '-/._|| |||||                                ||
-||                     /  ^|| |||||                                ||
-||                    /    '==HHHHH                                ||
-||                   /________"""""                                ||
-||                   `\       `\                                   ||
-||                     \        `\   /                             ||
-||                      \         `\/                              ||
-||                      /                                          ||
-||                     /                                           ||
-||                    /_____                                       ||
-||              drink up my hearties yo ho drink up                ||
-||                 it's a pirate's life for me                     ||
+
+<!--            ....
+||            .'    '.                    ||
+||           /        \          oOoOo    ||
+||          |         |       ,==|||||    ||
+||           \       /       _|| |||||    ||
+||            '.___.'    _.-'^|| |||||    ||
+||          __/_______.-'     '==HHHHH    ||
+||     _.-'` /                   """""    ||
+||  .-'     /   oOoOo                     ||
+||  `-._   / ,==|||||                     ||
+||      '-/._|| |||||                     ||
+||       /  ^|| |||||                     ||
+||      /    '==HHHHH                     ||
+||     /________"""""                     ||
+||     `\       `\                        ||
+||       \        `\   /                  ||
+||        \         `\/                   ||
+||        /                               ||
+||       /                                ||
+||      /_____                            ||
+||  drink up my hearties yo ho drink up   ||
+||    it's a pirate's life for me         ||
   -->
 
 </html>
