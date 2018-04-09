@@ -31,7 +31,7 @@ h3 {
     color: white;
     text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
     border: 1px solid black;
-    padding: 1px;
+    padding: 10px;
 }
 h4 {
     /*background: #5cb85c;*/
@@ -87,12 +87,9 @@ input{
 }
 #updateButton,
 #deleteButton {
-    float: right;
-    /*text-align: center;*/
     display: flex;
-    /*padding: 5px;
-    height: 25px;
-    width: 25px;*/
+    float: left;
+    margin: 5px;
 }
 #breweryNotes{
 
@@ -110,8 +107,8 @@ input{
     width: 70%;;
 }
 #addNewButton {
-    padding-bottom: 15px;
-    margin: auto;
+    padding: 5px;
+    margin: 15px;
     text-align: center;
 }
 

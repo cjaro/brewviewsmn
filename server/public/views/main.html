@@ -4,7 +4,7 @@
 <h3 class="main">Add a Visit</h3>
 
 <div id="addingNewVisit">
-  <div style="display:flex;flex-direction:row; margin:auto">
+  <div style="display:flex;flex-direction:row; margin:auto; justify-content: center">
   <div class="form-group dropdown" id="inputDate">
     <label>Date Enjoyed:</label>
     <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
@@ -20,7 +20,7 @@
   </div>
   <div id="addNewButton">
     <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">
-      <span class=""></span> Record Visit</button>
+      <i class="fas fa-check"></i>&nbsp; Record Visit</button>
     </div>
 </div>
 

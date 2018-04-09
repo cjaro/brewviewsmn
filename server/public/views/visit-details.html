@@ -28,7 +28,7 @@
 
   <div id="breweryNotes">
     <h3>Brewery Notes</h3>
-    <div class="form-group">
+    <div class="form-group" style="padding:15px;background: white;">
       {{vdc.visit.details[0].brewery_notes}}
       <textarea class="form-control" rows="5" ng-model="vdc.newBeer.notes" placeholder="How was the venue? Atmosphere? Parking? Patrons? Bartenders? Prices? Write it down here!"></textarea>
     </div>
@@ -60,7 +60,7 @@
       <textarea class="form-control" rows="3" ng-model="vdc.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
     </div>
     <div id="addNewButton">
-      <button ng-click="vdc.addNewBrew(vdc.newBeer)" type="button" class="btn btn-success btn-md"><span class="far fa-hand-peace"></span> Beer Me</button>
+      <button ng-click="vdc.addNewBrew(vdc.newBeer)" type="button" class="btn btn-success btn-md"><span class="fa fa-hand-peace"></span>&nbsp; Beer Me</button>
     </div>
     {{vdc.newBeer}}
   </div>
