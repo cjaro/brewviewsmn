@@ -19,6 +19,8 @@
     <!--Sweet Alerts-->
     <script src="vendors/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="vendors/sweetalert2.min.css">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <!-- font awesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
     <!-- scripts -->
@@ -45,9 +47,12 @@
 <body class="container" ng-app="BrewApp">
     <header ng-include="'/views/templates/nav-header.html'"></header>
     <main ng-view></main>
-  <div>
-    &copy; cj <script type="text/javascript"> document.write(new Date().getFullYear()); </script>
-  </div>
+    <div>
+        &copy; <a href="https://github.com/cjaro" style="color: #fff">cjaro</a>
+        <script type="text/javascript">
+            document.write(new Date().getFullYear());
+        </script>
+    </div>
     <!-- <header ng-include="'/views/templates/footer.html'"></header> -->
 </body>
 

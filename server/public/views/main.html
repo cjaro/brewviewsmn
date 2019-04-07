@@ -1,58 +1,66 @@
 <!-- <div class="mainLoggedView" ng-show="mc.userIsLoggedIn"> -->
 <!-- {{mc.userIsLoggedIn}} -->
 
-<h3 class="main">Add a Visit</h3>
+<div class="col-md-12 mainVisitsScreen">
 
-<div id="addingNewVisit">
-  <div style="display:flex;flex-direction:row; margin:auto; justify-content: center">
-  <div class="form-group dropdown" id="inputDate">
-    <label>Date Enjoyed:</label>
-    <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
-  </div>
-  <div class="form-group" id="inputBrewery">
-    <label>Brewery:</label>
-    <input type="text" class="form-control" ng-model="mc.newBeer.brewery">
-  </div>
-</div>
-  <div class="form-group" id="breweryNotes">
-    <label>Notes about the Brewery:</label>
-    <textarea id="breweryNotesInput" type="text" class="form-control" ng-model="mc.newBeer.b_notes"></textarea>
-  </div>
-  <div id="addNewButton">
-    <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">
-      <i class="fas fa-check"></i>&nbsp; Record Visit</button>
+    <div class="col-md-9">
+        <h3 class="main">My Brewery Visits</h3>
+
+        <div class="brewList">
+            <table class="table table-hover table-bordered table-responsive table-condensed">
+                <thead>
+                    <tr>
+                        <th class="date">Date</th>
+                        <th class="brewery">Brewery</th>
+                        <!-- <th>Delete</th> -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="visit in mc.visitList">
+                        <td>{{visit.date_had | date: 'MMM d, yyyy'}}<br>
+                            <!-- <button type="button" class="btn btn-danger btn-sm" id="nuclearButton" ng-click="mc.deleteVisit(mc.visit.id)"> -->
+                            <!-- <span class="fa fa-trash-o"> delete visit</span></button> -->
+                        </td>
+                        <td ng-model="visit.brewery">{{visit.brewery}}
+                            <a href="/#!visits/{{visit.id}}" class="btn btn-info btn-sm seeMoreButton" role="button">
+                                <span class="fa fa-chevron-right"></span></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
+
+    <div class="col-md-3">
+        <h3 class="main">Add a Visit</h3>
+
+        <div class="addingNewVisit">
+            <div style="">
+                <div class="form-group dropdown inputDate">
+                    <label>Date Enjoyed:</label>
+                    <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
+                </div>
+                <div class="form-group inputBrewery">
+                    <label>Brewery:</label>
+                    <input type="text" class="form-control" ng-model="mc.newBeer.brewery">
+                </div>
+            </div>
+            <div class="form-group breweryNotes breweryNotesMain">
+                <label>Notes about the Brewery:</label>
+                <textarea class="form-control breweryNotesInput" type="text" ng-model="mc.newBeer.b_notes"></textarea>
+            </div>
+            <div class="addNewButton">
+                <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">
+          <i class="fas fa-check"></i>&nbsp; Record Visit</button>
+            </div>
+        </div>
+
+    </div>
+
+
+
 </div>
-
-<h3 class="main">My Brewery Visits</h3>
-
-<div id="brewList">
-  <table class="table table-hover table-bordered table-responsive table-condensed">
-    <thead>
-      <tr>
-        <th class="date">Date</th>
-        <th class="brewery">Brewery</th>
-        <!-- <th>Delete</th> -->
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="visit in mc.visitList">
-        <td>{{visit.date_had | date: 'MMM d, yyyy'}}<br>
-          <!-- <button type="button" class="btn btn-danger btn-sm" id="nuclearButton" ng-click="mc.deleteVisit(mc.visit.id)"> -->
-          <!-- <span class="fa fa-trash-o"> delete visit</span></button> -->
-        </td>
-        <td ng-model="visit.brewery">{{visit.brewery}}
-          <a href="/#!visits/{{visit.id}}" id="seeMoreButton" class="btn btn-info btn-sm" role="button">
-            <span class="fa fa-chevron-right"></span></a>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-
-
-    <!--
+<!--
     ||drink up my hearties yo ho drink up
     || it's a pirate's life for me
     ||      ~  ~  ~
