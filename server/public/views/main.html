@@ -9,15 +9,15 @@
         <div class="brewList">
             <table class="table table-hover table-bordered table-responsive table-condensed">
                 <thead>
-                    <tr>
-                        <th class="date">Date</th>
-                        <th class="brewery">Brewery</th>
+                    <tr class="main-table-list">
+                        <th class="main-date"> <b>Date</b></th>
+                        <th class="main-brewery"><b>Brewery</b></th>
                         <!-- <th>Delete</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="visit in mc.visitList">
-                        <td>{{visit.date_had | date: 'MMM d, yyyy'}}<br>
+                        <td>{{visit.date_had | date: 'd MMMM, yyyy'}}<br>
                             <!-- <button type="button" class="btn btn-danger btn-sm" id="nuclearButton" ng-click="mc.deleteVisit(mc.visit.id)"> -->
                             <!-- <span class="fa fa-trash-o"> delete visit</span></button> -->
                         </td>
@@ -47,7 +47,7 @@
             </div>
             <div class="form-group breweryNotes breweryNotesMain">
                 <label>Notes about the Brewery:</label>
-                <textarea class="form-control breweryNotesInput" type="text" ng-model="mc.newBeer.b_notes"></textarea>
+                <textarea class="form-control" type="text" ng-model="mc.newBeer.b_notes"></textarea>
             </div>
             <div class="addNewButton">
                 <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">

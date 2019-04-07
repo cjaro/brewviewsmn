@@ -1,14 +1,9 @@
 <h3 class="main">{{vdc.visit.details[0].brewery}} 🍻 {{vdc.visit.details[0].date_had | date: 'dd MMMM yyyy'}}</h3>
 
-<div class="col-md-8 brewBrewList">
+<div class="col-md-9 visit-list">
 
-    <div class="breweryNotes">
-        <h3>Brewery Notes</h3>
-        <div class="form-group" style="padding: 15px;background: white;">
-            {{vdc.visit.details[0].b_notes}}
-            <!-- <textarea class="form-control" rows="5" ng-model="vdc.newBeer.notes" placeholder="How was the venue? Atmosphere? Parking? Patrons? Bartenders? Prices? Write it down here!"></textarea> -->
-        </div>
-    </div>
+
+    <h3 style="margin-top: 0">Brews Imbibed</h3>
     <table class="table table-bordered table-condensed">
         <thead>
             <tr>
@@ -22,8 +17,8 @@
         <tbody>
             <tr ng-repeat="brew in vdc.visit.details">
                 <td ng-model="brew.beer_name" editable-text="brew.beer_name" class="col-md-2">{{brew.beer_name}}</td>
-                <td ng-model="brew.rating" editable-text="brew.brew_abv" class="col-xs-2">{{brew.brew_abv}}</td>
-                <td ng-model="brew.rating" editable-text="brew.rating" class="col-xs-2">{{brew.rating}}</td>
+                <td ng-model="brew.rating" editable-text="brew.brew_abv" class="col-md-2">{{brew.brew_abv}}</td>
+                <td ng-model="brew.rating" editable-text="brew.rating" class="col-md-2">{{brew.rating}}</td>
                 <td ng-model="brew.notes" editable-text="brew.notes" class="col-md-6">{{brew.notes}}</td>
                 <!-- <td id="updateDeleteButtons" class="col-sm-2">
                     <button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info btn-sm"><span class="fa fa-pencil"></span></button>
@@ -34,23 +29,28 @@
     </table>
 </div>
 
-<div class="col-md-4 notesAddNew">
+<div class="col-md-3 visit-details-add-new-brew">
 
-
+    <div class="visit-details-brewery-notes">
+        <h3>Brewery Notes</h3>
+        <div class="form-group" style="padding: 15px;background: white;">
+            {{vdc.visit.details[0].b_notes}}
+            <!-- <textarea class="form-control" rows="5" ng-model="vdc.newBeer.notes" placeholder="How was the venue? Atmosphere? Parking? Patrons? Bartenders? Prices? Write it down here!"></textarea> -->
+        </div>
+    </div>
     <h3>Add a Brew to this Visit</h3>
     <div class="addingNewBeer">
         <div class="form-group inputName">
             <label>Brew Name:</label>
             <input type="text" class="form-control" ng-model="vdc.newBeer.beer_name" placeholder="Brew Name">
         </div>
-        <div class="inputABVandRating">
-            <div class="inputABV">
-                <label>ABV%:</label>
-                <input type="text" class="form-control" ng-model="vdc.newBeer.brew_abv" placeholder="% Alcohol by Volume">
-            </div>
-            <div class="form-group inputRating">
-                <label>Rating (1-10):</label>
-                <select class="form-control" ng-model="vdc.newBeer.rating">
+        <div class="inputABV">
+            <label>ABV%:</label>
+            <input type="text" class="form-control" ng-model="vdc.newBeer.brew_abv" placeholder="% Alcohol by Volume">
+        </div>
+        <div class="form-group inputRating">
+            <label>Rating (1-10):</label>
+            <select class="form-control" ng-model="vdc.newBeer.rating">
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>
@@ -62,7 +62,6 @@
                   <option value="9">9</option>
                   <option value="10">10</option>
                 </select>
-            </div>
         </div>
         <div class="form-group inputNotes">
             <label>Notes:</label>

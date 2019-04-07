@@ -3,58 +3,69 @@
 
 <head>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
-    <!-- jQuery -->
+    <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <!-- Bootstrap -->
+    <!-- BOOTSTRAP 3.3.7 -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <!-- AngularJS -->
+    <!-- BOOTSTRAP 4 PREPARATION -->
+    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+    <!-- ANGULARJS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
-    <!-- Firebase -->
-    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
-    <!-- AngularFire -->
+    <!-- ANGULAR FIRE -->
     <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
-    <!-- Angular Routes -->
+    <!-- ANGULAR ROUTES -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.0/angular-route.min.js" charset="utf-8"></script>
-    <!--Sweet Alerts-->
+    <!-- FIREBASE -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <!-- SWAL -->
     <script src="vendors/sweetalert2.min.js"></script>
     <link rel="stylesheet" href="vendors/sweetalert2.min.css">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <!-- font awesome -->
+    <!-- FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <!-- FA 5 -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
-    <!-- scripts -->
+    <!-- SCRIPTS -->
     <script src="scripts/config.js" charset="utf-8"></script>
     <script src="scripts/client.js" charset="utf-8"></script>
-    <!-- factories -->
+    <!-- FACTORIES -->
     <script src="scripts/factories/data.factory.js" charset="utf-8"></script>
     <script src="scripts/factories/auth.factory.js" charset="utf-8"></script>
     <script src="scripts/factories/firebase-auth.factory.js" charset="utf-8"></script>
-    <!-- controllers -->
+    <!-- CONTROLLERS -->
     <script src="scripts/controllers/main.controller.js" charset="utf-8"></script>
     <script src="scripts/controllers/fame.controller.js" charset="utf-8"></script>
     <script src="scripts/controllers/login.controller.js" charset="utf-8"></script>
     <script src="scripts/controllers/nav.controller.js" charset="utf-8"></script>
     <script src="scripts/controllers/visit-details.controller.js" charset="utf-8"></script>
-    <!-- stylesheet -->
+    <!-- STYLES -->
     <link rel="stylesheet" href="styles/style.css">
     <link rel="stylesheet" href="vendors/animate.css">
-    <!-- favicon -->
+    <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="assets/beer-icon.png">
     <title>awesome brew views</title>
 </head>
 
-<body class="container" ng-app="BrewApp">
+<body class="container mainAppBody" ng-app="BrewApp">
     <header ng-include="'/views/templates/nav-header.html'"></header>
     <main ng-view></main>
-    <div>
-        &copy; <a href="https://github.com/cjaro" style="color: #fff">cjaro</a>
-        <script type="text/javascript">
-            document.write(new Date().getFullYear());
-        </script>
-    </div>
+
     <!-- <header ng-include="'/views/templates/footer.html'"></header> -->
 </body>
+
+<footer>
+    <div class="creds">
+        <a href="https://github.com/cjaro">cjaro</a> &copy;
+        <span> 2016 - <script type="text/javascript">
+        document.write(new Date().getFullYear());
+    </script></span>
+    </div>
+</footer>
+
+</html>
 
 <!--            ....
 ||            .'    '.                    ||
@@ -79,5 +90,3 @@
 ||  drink up my hearties yo ho drink up   ||
 ||    it's a pirate's life for me         ||
   -->
-
-</html>

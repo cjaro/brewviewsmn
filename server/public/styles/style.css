@@ -9,6 +9,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin-top: 30px;
     margin-bottom: 30px;
+    color: #000
 }
 
 main {
@@ -39,7 +40,7 @@ h3 {
     color: white;
     text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
     padding: 10px;
-    /* margin-bottom: 0; */
+    margin-top: 30px;
 }
 
 h4 {
@@ -49,17 +50,29 @@ h4 {
 }
 
 p,
+tr,
+td,
+label {
+    font-size: 14px;
+    color: #000 !important;
+    background-color: #ffffff;
+    font-weight: 400
+}
+
 li,
 a,
 ul,
 ol {
-    font-size: 14px
+    font-size: 14px;
+    color: #000 !important;
 }
 
 table thead,
-td,
-tr {
-    background-color: #ffffff;
+th {
+    font-size: 14px;
+    color: #000 !important;
+    background-color: #dddddd;
+    font-weight: 400
 }
 
 table th {
@@ -72,6 +85,10 @@ input {
 
 
 /* INDEX.HTML */
+
+.mainAppBody {
+    padding: 0;
+}
 
 .navbar-brand {
     padding: 0px;
@@ -90,6 +107,10 @@ img:hover {
 
 
 /* MAIN.HTML */
+
+.main-table-list {
+    background-color: #dddddd
+}
 
 .mainVisitsScreen {
     display: flex;
@@ -110,23 +131,25 @@ img:hover {
 
 .inputDate,
 .inputBrewery {
-    display: inline-block;
+    width: 90%;
+    margin: auto;
 }
 
 .breweryNotes {
-    /* width: 50%; */
-    /* margin: auto; */
+    width: 90%;
+    margin: auto;
 }
 
 .breweryNotes h3 {}
 
 .breweryNotesMain {
-    margin: 15px 0;
+    /* margin: 15px 0; */
+    margin: auto;
 }
 
 .breweryNotesInput {
     margin: auto;
-    width: 70%;
+    width: 90%;
 }
 
 .addNewButton {
@@ -141,11 +164,11 @@ img:hover {
 
 /* VISIT-DETAILS.HTML */
 
-.brewBrewList {
+.visit-list {
     padding: 0 5px 0 0;
 }
 
-.notesAddNew {
+.visit-details-add-new-brew {
     padding: 0 0 0 5px;
 }
 
@@ -161,10 +184,16 @@ img:hover {
     margin: 5px;
 }
 
-.breweryNotes {}
+.visit-details-brewery-notes {
+    width: 100%
+}
 
-.breweryNotes h3,
-.notesAddNew h3 {
+.visit-details-brewery-notes h3 {
+    margin-top: 0px
+}
+
+.visit-details-brewery-notes h3,
+.visit-details-add-new-brew h3 {
     margin-top: 0;
 }
 
@@ -174,15 +203,18 @@ img:hover {
 }
 
 .inputName {
-    display: inline-block;
+    width: 90%;
+    margin: auto;
 }
 
 .inputABV {
-    width: 40%;
+    width: 90%;
+    margin: auto;
 }
 
 .inputRating {
-    width: 40%;
+    width: 90%;
+    margin: auto;
 }
 
 .inputABVandRating {
@@ -194,7 +226,7 @@ img:hover {
 
 .inputNotes {
     margin: auto;
-    width: 70%;
+    width: 90%;
 }
 
 .addNewButton {
@@ -244,4 +276,26 @@ img:hover {
 
 .swal2-modal .swal2-title {
     color: #ffffff;
+}
+
+.creds {
+    bottom: 0;
+    /* position: fixed; */
+    color: #000;
+}
+
+.creds a {
+    background: transparent;
+    text-decoration: underline;
+    font-weight: 300;
+}
+
+
+/* MEDIA QUERIES */
+
+@media only screen and (max-width: 980px) {
+    .mainVisitsScreen {
+        display: flex;
+        flex-direction: column;
+    }
 }
