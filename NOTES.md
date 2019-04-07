@@ -30,6 +30,7 @@
 ## Priorities for development 2016
 - Mock up files and templates, example @ Super Hero Database assignment
 - Start thinking about what pages I want
+- Write Project Proposal (due by March 17th, 2017 - initial project kickoff is march 20th)
 - Technologies used:
 - - HTML5/CSS3
 - - JavaScript
