@@ -132,7 +132,7 @@ img:hover {
 .inputDate,
 .inputBrewery {
     width: 90%;
-    margin: auto;
+    margin: 15px auto;
 }
 
 .breweryNotes {
@@ -143,8 +143,7 @@ img:hover {
 .breweryNotes h3 {}
 
 .breweryNotesMain {
-    /* margin: 15px 0; */
-    margin: auto;
+    margin: 15px auto;
 }
 
 .breweryNotesInput {
@@ -159,6 +158,7 @@ img:hover {
 .seeMoreButton {
     float: right;
     margin: auto;
+    color: #fff !important;
 }
 
 

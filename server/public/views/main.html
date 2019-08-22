@@ -10,18 +10,21 @@
             <table class="table table-hover table-bordered table-responsive table-condensed">
                 <thead>
                     <tr class="main-table-list">
-                        <th class="main-date"> <b>Date</b></th>
                         <th class="main-brewery"><b>Brewery</b></th>
+                        <th class="main-date"> <b>Date</b></th>
+
                         <!-- <th>Delete</th> -->
                     </tr>
                 </thead>
                 <tbody>
                     <tr ng-repeat="visit in mc.visitList">
-                        <td>{{visit.date_had | date: 'd MMMM, yyyy'}}<br>
+
+                        <td ng-model="visit.brewery">{{visit.brewery}}
+
+                        </td>
+                        <td>{{visit.date_had | date: 'd MMMM, yyyy'}}
                             <!-- <button type="button" class="btn btn-danger btn-sm" id="nuclearButton" ng-click="mc.deleteVisit(mc.visit.id)"> -->
                             <!-- <span class="fa fa-trash-o"> delete visit</span></button> -->
-                        </td>
-                        <td ng-model="visit.brewery">{{visit.brewery}}
                             <a href="/#!visits/{{visit.id}}" class="btn btn-info btn-sm seeMoreButton" role="button">
                                 <span class="fa fa-chevron-right"></span></a>
                         </td>
@@ -36,18 +39,18 @@
 
         <div class="addingNewVisit">
             <div style="">
-                <div class="form-group dropdown inputDate">
-                    <label>Date Enjoyed:</label>
-                    <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
-                </div>
                 <div class="form-group inputBrewery">
                     <label>Brewery:</label>
                     <input type="text" class="form-control" ng-model="mc.newBeer.brewery">
                 </div>
+                <div class="form-group dropdown inputDate">
+                    <label>Date Enjoyed:</label>
+                    <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
+                </div>
             </div>
             <div class="form-group breweryNotes breweryNotesMain">
                 <label>Notes about the Brewery:</label>
-                <textarea class="form-control" type="text" ng-model="mc.newBeer.b_notes"></textarea>
+                <textarea class="form-control" type="text" ng-model="mc.newBeer.b_notes" rows="10"></textarea>
             </div>
             <div class="addNewButton">
                 <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">

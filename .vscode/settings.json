@@ -2,7 +2,7 @@
   "workbench.settings.useSplitJSON": true,
   "workbench.colorTheme": "One Dark Pro",
   "materialTheme.fixIconsRunning": false,
-  "workbench.iconTheme": "eq-material-theme-icons",
+  "workbench.iconTheme": "material-icon-theme",
   "editor.fontSize": 12,
   "editor.lineHeight": 18,
   "gitlens.advanced.messages": {

@@ -1,4 +1,4 @@
-<h3 class="main">{{vdc.visit.details[0].brewery}} 🍻 {{vdc.visit.details[0].date_had | date: 'dd MMMM yyyy'}}</h3>
+<h3 class="main">{{vdc.visit.details[0].brewery}} 🍻{{vdc.visit.details[0].date_had | date: 'dd MMMM yyyy'}}</h3>
 
 <div class="col-md-9 visit-list">
 
@@ -51,24 +51,25 @@
         <div class="form-group inputRating">
             <label>Rating (1-10):</label>
             <select class="form-control" ng-model="vdc.newBeer.rating">
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                </select>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+      </select>
         </div>
         <div class="form-group inputNotes">
             <label>Notes:</label>
             <textarea class="form-control" rows="3" ng-model="vdc.newBeer.notes" placeholder="like it? love it? gotta have it?"></textarea>
         </div>
         <div class="addNewButton">
-            <button ng-click="vdc.addNewBrew(vdc.newBeer)" type="button" class="btn btn-success btn-md"><span class="fa fa-hand-peace"></span>&nbsp; Beer Me</button>
+            <button ng-click="vdc.addNewBrew(vdc.newBeer)" type="button" class="btn btn-success btn-md"><span
+          class="fa fa-hand-peace"></span>&nbsp; Beer Me</button>
         </div>
         {{vdc.newBeer}}
     </div>
