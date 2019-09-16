@@ -20,11 +20,11 @@
                 <tbody>
                     <tr ng-repeat="visit in mc.visitList">
 
-                        <td ng-model="visit.brewery">{{visit.brewery}}
+                        <td ng-model="visit.brewery"><a href="https://www.google.com/maps/search/{{visit.brewery}} {{visit.location}}">{{visit.brewery}}</a>
 
                         </td>
-                        <td ng-model="visit.location"><a href="https://www.google.com/maps/search/{{visit.brewery}} {{visit.location}}">
-                {{visit.location}}</a> </td>
+                        <td ng-model="visit.location">
+                            {{visit.location}}</td>
                         <td>{{visit.date_had | date: 'd MMMM, yyyy'}}
                             <!-- <button type="button" class="btn btn-danger btn-sm" id="nuclearButton" ng-click="mc.deleteVisit(mc.visit.id)"> -->
                             <!-- <span class="fa fa-trash-o"> delete visit</span></button> -->

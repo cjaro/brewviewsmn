@@ -1,4 +1,4 @@
-<h3 class="main">{{vdc.visit.details[0].brewery}} 🍻{{vdc.visit.details[0].date_had | date: 'dd MMMM yyyy'}}</h3>
+<h3 class="main">{{vdc.visit.details[0].brewery}} | {{vdc.visit.details[0].date_had | date: 'dd MMMM yyyy'}}</h3>
 
 <div class="col-md-9 visit-list">
 
@@ -42,14 +42,14 @@
     <div class="addingNewBeer">
         <div class="form-group inputName">
             <label>Brew Name:</label>
-            <input type="text" class="form-control" ng-model="vdc.newBeer.beer_name" placeholder="Brew Name">
+            <input type="text" class="form-control" ng-model="vdc.newBeer.beer_name">
         </div>
         <div class="inputABV">
-            <label>ABV%:</label>
-            <input type="text" class="form-control" ng-model="vdc.newBeer.brew_abv" placeholder="% Alcohol by Volume">
+            <label>ABV %:</label>
+            <input type="text" class="form-control" ng-model="vdc.newBeer.brew_abv">
         </div>
         <div class="form-group inputRating">
-            <label>Rating (1-10):</label>
+            <label>Rating:</label>
             <select class="form-control" ng-model="vdc.newBeer.rating">
         <option value="1">1</option>
         <option value="2">2</option>
