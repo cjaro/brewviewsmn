@@ -22,5 +22,14 @@
     "nodemon": "^1.11.0",
     "npm": "^5.8.0",
     "pg": "^6.1.4"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cjaro/brewviewsmn.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cjaro/brewviewsmn/issues"
+  },
+  "homepage": "https://github.com/cjaro/brewviewsmn#readme"
 }
