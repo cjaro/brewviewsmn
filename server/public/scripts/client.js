@@ -1,5 +1,5 @@
-var app = angular.module('BrewApp', ['ngRoute','firebase']);
-// 'ui.bootstrap',
+const app = angular.module('BrewApp', ['ngRoute', 'firebase']);
+
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
   .when('/main', {

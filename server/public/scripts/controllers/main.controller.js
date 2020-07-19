@@ -1,20 +1,15 @@
 app.controller('MainController', ['$http', 'DataFactory', 'AuthFactory', '$location', '$firebaseAuth', '$routeParams',
     function($http, DataFactory, AuthFactory, $location, $firebaseAuth, $routeParams) {
         console.log('main controller loaded');
-        var self = this;
-        var auth = $firebaseAuth();
-        // var swl = sweetalert;
-        // self.testVariable = 'am test';
+        const self = this;
+        const auth = $firebaseAuth();
+
         self.visitList = [];
         self.visits = DataFactory.visits;
 
         getVisits();
 
-        // TODO jesus h christ fix this montrosity
         function getVisits() {
-            // var firebaseUser = auth.$getAuth();
-            // if(firebaseUser) {
-            //     firebaseUser.getToken().then(function(idToken) {
             $http.get('/visits').then(function(response) {
                 // console.log('response data: ', response.data);
                 self.visitList = response.data;
@@ -38,28 +33,6 @@ app.controller('MainController', ['$http', 'DataFactory', 'AuthFactory', '$locat
             });
         };
 
-
-        // function getVisits() {
-        //   var firebaseUser = auth.$getAuth();
-        //   if(firebaseUser) {
-        //     firebaseUser.getToken().then(function(idToken) {
-        //       $http({
-        //         method: 'GET',
-        //         url: '/visits',
-        //         params: {
-        //           id_token: idToken
-        //         }
-        //       }).then(function(response) {
-        //         console.log('response data: ', response.data);
-        //         self.visitList = response.data;
-        //       });
-        //     });
-        //   } else {
-        //     self.visitList = [];
-        //     console.log('cannot get when not logged in');
-        //   }
-        // }
-
         self.deleteVisit = function(visitID) {
             console.log('visit to delete: ', visitID);
             swal({
@@ -78,12 +51,9 @@ app.controller('MainController', ['$http', 'DataFactory', 'AuthFactory', '$locat
                     'success'
                 ).then(function(response) {
                     DataFactory.getVisitDetails($routeParams.visitID);
-                    // $location.url('/main');
                 })
             });
         }
-
-
     }
 ]);
  

@@ -1,10 +1,10 @@
 app.controller('FameController', ['$http', 'DataFactory', 'AuthFactory', '$location', '$firebaseAuth', '$routeParams',
   function($http, DataFactory, AuthFactory, $location, $firebaseAuth, $routeParams) {
     console.log('hall of fame controller loaded');
-    var self = this;
-    var auth = $firebaseAuth();
+    const self = this;
+    const auth = $firebaseAuth();
     self.brewery = [];
-    console.log('self.brewery', self.brewery); //returning empty array list
+    console.log('self.brewery', self.brewery);
 
     getHallOfFame()
 
