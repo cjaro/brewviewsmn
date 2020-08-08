@@ -3,17 +3,17 @@
 body {
     background-color: #428bca;
     /* If you can see this, uncomment the next three lines. You're welcome. */
-    /* background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');
-    background-size: 40px 40px;
-    background-repeat: repeat; */
+    /*background-image: url('http://icons.iconarchive.com/icons/paomedia/small-n-flat/1024/beer-icon.png');*/
+    /*background-size: 40px 40px;*/
+    /*background-repeat: repeat; */
     font-family: 'Roboto', sans-serif;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     color: #000
 }
 
 main {
-    margin-top: 15px;
+    /*margin-top: 15px;*/
 }
 
 h1 {
@@ -96,9 +96,17 @@ input {
 
 .navbar-brand>img {
     height: 100%;
-    padding: 0px;
+    padding: 0;
     width: 100px;
     /*opacity: 0.75;*/
+}
+
+.navbar-collapse {
+    flex-grow: 0 !important;
+}
+
+ul.navbar-nav:nth-child(1) > li {
+    padding: 0 5px;
 }
 
 img:hover {
@@ -172,6 +180,10 @@ img:hover {
 
 
 /* VISIT-DETAILS.HTML */
+
+.visit-list-table {
+    display: flex;
+}
 
 .outer-visit-list {
     display: flex;
@@ -313,3 +325,10 @@ img:hover {
         flex-direction: column;
     }
 }
+
+@media only screen and (min-width: 992px) {
+    .navbar-expand-lg {
+        justify-content: space-between;
+    }
+}
+

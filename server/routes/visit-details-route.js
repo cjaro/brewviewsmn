@@ -1,18 +1,23 @@
-var express = require('express');
-var router = express.Router();
-var pool = require('../modules/pg-pool.js'); // Creates database pool, if you need to change database, do it in the config object in this file
+const express = require('express');
+const pg = require('pg');
+const router = express.Router();
+const pool = new pg.Pool(
+    {
+        database: 'brewviewsmn',
+        host: 'localhost',
+        port: 5432,
+        max: 10,
+        idleTimeoutMillis: 30000,
+    }
+);
 
-// return all visit details add user table with WHERE visits.id=$1 AND
-// user_id=$2
 router.get('/', function(req, res) {
-    var visitID = req.query.visitID
+    const visitID = req.query.visitID
     console.log('working at visit-details route and visitID is', visitID);
-    pool
-        .connect()
+    pool.connect()
         .then(function(client) {
             client
-                .query('SELECT * FROM brews_test JOIN visits ON brews_test.visit_id = visits.id WHERE vi' +
-                    'sits.id=$1 ORDER BY rating DESC;', [visitID])
+                .query('SELECT * FROM brews_test JOIN visits ON brews_test.visit_id = visits.id WHERE visits.id=$1 ORDER BY rating DESC;', [visitID])
                 .then(function(result) {
                     client.release();
                     res.send(result.rows);
@@ -25,14 +30,13 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res) {
-    var newBeer = req.body;
+    const newBeer = req.body;
     console.log('NewBeer = ', newBeer);
-    pool
-        .connect()
+    pool.connect()
         .then(function(client) {
             client
-                .query('INSERT INTO brews_test (beer_name, brew_abv, rating, notes, visit_id) VALUES ($1' +
-                    ', $2, $3, $4, $5)', [newBeer.beer_name, newBeer.brew_abv, newBeer.rating, newBeer.notes, newBeer.visit_id])
+                .query('INSERT INTO brews_test (beer_name, brew_abv, rating, notes, visit_id) VALUES ($1, $2, $3, $4, $5)',
+                    [newBeer.beer_name, newBeer.brew_abv, newBeer.rating, newBeer.notes, newBeer.visit_id])
                 .then(function(result) {
                     client.release();
                     res.sendStatus(201);
@@ -45,10 +49,9 @@ router.post('/', function(req, res) {
 });
 
 router.delete('/:id', function(req, res) {
-    var brewRecordDeleteID = req.params.id;
+    const brewRecordDeleteID = req.params.id;
     console.log('Deleting brewID: ', brewRecordDeleteID);
-    pool
-        .connect()
+    pool.connect()
         .then(function(client) {
             client
                 .query('DELETE FROM brews_test WHERE id=$1;', [brewRecordDeleteID])
@@ -65,14 +68,14 @@ router.delete('/:id', function(req, res) {
 });
 
 router.put('/:id', function(req, res) {
-    var brewRecordUpdateID = req.params.id;
-    var brewRecordUpdate = req.body;
+    const brewRecordUpdateID = req.params.id;
+    const brewRecordUpdate = req.body;
     console.log('Updating brew: ', brewRecordUpdate);
-    pool
-        .connect()
+    pool.connect()
         .then(function(client) {
             client
-                .query('UPDATE brews_test SET beer_name=$1, rating=$2, notes=$3 WHERE id=$4;', [brewRecordUpdate.beer_name, brewRecordUpdate.rating, brewRecordUpdate.notes, brewRecordUpdateID])
+                .query('UPDATE brews_test SET beer_name=$1, rating=$2, notes=$3 WHERE id=$4;',
+                        [brewRecordUpdate.beer_name, brewRecordUpdate.rating, brewRecordUpdate.notes, brewRecordUpdateID])
                 .then(function(result) {
                     client.release();
                     res.sendStatus(200);

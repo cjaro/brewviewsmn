@@ -13,6 +13,6 @@ app.controller('FameController', ['$http', 'DataFactory', 'AuthFactory', '$locat
         console.log('response data: ', response.data);
         self.brewery = response.data;
       });
-    };
+    }
   }
 ]);

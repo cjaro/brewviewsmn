@@ -1,5 +1,5 @@
 app.controller('LoginController', ['AuthFactory','DataFactory', '$scope', function(AuthFactory, DataFactory, $scope) {
-  var self = this;
+  const self = this;
   self.login = AuthFactory.logIn;
   self.logout = AuthFactory.logOut;
   self.user = AuthFactory.userInfo;
