@@ -19,7 +19,7 @@ app.controller('MainController', ['$http', 'DataFactory', 'AuthFactory', '$locat
         self.addNewVisit = function(newVisitObject) {
             console.log('newVisitObject: ', newVisitObject);
             $http.post('/visits', newVisitObject).then(function(response) {
-                var visitUrl = '/visits/' + response.data[0].id;
+                const visitUrl = '/visits/' + response.data[0].id;
                 swal({
                     title: 'Brewery Added!',
                     html: $('<div>')

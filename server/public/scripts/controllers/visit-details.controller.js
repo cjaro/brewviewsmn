@@ -1,14 +1,10 @@
 app.controller('VisitDetailsController', ['$http', '$location', 'DataFactory', '$routeParams',
     function($http, $location, DataFactory, $routeParams) {
         console.log('visit details controller loaded');
-        // console.log('routeParams', $routeParams)
-        var self = this;
-        self.testVariable = 'I am a test!';
+        const self = this;
         self.visitList = [];
         self.visit = DataFactory.visit;
         DataFactory.getVisitDetails($routeParams.visitID);
-
-        // console.log('self.visit', self.visit);
 
         self.addNewBrew = function(newBrewObject) {
             newBrewObject.visit_id = $routeParams.visitID;
