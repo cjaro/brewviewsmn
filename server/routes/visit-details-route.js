@@ -13,11 +13,12 @@ const pool = new pg.Pool(
 
 router.get('/', function(req, res) {
     const visitID = req.query.visitID
-    console.log('working at visit-details route and visitID is', visitID);
+    console.log('working at visit-details route - visitID is', visitID);
     pool.connect()
         .then(function(client) {
             client
-                .query('SELECT * FROM brews_test JOIN visits ON brews_test.visit_id = visits.id WHERE visits.id=$1 ORDER BY rating DESC;', [visitID])
+                .query('SELECT * FROM beers JOIN breweries ON beers.visit_id = breweries.id ' +
+                       'WHERE breweries.id=$1 ORDER BY rating DESC;', [visitID])
                 .then(function(result) {
                     client.release();
                     res.send(result.rows);
@@ -31,12 +32,12 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
     const newBeer = req.body;
-    console.log('NewBeer = ', newBeer);
+    console.log('NewBeer: ', newBeer);
     pool.connect()
         .then(function(client) {
             client
-                .query('INSERT INTO brews_test (beer_name, brew_abv, rating, notes, visit_id) VALUES ($1, $2, $3, $4, $5)',
-                    [newBeer.beer_name, newBeer.brew_abv, newBeer.rating, newBeer.notes, newBeer.visit_id])
+                .query('INSERT INTO beers (name, abv, rating, notes, visit_id) VALUES ($1, $2, $3, $4, $5)',
+                    [newBeer.name, newBeer.abv, newBeer.rating, newBeer.notes, newBeer.visit_id])
                 .then(function(result) {
                     client.release();
                     res.sendStatus(201);
@@ -54,7 +55,7 @@ router.delete('/:id', function(req, res) {
     pool.connect()
         .then(function(client) {
             client
-                .query('DELETE FROM brews_test WHERE id=$1;', [brewRecordDeleteID])
+                .query('DELETE FROM beers WHERE id=$1;', [brewRecordDeleteID])
                 .then(function(result) {
                     client.release();
                     res.sendStatus(200);
@@ -74,8 +75,8 @@ router.put('/:id', function(req, res) {
     pool.connect()
         .then(function(client) {
             client
-                .query('UPDATE brews_test SET beer_name=$1, rating=$2, notes=$3 WHERE id=$4;',
-                        [brewRecordUpdate.beer_name, brewRecordUpdate.rating, brewRecordUpdate.notes, brewRecordUpdateID])
+                .query('UPDATE beers SET name=$1, rating=$2, notes=$3 WHERE id=$4;',
+                        [brewRecordUpdate.name, brewRecordUpdate.rating, brewRecordUpdate.notes, brewRecordUpdateID])
                 .then(function(result) {
                     client.release();
                     res.sendStatus(200);

@@ -1,6 +1,15 @@
-var express = require('express');
-var router = express.Router();
-var pool = require('../modules/pg-pool.js');
+const express = require('express');
+const router = express.Router();
+const pg = require('pg');
+const pool = new pg.Pool(
+    {
+        database: 'brewviewsmn',
+        host: 'localhost',
+        port: 5432,
+        max: 10,
+        idleTimeoutMillis: 30000,
+    }
+);
 
 router.get('/', function(req, res) {
     // var fameBrews = req.query.fameBrews console.log('getting hall of fame beers:
@@ -9,9 +18,9 @@ router.get('/', function(req, res) {
         .connect()
         .then(function(client) {
             client
-                .query('SELECT brews_test.beer_name, brews_test.rating, brews_test.notes, visits.brewery' +
-                    ', visits.date_had FROM brews_test JOIN visits ON brews_test.visit_id = visits.id' +
-                    ' WHERE rating >= 9 ORDER BY rating DESC;')
+                .query('SELECT beers.beer_name, beers.rating, beers.notes, breweries.brewery, breweries.date_had ' +
+                       'FROM beers JOIN breweries ON beers.visit_id = breweries.id ' +
+                       'WHERE rating >= 9 ORDER BY rating DESC;')
                 .then(function(result) {
                     client.release();
                     res.send(result.rows);
