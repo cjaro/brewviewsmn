@@ -24,7 +24,7 @@
                         </td>
                         <td ng-model="visit.location">
                             {{visit.location}}</td>
-                        <td>{{visit.date_had | date: 'd MMMM, yyyy'}}
+                        <td>{{visit.date | date: 'd MMMM, yyyy'}}
                             <!-- <button type="button" class="btn btn-danger btn-sm" id="nuclearButton" ng-click="mc.deleteVisit(mc.visit.id)"> -->
                             <!-- <span class="fa fa-trash-o"> delete visit</span></button> -->
                             <a href="/#!visits/{{visit.id}}" class="btn btn-info btn-sm seeMoreButton" role="button">
@@ -51,12 +51,12 @@
                 </div>
                 <div class="form-group dropdown inputDate">
                     <label>Date Enjoyed:</label>
-                    <input type="date" class="form-control" ng-model="mc.newBeer.date_had">
+                    <input type="date" class="form-control" ng-model="mc.newBeer.date">
                 </div>
             </div>
             <div class="form-group breweryNotes breweryNotesMain">
                 <label>Notes about the Brewery:</label>
-                <textarea class="form-control" type="text" ng-model="mc.newBeer.b_notes" rows="5"></textarea>
+                <textarea class="form-control" type="text" ng-model="mc.newBeer.notes" rows="5"></textarea>
             </div>
             <div class="addNewButton">
                 <button ng-click="mc.addNewVisit(mc.newBeer)" type="button" class="btn btn-success" action="'/#!visits/' + 'visitID'">

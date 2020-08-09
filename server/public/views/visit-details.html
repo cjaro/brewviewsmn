@@ -1,4 +1,4 @@
-<h3 class="main">{{vdc.visit.details[0].brewery}} 🍻 {{vdc.visit.details[0].date_had | date: 'dd MMMM yyyy'}}</h3>
+<h3 class="main">{{vdc.visit.details[0].brewery}} 🍻 {{vdc.visit.details[0].date | date: 'dd MMMM yyyy'}}</h3>
 
 <h4 style="margin-top: 0">Brews Imbibed</h4>
 
@@ -16,10 +16,10 @@
             </thead>
             <tbody>
             <tr ng-repeat="brew in vdc.visit.details">
-                <td ng-model="brew.beer_name" editable-text="brew.beer_name" class="col-md-2">{{brew.beer_name}}</td>
-                <td ng-model="brew.rating" editable-text="brew.brew_abv" class="col-md-2">{{brew.brew_abv}}</td>
+                <td ng-model="brew.name" editable-text="brew.beer_name" class="col-md-2">{{brew.name}}</td>
+                <td ng-model="brew.abv" editable-text="brew.brew_abv" class="col-md-2">{{brew.abv}}</td>
                 <td ng-model="brew.rating" editable-text="brew.rating" class="col-md-2">{{brew.rating}}</td>
-                <td ng-model="brew.notes" editable-text="brew.notes" class="col-md-6">{{brew.notes}}</td>
+                <td ng-model="brew.tasting_notes" editable-text="brew.notes" class="col-md-6">{{brew.tasting_notes}}</td>
                 <!-- <td id="updateDeleteButtons" class="col-sm-2">
                     <button id="updateButton" ng-click="vdc.updateBrew(brew)" type="button" class="btn btn-info btn-sm"><span class="fa fa-pencil"></span></button>
                     <button id="deleteButton" ng-click="vdc.deleteBrew(brew.id)" type="button" class="btn btn-danger btn-sm"><span class="fa fa-trash-o"></span></button>
@@ -42,11 +42,11 @@
         <div class="addingNewBeer">
             <div class="form-group inputName">
                 <label>Brew Name:</label>
-                <input type="text" class="form-control" ng-model="vdc.newBeer.beer_name" placeholder="Brew Name">
+                <input type="text" class="form-control" ng-model="vdc.newBeer.name" placeholder="Brew Name">
             </div>
             <div class="inputABV">
                 <label>ABV%:</label>
-                <input type="text" class="form-control" ng-model="vdc.newBeer.brew_abv"
+                <input type="text" class="form-control" ng-model="vdc.newBeer.abv"
                        placeholder="% Alcohol by Volume">
             </div>
             <div class="form-group inputRating">

@@ -18,7 +18,7 @@ router.get('/', function(req, res) {
         .connect()
         .then(function(client) {
             client
-                .query('SELECT beers.beer_name, beers.rating, beers.notes, breweries.brewery, breweries.date_had ' +
+                .query('SELECT beers.name, beers.rating, beers.tasting_notes, breweries.brewery, breweries.date ' +
                        'FROM beers JOIN breweries ON beers.visit_id = breweries.id ' +
                        'WHERE rating >= 9 ORDER BY rating DESC;')
                 .then(function(result) {
