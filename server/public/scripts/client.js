@@ -30,6 +30,7 @@ app.config(['$routeProvider', function($routeProvider) {
   .when('/suggestion', {
     templateUrl: '/views/suggestion.html',
   })
+  // find a way to show brewery name + date visited in URL
   .when('/visits/:visitID', {
   templateUrl: '/views/visit-details.html',
   controller: 'VisitDetailsController',

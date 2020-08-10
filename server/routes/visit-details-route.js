@@ -13,6 +13,7 @@ const pool = new pg.Pool(
 
 router.get('/', function(req, res) {
     const visitID = req.query.visitID
+    console.log("req.query:", req.query)
     console.log('working at visit-details route - visitID is', visitID);
     pool.connect()
         .then(function(client) {
@@ -36,8 +37,8 @@ router.post('/', function(req, res) {
     pool.connect()
         .then(function(client) {
             client
-                .query('INSERT INTO beers (name, abv, rating, notes, visit_id) VALUES ($1, $2, $3, $4, $5)',
-                    [newBeer.name, newBeer.abv, newBeer.rating, newBeer.notes, newBeer.visit_id])
+                .query('INSERT INTO beers (name, abv, rating, tasting_notes, visit_id) VALUES ($1, $2, $3, $4, $5)',
+                    [newBeer.name, newBeer.abv, newBeer.rating, newBeer.tasting_notes, newBeer.visit_id])
                 .then(function(result) {
                     client.release();
                     res.sendStatus(201);
@@ -76,7 +77,7 @@ router.put('/:id', function(req, res) {
         .then(function(client) {
             client
                 .query('UPDATE beers SET name=$1, rating=$2, notes=$3 WHERE id=$4;',
-                        [brewRecordUpdate.name, brewRecordUpdate.rating, brewRecordUpdate.notes, brewRecordUpdateID])
+                        [brewRecordUpdate.name, brewRecordUpdate.rating, brewRecordUpdate.tasting_notes, brewRecordUpdateID])
                 .then(function(result) {
                     client.release();
                     res.sendStatus(200);
