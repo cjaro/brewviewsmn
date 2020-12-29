@@ -1,4 +1,5 @@
-<h3 class="main">Your visit to {{vdc.visit.details[0].brewery}} <br>in {{vdc.visit.details[0].location}} on {{vdc.visit.details[0].date | date: 'dd MMMM yyyy'}}</h3>
+<h3 class="main">
+    Your visit to {{vdc.visit.details[0].brewery}} <br>in {{vdc.visit.details[0].location}} on {{vdc.visit.details[0].date | date: 'dd MMMM yyyy'}}</h3>
 <div class="col-md-12 visit-list-table">
     <div class="col-md-9 visit-list">
         <table class="table table-bordered table-condensed">
@@ -12,7 +13,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="brew in vdc.visit.details">
+            <tr ng-repeat="brew in vdc.visit.details" ngModel="VisitDetailsController">
                 <td ng-model="brew.name" class="col-md-2">{{brew.name}}</td>
                 <td ng-model="brew.abv" class="col-md-2">{{brew.abv}}</td>
                 <td ng-model="brew.rating" class="col-md-2">{{brew.rating}}</td>

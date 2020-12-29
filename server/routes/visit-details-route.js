@@ -18,8 +18,8 @@ router.get('/', function(req, res) {
     pool.connect()
         .then(function(client) {
             client
-                .query('SELECT * FROM beers JOIN breweries ON beers.visit_id = breweries.id ' +
-                       'WHERE breweries.id=$1 ORDER BY rating DESC;', [visitID])
+                .query('SELECT * FROM beers JOIN breweries ON beers.visit_id = breweries.id WHERE breweries.id=$1 ORDER BY rating DESC;',
+                    [visitID])
                 .then(function(result) {
                     client.release();
                     res.send(result.rows);
@@ -37,7 +37,7 @@ router.post('/', function(req, res) {
     pool.connect()
         .then(function(client) {
             client
-                .query('INSERT INTO beers (name, abv, rating, tasting_notes, visit_id) VALUES ($1, $2, $3, $4, $5)',
+                .query(`INSERT INTO beers (name, abv, rating, tasting_notes, visit_id) VALUES ($1, $2, $3, $4, $5)`,
                     [newBeer.name, newBeer.abv, newBeer.rating, newBeer.tasting_notes, newBeer.visit_id])
                 .then(function(result) {
                     client.release();

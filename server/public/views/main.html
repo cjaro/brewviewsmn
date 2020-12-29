@@ -1,4 +1,4 @@
-<div class="col-md-12 mainVisitsScreen">
+<div class="col-md-12 mainVisitsScreen" ng-controller="MainController">
     <div class="col-md-9">
         <h3 class="main">My Brewery Visits</h3>
 
@@ -13,8 +13,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr scope="row" ng-repeat="visit in mc.visitList">
-
+                    <tr ng-repeat="visit in mc.visitList" ng-controller="VisitDetailsController">
                         <td ng-model="visit.brewery">
                             <a href="https://www.google.com/maps/search/{{visit.brewery}} {{visit.location}}">{{visit.brewery}}</a>
                         </td>

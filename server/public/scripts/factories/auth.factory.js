@@ -18,11 +18,10 @@ app.factory('AuthFactory', ['FirebaseAuthFactory', '$http', '$location', '$windo
     });
 
     function logIn() {
-        console.log('login clicked');
         auth.$signInWithPopup("google").then(function(firebaseUser) {
-            console.log("Firebase Authenticated: ", firebaseUser.user.displayName);
+            console.log("Firebase Authenticated", firebaseUser.user.displayName);
         }).catch(function(error) {
-            console.log("Authentication failed: ", error);
+            console.log("Authentication failed:", error);
         });
     }
 
@@ -35,7 +34,6 @@ app.factory('AuthFactory', ['FirebaseAuthFactory', '$http', '$location', '$windo
                     id_token: idToken
                 }
             }).then(function(response) {
-                console.log('this garbage can function getUserData is not working blargh fuck');
                 userInfo.info = response.data;
             });
         });

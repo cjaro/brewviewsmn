@@ -1,10 +1,10 @@
-var admin = require("firebase-admin");
+var firebase = require("firebase-admin");
 var pg = require('pg');
 var pool = require('./pg-pool');
 
 if(process.env.FIREBASE_SERVICE_ACCOUNT_PRIVATE_KEY) {
-  admin.initializeApp({
-    credential: admin.credential.cert({
+  firebase.initializeApp({
+    credential: firebase.credential.cert({
       "type": process.env.FIREBASE_SERVICE_ACCOUNT_TYPE,
       "project_id": process.env.FIREBASE_SERVICE_ACCOUNT_PROJECT_ID,
       "private_key_id": process.env.FIREBASE_SERVICE_ACCOUNT_PRIVATE_KEY_ID,
@@ -19,8 +19,8 @@ if(process.env.FIREBASE_SERVICE_ACCOUNT_PRIVATE_KEY) {
     databaseURL: "https://brewviewsmn.firebaseio.com"
   });
 } else {
-  admin.initializeApp({
-    credential: admin.credential.cert("./server/firebase-service-account.json"),
+  firebase.initializeApp({
+    credential: firebase.credential.cert("./server/firebase-service-account.json"),
     databaseURL: "https://brewviewsmn.firebaseio.com"
   });
 }

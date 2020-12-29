@@ -2,7 +2,7 @@ app.controller('MainController', ['$http', 'DataFactory', 'AuthFactory', '$locat
     function($http, DataFactory, AuthFactory, $location, $firebaseAuth, $routeParams) {
         console.log('main controller loaded');
         const self = this;
-        const auth = $firebaseAuth();
+        $firebaseAuth();
 
         self.visitList = [];
         self.visits = DataFactory.visits;
