@@ -9,4 +9,5 @@ Unable to remember, you grab a 6-pack at random from a brewery you think might b
 
 ## Additionally, this is an important resource:
 
-https://www.youtube.com/watch?v=6uGpeEKCURY
+[![Thumbnail of YouTube video depicting the Potter Puppet Pals & Beer](https://img.youtube.com/vi/6uGpeEKCURY/3.jpg)](https://www.youtube.com/watch?v=6uGpeEKCURY)
+
