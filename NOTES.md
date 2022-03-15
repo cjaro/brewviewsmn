@@ -1,6 +1,6 @@
 # Notes
 
-## 2022 Development Notes
+## 2022 Development
 - Damn, time flies
 - Refactored this project to split it into a Node.js backend and an Angular 13 frontend. 
 - Will revisit db design soon
