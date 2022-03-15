@@ -1,5 +1,10 @@
 # Notes
 
+## 2022 Development Notes
+- Damn, time flies
+- Refactored this project to split it into a Node.js backend and an Angular 13 frontend. 
+- Will revisit db design soon
+
 ## Priorities for development 2019
 - !!!!!!GET USER PERMISSIONS AND ACCOUNTS WORKING IN FIREBASE
 - Make fields user-editable

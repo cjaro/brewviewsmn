@@ -4,3 +4,19 @@ node_modules
 /server/firebase-service-account.js
 .idea
 .vscode
+
+
+# Frontend stuff
+
+# Miscellaneous
+/frontend/node_modules
+/frontend/.angular/cache
+/frontend/.angular
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+/frontend/node_modules/
+/frontend/.angular/
