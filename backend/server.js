@@ -1,6 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const db = require("./app/models");
+// const path = require('path');
+const path = __dirname + '/app/views/';
 
 const app = express();
 
@@ -10,18 +12,17 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-// parse requests of content-type - application/json
+// parse requests of content-type application/json
 app.use(express.json());
 
-// parse requests of content-type - application/x-www-form-urlencoded
+// parse requests of content-type application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
-
-// simple route
-app.get("/", (req, res) => {
-    res.json({ message: `Welcome to ${process.env.USER}'s application.` });
-});
+app.use(express.static(path));
 
 db.sequelize.sync();
+app.get('/', function (req,res) {
+  res.sendFile(path + "index.html");
+});
 
 require("./app/routes/visit.routes")(app);
 
