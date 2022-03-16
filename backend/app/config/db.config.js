@@ -1,8 +1,17 @@
+require("dotenv").config();
+
+const host = process.env.POSTGRES_HOST;
+const dbUser = process.env.POSTGRES_USER;
+const dbPass = process.env.POSTGRES_PASS;
+const db = process.env.POSTGRES_DB;
+
+console.log("db user", dbUser);
+
 module.exports = {
-    HOST: "localhost",
-    USER: "catherinejarocki",
-    PASSWORD: "",
-    DB: "angular-node-postgres",
+    HOST: host,
+    USER: dbUser,
+    PASSWORD: dbPass,
+    DB: db,
     dialect: "postgres",
     pool: {
         max: 5,
