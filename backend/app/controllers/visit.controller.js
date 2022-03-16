@@ -27,8 +27,7 @@ exports.create = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message:
-                    err.message || "Some error occurred while creating the Visit."
+                message: err.message || "An error occurred while creating the Visit."
             });
         });
 };
@@ -44,8 +43,7 @@ exports.findAll = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving Visits."
+                message: err.message || "An error occurred while retrieving Visits."
             });
         });
 };
@@ -113,7 +111,7 @@ exports.delete = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message: "Could not delete Visit with id=" + id
+                message: "Could not delete Visit with id=" + id + "because" + err
             });
         });
 };
@@ -129,8 +127,7 @@ exports.deleteAll = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message:
-                    err.message || "Some error occurred while removing all Visits."
+                message: err.message || "An error occurred while removing all Visits."
             });
         });
 };
@@ -143,8 +140,7 @@ exports.findAllPublished = (req, res) => {
         })
         .catch(err => {
             res.status(500).send({
-                message:
-                    err.message || "Some error occurred while retrieving Visits."
+                message: err.message || "An error occurred while retrieving Visits."
             });
         });
 };
