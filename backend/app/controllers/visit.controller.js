@@ -15,8 +15,7 @@ exports.create = (req, res) => {
   // Create a Visit
   const visit = {
     name: req.body.name,
-    description: req.body.description,
-    published: req.body.published ? req.body.published : false
+    date: req.body.date
   };
 
   // Save Visit
@@ -134,16 +133,16 @@ exports.deleteAll = (req, res) => {
       });
     });
 };
-
-// Find all published Visits
-exports.findAllPublished = (req, res) => {
-  Visit.findAll({ where: { published: true } })
-    .then(data => {
-      res.send(data);
-    })
-    .catch(err => {
-      res.status(500).send({
-        message: err.message || "An error occurred while retrieving Visits."
-      });
-    });
-};
+//
+// // Find all published Visits
+// exports.findAllPublished = (req, res) => {
+//   Visit.findAll({ where: { published: true } })
+//     .then(data => {
+//       res.send(data);
+//     })
+//     .catch(err => {
+//       res.status(500).send({
+//         message: err.message || "An error occurred while retrieving Visits."
+//       });
+//     });
+// };
