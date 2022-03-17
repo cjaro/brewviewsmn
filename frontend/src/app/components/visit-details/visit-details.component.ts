@@ -1,31 +1,32 @@
-import {Component, Input, OnInit} from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
 import { Visit } from "../../models/visit.model";
-import { VisitService } from 'src/app/services/visit.service';
+import { VisitService } from "src/app/services/visit.service";
 
 @Component({
-  selector: 'app-visit-details',
-  templateUrl: './visit-details.component.html',
-  styleUrls: ['./visit-details.component.css']
+  selector: "app-visit-details",
+  templateUrl: "./visit-details.component.html",
+  styleUrls: ["./visit-details.component.css"]
 })
 export class VisitDetailsComponent implements OnInit {
   @Input() viewMode = false;
   @Input() currentVisit: Visit = {
-    name: '',
-    description: '',
+    name: "",
+    description: "",
     published: false
   };
 
-  message = '';
+  message = "";
 
   constructor(
     private visitService: VisitService,
     private route: ActivatedRoute,
-    private router: Router) { }
+    private router: Router) {
+  }
 
   ngOnInit(): void {
     if (!this.viewMode) {
-      this.message = '';
+      this.message = "";
       this.getVisit(this.route.snapshot.params["id"]);
     }
   }
@@ -47,25 +48,25 @@ export class VisitDetailsComponent implements OnInit {
       description: this.currentVisit.description,
       published: status
     };
-    this.message = '';
+    this.message = "";
     this.visitService.update(this.currentVisit.id, data)
       .subscribe({
         next: (res) => {
           console.log(res);
           this.currentVisit.published = status;
-          this.message = res.message ? res.message : 'The status of this visit was updated successfully!';
+          this.message = res.message ? res.message : "The status of this visit was updated successfully!";
         },
         error: (e) => console.error(e)
       });
   }
 
   updateVisit(): void {
-    this.message = '';
+    this.message = "";
     this.visitService.update(this.currentVisit.id, this.currentVisit)
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.message = res.message ? res.message : 'This visit was updated successfully!';
+          this.message = res.message ? res.message : "This visit was updated successfully!";
         },
         error: (e) => console.error(e)
       });
@@ -76,7 +77,7 @@ export class VisitDetailsComponent implements OnInit {
       .subscribe({
         next: (res) => {
           console.log(res);
-          this.router.navigate(['/visits']);
+          this.router.navigate(["/visits"]);
         },
         error: (e) => console.error(e)
       });

@@ -1,22 +1,23 @@
-import { Component, OnInit } from '@angular/core';
-import { Visit } from 'src/app/models/visit.model';
-import { VisitService } from 'src/app/services/visit.service';
+import { Component, OnInit } from "@angular/core";
+import { Visit } from "src/app/models/visit.model";
+import { VisitService } from "src/app/services/visit.service";
 
 @Component({
-  selector: 'app-add-visit',
-  templateUrl: './add-visit.component.html',
-  styleUrls: ['./add-visit.component.css']
+  selector: "app-add-visit",
+  templateUrl: "./add-visit.component.html",
+  styleUrls: ["./add-visit.component.css"]
 })
 export class AddVisitComponent implements OnInit {
   visit: Visit = {
-    name: '',
-    description: '',
+    name: "",
+    description: "",
     published: false
   };
 
   submitted = false;
 
-  constructor(private visitService: VisitService) { }
+  constructor(private visitService: VisitService) {
+  }
 
   ngOnInit(): void {
   }
@@ -39,8 +40,8 @@ export class AddVisitComponent implements OnInit {
   newVisit(): void {
     this.submitted = false;
     this.visit = {
-      name: '',
-      description: '',
+      name: "",
+      description: "",
       published: false
     };
   }

@@ -25,19 +25,22 @@
     <form>
       <div class="form-group">
         <label for="name">Title</label>
-        <input type="text" class="form-control" id="name" [(ngModel)]="currentVisit.name" name="name"/>
+        <input type="text" class="form-control" id="name" [(ngModel)]="currentVisit.name" name="name" />
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" class="form-control" id="description" [(ngModel)]="currentVisit.description" name="description"/>
+        <input type="text" class="form-control" id="description" [(ngModel)]="currentVisit.description"
+               name="description" />
       </div>
       <div class="form-group">
         <label><strong>Status:</strong></label>
         {{ currentVisit.published ? "Published" : "Pending" }}
       </div>
     </form>
-    <button class="btn btn-primary mr-2" *ngIf="currentVisit.published" (click)="updatePublished(false)">Make Draft</button>
-    <button *ngIf="!currentVisit.published" class="btn btn-primary mr-2" (click)="updatePublished(true)">Publish</button>
+    <button class="btn btn-primary mr-2" *ngIf="currentVisit.published" (click)="updatePublished(false)">Make Draft
+    </button>
+    <button *ngIf="!currentVisit.published" class="btn btn-primary mr-2" (click)="updatePublished(true)">Publish
+    </button>
     <button class="btn btn-danger mr-2" (click)="deleteVisit()">Delete</button>
     <button type="submit" class="btn btn-success mr-2" (click)="updateVisit()">Update</button>
     <p>{{ message }}</p>

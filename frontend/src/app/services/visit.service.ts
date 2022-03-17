@@ -1,16 +1,17 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { Visit } from '../models/visit.model';
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { Observable } from "rxjs";
+import { Visit } from "../models/visit.model";
 
-const baseUrl = 'http://localhost:8080/api/visits';
+const baseUrl = "http://localhost:8080/api/visits";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 
 export class VisitService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   getAll(): Observable<Visit[]> {
     return this.http.get<Visit[]>(baseUrl);

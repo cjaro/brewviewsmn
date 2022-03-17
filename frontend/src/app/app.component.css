@@ -1,12 +1,12 @@
 #site-icon {
-  max-width: 50px;
+    max-width: 50px;
 }
 
 #site-navbar {
-  background-color: #428bca;
+    background-color: #428bca;
 }
 
 li.nav-item > a.nav-link {
-  font-size: 18px;
-  color: #000
+    font-size: 18px;
+    color: #000
 }

@@ -1,18 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { Visit } from 'src/app/models/visit.model';
-import { VisitService } from 'src/app/services/visit.service';
+import { Component, OnInit } from "@angular/core";
+import { Visit } from "src/app/models/visit.model";
+import { VisitService } from "src/app/services/visit.service";
 
 @Component({
-  selector: 'app-visit-list',
-  templateUrl: './visit-list.component.html',
-  styleUrls: ['./visit-list.component.css']
+  selector: "app-visit-list",
+  templateUrl: "./visit-list.component.html",
+  styleUrls: ["./visit-list.component.css"]
 })
 export class VisitListComponent implements OnInit {
   visits?: Visit[];
   currentVisit: Visit = {};
   currentIndex = -1;
-  name = '';
-  constructor(private visitService: VisitService) { }
+  name = "";
+
+  constructor(private visitService: VisitService) {
+  }
+
   ngOnInit(): void {
     this.retrieveVisits();
   }
