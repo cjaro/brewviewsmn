@@ -3,6 +3,6 @@ export class Brew {
   name?: string;
   rating?: number;
   abv?: number;
-  tasting_notes?: string;
+  notes?: string;
   visit_id?: any;
 }

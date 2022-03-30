@@ -6,7 +6,7 @@ module.exports = (sequelize, Sequelize) => {
     rating: {
       type: Sequelize.INTEGER
     },
-    tasting_notes: {
+    notes: {
       type: Sequelize.STRING
     },
     visit_id: {
