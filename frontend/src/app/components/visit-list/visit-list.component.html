@@ -1,5 +1,5 @@
 <div class="list row">
-  <div class="col-md-8">
+  <div class="col-md-12">
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Search by name" [(ngModel)]="name" />
       <div class="input-group-append">
@@ -14,15 +14,12 @@
         class="list-group-item"
         *ngFor="let visit of visits; let i = index"
         [class.active]="i == currentIndex"
-        (click)="setActiveVisit(visit, i)"
-      >{{ visit.name }}</li>
+        (click)="setActiveVisit(visit, i)">
+        {{ visit.brewery }} | {{ visit.date }}
+      </li>
     </ul>
-    <button class="m-3 btn btn-md btn-danger" (click)="removeAllVisits()">Remove All</button>
   </div>
   <div class="col-md-6">
-    <app-visit-details
-      [viewMode]="true"
-      [currentVisit]="currentVisit"
-    ></app-visit-details>
+    <app-visit-details [viewMode]="true" [currentVisit]="currentVisit"></app-visit-details>
   </div>
 </div>

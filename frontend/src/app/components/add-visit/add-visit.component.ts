@@ -9,24 +9,26 @@ import { VisitService } from "src/app/services/visit.service";
 })
 export class AddVisitComponent implements OnInit {
   visit: Visit = {
-    name: "",
-    description: "",
-    published: false
+    brewery: "",
+    date: new Date(),
+    notes: ""
   };
 
   submitted = false;
 
-  constructor(private visitService: VisitService) {
-  }
+  constructor(private visitService: VisitService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   saveVisit(): void {
     const data = {
-      name: this.visit.name,
-      description: this.visit.description
+      brewery: this.visit.brewery,
+      date: this.visit.date,
+      notes: this.visit.notes
     };
+
+    console.log("New visit:", data);
+
     this.visitService.create(data)
       .subscribe({
         next: (res) => {
@@ -40,9 +42,9 @@ export class AddVisitComponent implements OnInit {
   newVisit(): void {
     this.submitted = false;
     this.visit = {
-      name: "",
-      description: "",
-      published: false
+      brewery: "",
+      date: new Date(),
+      notes: ""
     };
   }
 }

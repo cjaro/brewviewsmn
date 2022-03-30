@@ -4,27 +4,24 @@ const Op = db.Sequelize.Op;
 
 // Create and Save a new Visit
 exports.create = (req, res) => {
-  // Validate request
-  if (!req.body.name) {
+  if (!req.body.brewery) {
     res.status(400).send({
-      message: "The parameter `req.body.name` cannot be empty!"
+      message: "The parameter `req.body.brewery` cannot be empty!"
     });
     return;
   }
 
-  // Create a Visit
   const visit = {
-    name: req.body.name,
-    date: req.body.date
+    brewery: req.body.brewery,
+    date: req.body.date,
+    notes: req.body.notes
   };
 
-  // Save Visit
-  Visit
-    .create(visit)
-    .then(data => {
+  Visit.create(visit)
+    .then((data) => {
       res.send(data);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
         message: err.message || `An error occurred while creating the Visit: ${err}`
       });
@@ -33,15 +30,14 @@ exports.create = (req, res) => {
 
 // Retrieve all Visits
 exports.findAll = (req, res) => {
-  const name = req.query.name;
+  const name = req.query.brewery;
   let condition = name ? { name: { [Op.iLike]: `%${name}%` } } : null;
 
-  Visit
-    .findAll({ where: condition })
-    .then(data => {
+  Visit.findAll({ where: condition })
+    .then((data) => {
       res.send(data);
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
         message: err.message || `An error occurred while retrieving Visits: ${err}`
       });
@@ -51,9 +47,8 @@ exports.findAll = (req, res) => {
 // Find a single Visit with an id
 exports.findOne = (req, res) => {
   const findId = req.params.id;
-  Visit
-    .findByPk(findId)
-    .then(data => {
+  Visit.findByPk(findId)
+    .then((data) => {
       if (data) {
         res.send(data);
       } else {
@@ -62,7 +57,7 @@ exports.findOne = (req, res) => {
         });
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
         message: `Error retrieving Visit with id ${findId}: ${err}`
       });
@@ -71,11 +66,10 @@ exports.findOne = (req, res) => {
 
 // Update a Visit by the id in the request
 exports.update = (req, res) => {
-  Visit
-    .update(req.body, {
-      where: { "id": req.params.id }
-    })
-    .then(num => {
+  Visit.update(req.body, {
+    where: { id: req.params.id }
+  })
+    .then((num) => {
       if (num == 1) {
         res.send({
           message: "Visit was updated successfully."
@@ -86,7 +80,7 @@ exports.update = (req, res) => {
         });
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
         message: "Error updating Visit with id=" + req.params.id + `: ${err}`
       });
@@ -96,11 +90,10 @@ exports.update = (req, res) => {
 // Delete a Visit with the specified id in the request
 exports.delete = (req, res) => {
   const deleteId = req.params.id;
-  Visit
-    .destroy({
-      where: { id: deleteId }
-    })
-    .then(num => {
+  Visit.destroy({
+    where: { id: deleteId }
+  })
+    .then((num) => {
       if (num == 1) {
         res.send({
           message: "Visit was deleted successfully!"
@@ -111,7 +104,7 @@ exports.delete = (req, res) => {
         });
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
         message: `Could not delete Visit with id=${deleteId}: ${err}`
       });
@@ -120,29 +113,16 @@ exports.delete = (req, res) => {
 
 // Delete all Visits from the database.
 exports.deleteAll = (req, res) => {
-  Visit
-    .destroy({
-      where: {}, truncate: false
-    })
-    .then(nums => {
+  Visit.destroy({
+    where: {},
+    truncate: false
+  })
+    .then((nums) => {
       res.send({ message: `${nums} Visits were deleted successfully!` });
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).send({
         message: err.message || "An error occurred while removing all Visits."
       });
     });
 };
-//
-// // Find all published Visits
-// exports.findAllPublished = (req, res) => {
-//   Visit.findAll({ where: { published: true } })
-//     .then(data => {
-//       res.send(data);
-//     })
-//     .catch(err => {
-//       res.status(500).send({
-//         message: err.message || "An error occurred while retrieving Visits."
-//       });
-//     });
-// };

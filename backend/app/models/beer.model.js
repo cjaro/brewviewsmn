@@ -4,16 +4,16 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     },
     rating: {
-      type: Sequelize.INT
+      type: Sequelize.INTEGER
     },
     tasting_notes: {
       type: Sequelize.STRING
     },
     visit_id: {
-      foreign_key: "visit_id"
-    } ,
+      type: Sequelize.INTEGER
+    },
     abv: {
-      type: Sequelize.INT
+      type: Sequelize.INTEGER
     }
   });
 };

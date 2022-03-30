@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
-  return sequelize.define("brewery", {
-    name: {
+  return sequelize.define("breweries", {
+    brewery: {
       type: Sequelize.STRING
     }
   });
