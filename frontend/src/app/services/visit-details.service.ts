@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { Brew } from '../models/brew.model';
+import { VisitDetails } from "../models/visit-details.model";
 
-const baseUrl = "http://localhost:8080/api/visits";
+const baseUrl = "http://localhost:8080/api/visitDetails";
+
 
 @Injectable({
   providedIn: 'root'
 })
-export class BrewService {
+export class VisitDetailsService {
 
-  constructor(private http: HttpClient) { }
-
-  getAll(): Observable<Brew[]> {
-    return this.http.get<Brew[]>(baseUrl);
+  constructor(private http: HttpClient) {
   }
-  get(id: any): Observable<Brew> {
+
+  getAll(): Observable<VisitDetails[]> {
+    return this.http.get<VisitDetails[]>(baseUrl);
+  }
+
+  get(id: any): Observable<VisitDetails> {
     return this.http.get(`${baseUrl}/${id}`);
   }
 
@@ -35,7 +38,6 @@ export class BrewService {
     return this.http.delete(baseUrl);
   }
 
-  findByName(name: any): Observable<Brew[]> {
-    return this.http.get<Brew[]>(`${baseUrl}?name=${name}`);
-  }
-}
+  findByName(name: any): Observable<VisitDetails[]> {
+    return this.http.get<VisitDetails[]>(`${baseUrl}?name=${name}`);
+  }}

@@ -1,27 +1,13 @@
 const dbConfig = require("../config/db.config.js");
-const Sequelize = require("sequelize");
+const pg = require("pg");
 
 // replace with pg? how does that affect the rest of my operations?
-const sequelize = new Sequelize(dbConfig.DB, dbConfig.USER, dbConfig.PASSWORD, {
+const pgPool = new pg.Pool({
+  database: dbConfig.DB,
   host: dbConfig.HOST,
-  dialect: dbConfig.dialect,
-  operatorsAliases: false,
-  pool: {
-    max: dbConfig.pool.max,
-    min: dbConfig.pool.min,
-    acquire: dbConfig.pool.acquire,
-    idle: dbConfig.pool.idle
-  }
+  port: 5432,
+  max: 10,
+  idleTimeoutMillis: 30000
 });
 
-const db = {};
-
-db.Sequelize = Sequelize;
-
-db.sequelize = sequelize;
-
-db.visits = require("./visit.model.js")(sequelize, Sequelize);
-db.breweries = require("./brewery.model.js")(sequelize, Sequelize);
-db.beers = require("./beer.model.js")(sequelize, Sequelize);
-
-module.exports = db;
+module.exports = pgPool;

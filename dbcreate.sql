@@ -9,6 +9,21 @@
 --     brewery name,
 -- );
 
+-- SELECT 
+-- 	visits.id,
+-- 	visits.location, 
+-- 	visits.date, 
+-- 	beers.name, 
+-- 	beers.abv, 
+-- 	beers.rating, 
+-- 	beers.tasting_notes, 
+-- 	breweries.brewery 
+-- FROM visits 
+-- INNER JOIN beers ON visits.id = beers.visit_id 
+-- INNER JOIN breweries ON visits.brewery_id = breweries.id
+-- WHERE visits.id=$;
+
+
 CREATE TABLE visits (
     id SERIAL PRIMARY KEY,
     brewery character varying(100),

@@ -1,5 +1,7 @@
 module.exports = (sequelize, Sequelize) => {
-  return sequelize.define("beer", {
+  const Visit = import("./visit.model");
+
+  const Beer = sequelize.define("beer", {
     name: {
       type: Sequelize.STRING
     },
@@ -10,10 +12,15 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     },
     visit_id: {
-      type: Sequelize.INTEGER
+      type: Sequelize.INTEGER,
+      references: {
+        model: Visit,
+        key: "id"
+      }
     },
     abv: {
       type: Sequelize.INTEGER
     }
   });
+  return Beer;
 };

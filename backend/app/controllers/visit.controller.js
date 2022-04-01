@@ -1,6 +1,8 @@
-const db = require("../models");
-const Visit = db.visits;
-const Op = db.Sequelize.Op;
+// const db = require("../models");
+// const Visit = db.visits;
+// const Op = db.Sequelize.Op;
+
+const pool = require("../config/db.config");
 
 // Create and Save a new Visit
 exports.create = (req, res) => {
@@ -11,57 +13,70 @@ exports.create = (req, res) => {
     return;
   }
 
-  const visit = {
+  const newVisit = {
     brewery: req.body.brewery,
     date: req.body.date,
     notes: req.body.notes
   };
+  console.log("New visit: ", newVisit);
 
-  Visit.create(visit)
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || `An error occurred while creating the Visit: ${err}`
+  pool.connect().then(function (client) {
+    client
+      .query("INSERT INTO visits (date, brewery, notes) VALUES ($1, $2, $3) RETURNING id", [
+        newVisit.date,
+        newVisit.brewery,
+        newVisit.notes
+      ])
+      .then(function (result) {
+        client.release();
+        res.send(result.rows);
+      })
+      .catch(function (err) {
+        console.log("INSERT ERROR:", err);
+        res.status(500).send({
+          message: err.message || `An error occurred while creating the Visit: ${err}`
+        });
       });
-    });
+  });
 };
 
 // Retrieve all Visits
 exports.findAll = (req, res) => {
   const name = req.query.brewery;
-  let condition = name ? { name: { [Op.iLike]: `%${name}%` } } : null;
 
-  Visit.findAll({ where: condition })
-    .then((data) => {
-      res.send(data);
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || `An error occurred while retrieving Visits: ${err}`
+  pool.connect().then((client) => {
+    client
+      .query("SELECT * FROM visits ORDER BY date DESC;")
+      .then(function (result) {
+        client.release();
+        res.send(result.rows);
+      })
+      .catch(function (err) {
+        console.log("Error @ findAll():", err);
+        res.status(500).send({
+          message: err.message || `An error occurred while retrieving Visits: ${err}`
+        });
       });
-    });
+  });
 };
 
 // Find a single Visit with an id
 exports.findOne = (req, res) => {
   const findId = req.params.id;
-  Visit.findByPk(findId)
-    .then((data) => {
-      if (data) {
-        res.send(data);
-      } else {
-        res.status(404).send({
-          message: `Cannot find Visit with id ${findId}.`
+  console.log(`Find id: ${findId}`);
+  pool.connect().then((client) => {
+    client
+      .query(`SELECT * FROM visits WHERE id=${findId};`)
+      .then(function (result) {
+        client.release();
+        res.send(result.rows);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: `Error retrieving Visit with id ${findId}: ${err}`
         });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: `Error retrieving Visit with id ${findId}: ${err}`
       });
-    });
+  });
 };
 
 // Update a Visit by the id in the request
@@ -89,40 +104,24 @@ exports.update = (req, res) => {
 
 // Delete a Visit with the specified id in the request
 exports.delete = (req, res) => {
-  const deleteId = req.params.id;
-  Visit.destroy({
-    where: { id: deleteId }
-  })
-    .then((num) => {
-      if (num == 1) {
-        res.send({
-          message: "Visit was deleted successfully!"
-        });
-      } else {
-        res.send({
-          message: `Cannot delete Visit with id=${deleteId}. Maybe Visit was not found!`
-        });
-      }
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: `Could not delete Visit with id=${deleteId}: ${err}`
-      });
-    });
-};
+  const brewRecordDeleteID = req.params.id;
 
-// Delete all Visits from the database.
-exports.deleteAll = (req, res) => {
-  Visit.destroy({
-    where: {},
-    truncate: false
-  })
-    .then((nums) => {
-      res.send({ message: `${nums} Visits were deleted successfully!` });
-    })
-    .catch((err) => {
-      res.status(500).send({
-        message: err.message || "An error occurred while removing all Visits."
+  console.log("brewRecordDeleteID = req.params.id", req.body);
+  console.log("Deleting brewID main: ", brewRecordDeleteID);
+  pool.connect().then(function (client) {
+    client
+      .query("DELETE FROM beers WHERE visit_id=$1;", [brewRecordDeleteID])
+      .then(function (result) {
+        client.query("DELETE FROM visits WHERE id=$1;");
+      })
+      .then(function (result) {
+        client.release();
+        res.sendStatus(200);
+      })
+      .catch((err) => {
+        res.status(500).send({
+          message: `Could not delete Visit with id=${deleteId}: ${err}`
+        });
       });
-    });
+  });
 };

@@ -1,4 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
+  let Beer = import("./beer.model");
+
   let Visit = sequelize.define("visits", {
     brewery: {
       type: Sequelize.STRING
@@ -10,5 +12,6 @@ module.exports = (sequelize, Sequelize) => {
       type: Sequelize.STRING
     }
   });
+  Visit.hasMany(Beer);
   return Visit;
 };

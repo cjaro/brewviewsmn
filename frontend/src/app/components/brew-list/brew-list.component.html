@@ -6,7 +6,9 @@
       *ngFor="let beer of brews; let i = index"
       [class.active]="i == currentIndex"
       (click)="setActiveBrew(beer, i)">
-      {{ beer.name }} | {{ beer.abv }}
+      {{ beer.name }} | {{ beer.abv }}%
+      <br />
+      {{ beer.notes }} | {{ beer.rating }}/5
     </li>
   </ul>
 </div>

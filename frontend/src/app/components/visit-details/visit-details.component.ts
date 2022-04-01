@@ -40,23 +40,6 @@ export class VisitDetailsComponent implements OnInit {
         error: (e) => console.error(e)
       });
   }
-  //
-  // updatePublished(status: boolean): void {
-  //   const data = {
-  //     name: this.currentVisit.name,
-  //     description: this.currentVisit.description
-  //   };
-  //   this.message = "";
-  //   this.visitService.update(this.currentVisit.id, data)
-  //     .subscribe({
-  //       next: (res) => {
-  //         console.log(res);
-  //         this.currentVisit.published = status;
-  //         this.message = res.message ? res.message : "The status of this visit was updated successfully!";
-  //       },
-  //       error: (e) => console.error(e)
-  //     });
-  // }
 
   updateVisit(): void {
     this.message = "";
