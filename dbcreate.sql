@@ -16,7 +16,7 @@
 -- 	beers.name, 
 -- 	beers.abv, 
 -- 	beers.rating, 
--- 	beers.tasting_notes, 
+-- 	beers.notes, 
 -- 	breweries.brewery 
 -- FROM visits 
 -- INNER JOIN beers ON visits.id = beers.visit_id 

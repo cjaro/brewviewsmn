@@ -1,7 +1,3 @@
-// const db = require("../models");
-// const Visit = db.visits;
-// const Op = db.Sequelize.Op;
-
 const pool = require("../config/db.config");
 
 // Create and Save a new Visit

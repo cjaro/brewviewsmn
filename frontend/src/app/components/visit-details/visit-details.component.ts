@@ -12,7 +12,8 @@ export class VisitDetailsComponent implements OnInit {
   @Input() viewMode = false;
   @Input() currentVisit: Visit = {
     brewery: "",
-    date: new Date
+    date: new Date,
+    notes: ""
   };
 
   message = "";

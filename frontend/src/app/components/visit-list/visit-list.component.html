@@ -14,8 +14,9 @@
         class="list-group-item"
         *ngFor="let visit of visits; let i = index"
         [class.active]="i == currentIndex"
-        (click)="setActiveVisit(visit, i)">
-        {{ visit.brewery }} || {{ visit.date | date }}
+        (click)="setActiveVisit(visit, i)"
+        style="display: flex; justify-content: space-between">
+        <span>{{ visit.brewery }}</span> <span>{{ visit.date | date }}</span>
       </li>
     </ul>
   </div>

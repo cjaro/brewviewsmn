@@ -6,11 +6,11 @@ exports.findAllDetails = (req, res) => {
 
   pool.connect().then(function (client) {
     client
-      .query("SELECT * FROM beers JOIN visits ON beers.visit_id = visits.id WHERE visits.id=$1 ORDER BY rating DESC;", [
-        visitID
-      ])
+      .query("SELECT * FROM beers JOIN visits ON beers.visit_id = visits.id WHERE visits.id=$1 ORDER BY rating DESC;", 
+      [ visitID ])
       .then(function (result) {
         client.release();
+        console.log(result.rows);
         res.send(result.rows);
       })
       .catch(function (err) {
@@ -25,11 +25,11 @@ exports.create = (req, res) => {
   console.log("New Beer: ", newBeer);
   pool.connect().then(function (client) {
     client
-      .query(`INSERT INTO beers (name, abv, rating, tasting_notes, visit_id) VALUES ($1, $2, $3, $4, $5)`, [
+      .query(`INSERT INTO beers (name, abv, rating, notes, visit_id) VALUES ($1, $2, $3, $4, $5)`, [
         newBeer.name,
         newBeer.abv,
         newBeer.rating,
-        newBeer.tasting_notes,
+        newBeer.notes,
         newBeer.visit_id
       ])
       .then(function (result) {

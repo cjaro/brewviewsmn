@@ -5,7 +5,6 @@ import { VisitDetails } from "../models/visit-details.model";
 
 const baseUrl = "http://localhost:8080/api/visitDetails";
 
-
 @Injectable({
   providedIn: 'root'
 })
