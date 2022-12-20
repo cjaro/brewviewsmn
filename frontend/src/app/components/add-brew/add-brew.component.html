@@ -1,0 +1,28 @@
+<p>add-brew works!</p>
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="name">Brew Name:</label>
+        <input type="text" class="form-control" id="name" required [(ngModel)]="brew.name" name="name" />
+      </div>
+      <div class="form-group">
+        <label for="abv">Alcohol By Volume (%):</label>
+        <input type="abv" class="form-control" id="abv" required [(ngModel)]="brew.abv" name="abv" />
+      </div>
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <input type="text" class="form-control" id="notes" required [(ngModel)]="brew.notes" name="notes" />
+      </div>
+      <div class="form-group">
+        <label for="rating">Rating</label>
+        <input type="text" class="form-control" id="rating" required [(ngModel)]="brew.rating" name="rating" />
+      </div>
+      <!-- <button (click)="saveBrew()" class="btn btn-success">Submit</button> -->
+    </div>
+    <div *ngIf="submitted">
+      <h4>Visit was recorded successfully!</h4>
+      <!-- <button class="btn btn-success" (click)="newBrew()">Add</button> -->
+    </div>
+  </div>
+</div>

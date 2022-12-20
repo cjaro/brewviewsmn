@@ -1,0 +1,50 @@
+<div *ngIf="viewMode; else editable">
+  <div *ngIf="currentVisit.id">
+    <h3>Visit to {{ currentVisit.brewery }}</h3>
+    <div>
+      <label><strong>Date:</strong></label>
+      {{ currentVisit.date }}
+    </div>
+    <div>
+      <label><strong>Notes:</strong></label>
+      {{ currentVisit.notes }}
+    </div>
+    <app-brew-list> [viewMode]="true" [currentVisit]="currentVisit" </app-brew-list>
+
+    <a class="btn btn-warning" routerLink="/visits/{{ currentVisit.id }}">Edit</a>
+  </div>
+  <div *ngIf="!currentVisit">
+    <br />
+    <p>Please click on a Visit...</p>
+  </div>
+</div>
+<ng-template #editable>
+  <div *ngIf="currentVisit.id" class="edit-form">
+    <h4>Visit</h4>
+    <form>
+      <div class="form-group">
+        <label for="name">Title</label>
+        <input type="text" class="form-control" id="name" [(ngModel)]="currentVisit.brewery" name="name" />
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="text" class="form-control" id="date" [(ngModel)]="currentVisit.date" name="date" />
+      </div>
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <input type="text" class="form-control" id="notes" [(ngModel)]="currentVisit.notes" name="notes" />
+      </div>
+      <div class="form-group">
+        <label>Beers:</label>
+        <app-brew-list> [viewMode]="true" [currentVisit]="currentVisit" </app-brew-list>
+      </div>
+    </form>
+    <button class="btn btn-danger mr-2" (click)="deleteVisit()">Delete</button>
+    <button type="submit" class="btn btn-success mr-2" (click)="updateVisit()">Update</button>
+    <p>{{ message }}</p>
+  </div>
+  <div *ngIf="!currentVisit.id">
+    <br />
+    <p>Cannot access this visit</p>
+  </div>
+</ng-template>

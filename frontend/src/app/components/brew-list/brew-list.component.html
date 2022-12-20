@@ -1,0 +1,14 @@
+<div class="col-md-12">
+  <h4>Brews</h4>
+  <ul class="list-group">
+    <li
+      class="list-group-item"
+      *ngFor="let beer of brews; let i = index"
+      [class.active]="i == currentIndex"
+      (click)="setActiveBrew(beer, i)">
+      {{ beer.name }} | {{ beer.abv }}%
+      <br />
+      {{ beer.notes }} | {{ beer.rating }}/5
+    </li>
+  </ul>
+</div>

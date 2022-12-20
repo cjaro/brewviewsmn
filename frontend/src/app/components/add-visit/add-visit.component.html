@@ -1,0 +1,23 @@
+<div>
+  <div class="submit-form">
+    <div *ngIf="!submitted">
+      <div class="form-group">
+        <label for="brewery">Brewery</label>
+        <input type="text" class="form-control" id="brewery" required [(ngModel)]="visit.brewery" name="brewery" />
+      </div>
+      <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" class="form-control" id="date" required [(ngModel)]="visit.date" name="date" />
+      </div>
+      <div class="form-group">
+        <label for="notes">Notes</label>
+        <input type="text" class="form-control" id="notes" required [(ngModel)]="visit.notes" name="notes" />
+      </div>
+      <button (click)="saveVisit()" class="btn btn-success">Submit</button>
+    </div>
+    <div *ngIf="submitted">
+      <h4>Visit was recorded successfully!</h4>
+      <button class="btn btn-success" (click)="newVisit()">Add</button>
+    </div>
+  </div>
+</div>
